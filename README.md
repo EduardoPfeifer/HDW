@@ -1,4 +1,4 @@
-# HDW
+# Módulo medidor de consumo de energia elétrica (Bateria)
 v1. 
 	Módulo medidor de consumo de energia elétrica (Bateria).
 	
