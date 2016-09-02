@@ -16,7 +16,7 @@ capaz de atuar como medidor sobre um ponto de consumo de energia. Este módulo d
 medida não invasiva e/ou invasiva. A solução não invasiva deverá ser baseada no uso de bobina
 de acoplamento indireto (bobina de Rogowski) e a invasiva pelo modulo Sensor de Corrente ACS712. 
 O módulo poderá ser controlado remotamente através de uma interface de rádio operando na banda 
-de 433M Hz e as informações de consumo serão enviadas também pela interface de rádio atéum Getway.
+de 433M Hz e as informações de consumo serão enviadas também pela interface de rádio até um Getway.
 Além da capacidade de medir consumo de energia, o módulo deverá apresentar uma saída ON/OFF isolada 
 para atuar sobre o consumo do ponto de energia. 
 
