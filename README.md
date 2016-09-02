@@ -1,6 +1,5 @@
 # Módulo medidor de consumo de energia elétrica (Bateria)
-v1. 
-	
+
 Versão: 01.00 Data: 08/08/16.
 
 	1 Objetivo
