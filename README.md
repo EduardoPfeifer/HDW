@@ -1,9 +1,7 @@
 # Módulo medidor de consumo de energia elétrica (Bateria)
 v1. 
-	Módulo medidor de consumo de energia elétrica (Bateria).
 	
-Versão: 01.00.
-Data: 08/08/16.
+Versão: 01.00 Data: 08/08/16.
 
 	1 Objetivo
 Desenvolver um protótipo funcional de um Módulo medidor de energia elétrica dual
