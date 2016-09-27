@@ -23,6 +23,11 @@
 #define LOW 0
 #endif
 
+/**Indica se o pino será de entrada*/
+#define INPUT HIGH
+/**Indica se o pino será de saída*/
+#define OUTPUT LOW
+
 /**Tipo para representar um byte (8 bits)*/
 typedef unsigned char byte;
 

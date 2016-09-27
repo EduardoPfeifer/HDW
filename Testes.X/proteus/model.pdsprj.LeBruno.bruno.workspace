@@ -65,7 +65,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="324" flags="00000008" y="257" h="18" pid="7" iid="1">
+   <POPUP w="14" x="1057" flags="00000009" y="462" h="18" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="344" flags="00000002" y="277" h="8" pid="8" iid="1">
@@ -78,15 +78,15 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="1125" flags="00008023" y="282" h="250" pid="0" iid="3">
+   <POPUP w="450" x="532" flags="00008023" y="562" h="250" pid="0" iid="3">
     <PROPERTIES>
-     <ITEM name="AutoEcho">1</ITEM>
+     <ITEM name="AutoEcho">0</ITEM>
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="825" x="345" flags="0000002b" y="378" h="400" pid="1" iid="1">
+   <POPUP w="825" x="214" flags="0000002b" y="406" h="400" pid="1" iid="1">
     <PROPERTIES>
-     <ITEM name="Breakpoint 0">"",0034,0000,0770,B324,1
+     <ITEM name="Breakpoint 0">"",0257,0000,ABB6,B324,1
 </ITEM>
      <ITEM name="Breakpoint 1">"",02AE,0000,F000,B324,1
 </ITEM>

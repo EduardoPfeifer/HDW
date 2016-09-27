@@ -7707,7 +7707,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 27 "types.h"
+# 32 "types.h"
 typedef unsigned char byte;
 
 
@@ -7719,7 +7719,7 @@ typedef unsigned int uint16_t;
 
 typedef unsigned long uint32_t;
 
-# 41
+# 46
 typedef void (*callback_isr_t)(void);
 
 # 13 "timer.h"
@@ -7755,7 +7755,7 @@ callback_isr_t timer0_isr
 # 51
 void timer0_isr();
 
-# 15 "usart.h"
+# 16 "usart.h"
 typedef enum {
 USART_SYNC_MODE_ASYNCHRONOUS = 0,
 USART_SYNC_MODE_SYNCHRONOUS = 1
@@ -7775,17 +7775,32 @@ const uint32_t USART_BAUD_RATE_19200 = 19200ul;
 const uint32_t USART_BAUD_RATE_57600 = 57600ul;
 const uint32_t USART_BAUD_RATE_115200 = 115200ul;
 
-# 41
+# 42
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
 
-# 48
+# 49
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
 
-# 54
+# 55
 void usart_transmite_interrupt_isr();
 
-# 60
+# 61
 void usart_transmite_lock_write_message( char * message );
+
+# 67
+byte usart_receive_lock_read_byte();
+
+# 75
+uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
+
+# 81
+void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
+
+# 87
+void usart_receive_interrupt_isr();
+
+# 92
+char* usart_receive_interrupt_get_message();
 
 
 # 19 "main.c"
@@ -7802,6 +7817,9 @@ timer0_isr();
 if( PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1 ) {
 usart_transmite_interrupt_isr();
 }
+if( PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1 ) {
+usart_receive_interrupt_isr();
+}
 }
 
 void isr_timer0_pisca_led(void) {
@@ -7810,6 +7828,11 @@ void isr_timer0_pisca_led(void) {
 
 void isr_usart_tx_acende_led(void) {
 PORTBbits.RB4 = ~LATBbits.LATB4;
+}
+
+uint8_t _rx_done;
+void isr_usart_rx_teste(void) {
+_rx_done = 1;
 }
 
 void main(void) {
@@ -7823,12 +7846,24 @@ usart_start( USART_SYNC_MODE_ASYNCHRONOUS, USART_BAUD_RATE_300 );
 INTCONbits.GIE = 1;
 
 
+usart_transmite_lock_write_message( "\r" );
+usart_transmite_lock_write_message( "Testezinho\r" );
 
-usart_transmite_lock_write_message( "Testezinho" );
-isr_usart_tx_acende_led();
+usart_transmite_lock_write_message( "Foo bar\r" );
+
+# 74
+_rx_done = 0;
+usart_receive_interrupt_read_message( isr_usart_rx_teste );
 
 while(1) {
-asm("nop");
+if( _rx_done ) {
+char* message = usart_receive_interrupt_get_message();
+
+usart_transmite_interrupt_write_message( message, isr_usart_tx_acende_led );
+_rx_done = 0;
+}
+
+# 94
 }
 
 return;

@@ -28,8 +28,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S40 . . ]
 "658
 [v _PIR1bits `VS40 ~T0 @X0 0 e@17 ]
-"54 usart.h
+"55 usart.h
 [v _usart_transmite_interrupt_isr `(v ~T0 @X0 0 ef ]
+"87
+[v _usart_receive_interrupt_isr `(v ~T0 @X0 0 ef ]
 "489 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
 [s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S33 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
@@ -64,7 +66,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S70 . . . ]
 "1233
 [v _TRISBbits `VS70 ~T0 @X0 0 e@141 ]
-"50 main.c
+"58 main.c
 [c E6003 0 1 .. ]
 [n E6003 . TIMER0_MODE_TIMER TIMER0_MODE_COUNTER  ]
 [c E6007 0 1 .. ]
@@ -74,13 +76,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F6001 `(v ~T0 @X0 0 tf ]
 "41 timer.h
 [v _timer0_start `(v ~T0 @X0 0 ef4`E6003`E6007`E6011`*F6001 ]
-"52 main.c
+"60 main.c
 [c E6027 0 1 .. ]
 [n E6027 . USART_SYNC_MODE_ASYNCHRONOUS USART_SYNC_MODE_SYNCHRONOUS  ]
-"41 usart.h
+"42 usart.h
 [v _usart_start `(v ~T0 @X0 0 ef2`E6027`ul ]
-"60
+"61
 [v _usart_transmite_lock_write_message `(v ~T0 @X0 0 ef1`*uc ]
+"81
+[v _usart_receive_interrupt_read_message `(v ~T0 @X0 0 ef1`*F6001 ]
+"92
+[v _usart_receive_interrupt_get_message `(*uc ~T0 @X0 0 ef ]
+"49
+[v _usart_transmite_interrupt_write_message `(v ~T0 @X0 0 ef2`*uc`*F6001 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5653,11 +5661,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;types.h: 27: typedef unsigned char byte;
-[; ;types.h: 30: typedef unsigned char uint8_t;
-[; ;types.h: 33: typedef unsigned int uint16_t;
-[; ;types.h: 36: typedef unsigned long uint32_t;
-[; ;types.h: 41: typedef void (*callback_isr_t)(void);
+[; ;types.h: 32: typedef unsigned char byte;
+[; ;types.h: 35: typedef unsigned char uint8_t;
+[; ;types.h: 38: typedef unsigned int uint16_t;
+[; ;types.h: 41: typedef unsigned long uint32_t;
+[; ;types.h: 46: typedef void (*callback_isr_t)(void);
 [; ;timer.h: 13: typedef enum {
 [; ;timer.h: 14: TIMER0_MODE_TIMER = 0,
 [; ;timer.h: 15: TIMER0_MODE_COUNTER = 1
@@ -5683,72 +5691,77 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;timer.h: 45: callback_isr_t timer0_isr
 [; ;timer.h: 46: );
 [; ;timer.h: 51: void timer0_isr();
-[; ;usart.h: 15: typedef enum {
-[; ;usart.h: 16: USART_SYNC_MODE_ASYNCHRONOUS = 0,
-[; ;usart.h: 17: USART_SYNC_MODE_SYNCHRONOUS = 1
-[; ;usart.h: 18: } usart_sync_mode_t;
-[; ;usart.h: 20: typedef enum {
-[; ;usart.h: 21: USART_9BIT_MODE_NOT_IMPLEMENTED = 0
-[; ;usart.h: 22: } usart_9bit_mode_t;
-"25 usart.h
+[; ;usart.h: 16: typedef enum {
+[; ;usart.h: 17: USART_SYNC_MODE_ASYNCHRONOUS = 0,
+[; ;usart.h: 18: USART_SYNC_MODE_SYNCHRONOUS = 1
+[; ;usart.h: 19: } usart_sync_mode_t;
+[; ;usart.h: 21: typedef enum {
+[; ;usart.h: 22: USART_9BIT_MODE_NOT_IMPLEMENTED = 0
+[; ;usart.h: 23: } usart_9bit_mode_t;
+"26 usart.h
 [v _USART_BAUD_RATE_300 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_300
 -> 300 `ul
 ]
-[; ;usart.h: 25: const uint32_t USART_BAUD_RATE_300 = 300ul;
-"26
+[; ;usart.h: 26: const uint32_t USART_BAUD_RATE_300 = 300ul;
+"27
 [v _USART_BAUD_RATE_1200 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_1200
 -> 1200 `ul
 ]
-[; ;usart.h: 26: const uint32_t USART_BAUD_RATE_1200 = 1200ul;
-"27
+[; ;usart.h: 27: const uint32_t USART_BAUD_RATE_1200 = 1200ul;
+"28
 [v _USART_BAUD_RATE_2400 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_2400
 -> 2400 `ul
 ]
-[; ;usart.h: 27: const uint32_t USART_BAUD_RATE_2400 = 2400ul;
-"28
+[; ;usart.h: 28: const uint32_t USART_BAUD_RATE_2400 = 2400ul;
+"29
 [v _USART_BAUD_RATE_9600 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_9600
 -> 9600 `ul
 ]
-[; ;usart.h: 28: const uint32_t USART_BAUD_RATE_9600 = 9600ul;
-"29
+[; ;usart.h: 29: const uint32_t USART_BAUD_RATE_9600 = 9600ul;
+"30
 [v _USART_BAUD_RATE_10417 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_10417
 -> 10417 `ul
 ]
-[; ;usart.h: 29: const uint32_t USART_BAUD_RATE_10417 = 10417ul;
-"30
+[; ;usart.h: 30: const uint32_t USART_BAUD_RATE_10417 = 10417ul;
+"31
 [v _USART_BAUD_RATE_19200 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_19200
 -> 19200 `ul
 ]
-[; ;usart.h: 30: const uint32_t USART_BAUD_RATE_19200 = 19200ul;
-"31
+[; ;usart.h: 31: const uint32_t USART_BAUD_RATE_19200 = 19200ul;
+"32
 [v _USART_BAUD_RATE_57600 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_57600
 -> 57600 `ul
 ]
-[; ;usart.h: 31: const uint32_t USART_BAUD_RATE_57600 = 57600ul;
-"32
+[; ;usart.h: 32: const uint32_t USART_BAUD_RATE_57600 = 57600ul;
+"33
 [v _USART_BAUD_RATE_115200 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_115200
 -> 115200 `ul
 ]
-[; ;usart.h: 32: const uint32_t USART_BAUD_RATE_115200 = 115200ul;
-[; ;usart.h: 41: void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
-[; ;usart.h: 48: void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
-[; ;usart.h: 54: void usart_transmite_interrupt_isr();
-[; ;usart.h: 60: void usart_transmite_lock_write_message( char * message );
+[; ;usart.h: 33: const uint32_t USART_BAUD_RATE_115200 = 115200ul;
+[; ;usart.h: 42: void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
+[; ;usart.h: 49: void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
+[; ;usart.h: 55: void usart_transmite_interrupt_isr();
+[; ;usart.h: 61: void usart_transmite_lock_write_message( char * message );
+[; ;usart.h: 67: byte usart_receive_lock_read_byte();
+[; ;usart.h: 75: uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
+[; ;usart.h: 81: void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
+[; ;usart.h: 87: void usart_receive_interrupt_isr();
+[; ;usart.h: 92: char* usart_receive_interrupt_get_message();
 "19 main.c
 [p x FOSC=INTOSC ]
 "21
 [p x WDTE=OFF ]
-[v F6052 `(v ~T0 @X0 1 tf ]
+[v F6060 `(v ~T0 @X0 1 tf ]
 "28
-[v _isr_general `IF6052 ~T0 @X0 1 e ]
+[v _isr_general `IF6060 ~T0 @X0 1 e ]
 {
 [; ;main.c: 28: void interrupt isr_general() {
 [e :U _isr_general ]
@@ -5775,80 +5788,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 619 ]
 [; ;main.c: 35: }
-[; ;main.c: 36: }
+[; ;main.c: 36: if( PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1 ) {
 "36
+[e $ ! && == -> . . _PIE1bits 0 5 `i -> 1 `i == -> . . _PIR1bits 0 5 `i -> 1 `i 620  ]
+{
+[; ;main.c: 37: usart_receive_interrupt_isr();
+"37
+[e ( _usart_receive_interrupt_isr ..  ]
+"38
+}
+[e :U 620 ]
+[; ;main.c: 38: }
+[; ;main.c: 39: }
+"39
 [e :UE 617 ]
 }
-"38
+"41
 [v _isr_timer0_pisca_led `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 38: void isr_timer0_pisca_led(void) {
+[; ;main.c: 41: void isr_timer0_pisca_led(void) {
 [e :U _isr_timer0_pisca_led ]
 [f ]
-[; ;main.c: 40: }
-"40
-[e :UE 620 ]
-}
-"42
-[v _isr_usart_tx_acende_led `(v ~T0 @X0 1 ef ]
-{
-[; ;main.c: 42: void isr_usart_tx_acende_led(void) {
-[e :U _isr_usart_tx_acende_led ]
-[f ]
-[; ;main.c: 43: PORTBbits.RB4 = ~LATBbits.LATB4;
+[; ;main.c: 43: }
 "43
-[e = . . _PORTBbits 0 4 -> ~ -> . . _LATBbits 0 4 `i `uc ]
-[; ;main.c: 44: }
-"44
 [e :UE 621 ]
 }
-"46
-[v _main `(v ~T0 @X0 1 ef ]
+"45
+[v _isr_usart_tx_acende_led `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 46: void main(void) {
-[e :U _main ]
+[; ;main.c: 45: void isr_usart_tx_acende_led(void) {
+[e :U _isr_usart_tx_acende_led ]
 [f ]
-[; ;main.c: 47: TRISBbits.TRISB4 = 0;
+[; ;main.c: 46: PORTBbits.RB4 = ~LATBbits.LATB4;
+"46
+[e = . . _PORTBbits 0 4 -> ~ -> . . _LATBbits 0 4 `i `uc ]
+[; ;main.c: 47: }
 "47
-[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 48: PORTBbits.RB4 = 0;
-"48
-[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 50: timer0_start( TIMER0_MODE_TIMER, PRESCALAR_USE_YES, PRESCALAR_RATE_256, isr_timer0_pisca_led );
-"50
-[e ( _timer0_start (4 , , , . `E6003 0 . `E6007 1 . `E6011 7 &U _isr_timer0_pisca_led ]
-[; ;main.c: 52: usart_start( USART_SYNC_MODE_ASYNCHRONOUS, USART_BAUD_RATE_300 );
-"52
-[e ( _usart_start (2 , . `E6027 0 _USART_BAUD_RATE_300 ]
-[; ;main.c: 54: INTCONbits.GIE = 1;
-"54
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 58: usart_transmite_lock_write_message( "Testezinho" );
-"58
-[e ( _usart_transmite_lock_write_message (1 -> :s 1C `*uc ]
-[; ;main.c: 59: isr_usart_tx_acende_led();
-"59
-[e ( _isr_usart_tx_acende_led ..  ]
-[; ;main.c: 61: while(1) {
-"61
-[e :U 624 ]
-{
-[; ;main.c: 62: asm("nop");
-"62
-[; <" nop ;# ">
-"63
-}
-[e :U 623 ]
-"61
-[e $U 624  ]
-[e :U 625 ]
-[; ;main.c: 63: }
-[; ;main.c: 65: return;
-"65
-[e $UE 622  ]
-[; ;main.c: 66: }
-"66
 [e :UE 622 ]
 }
-[a 1C 84 101 115 116 101 122 105 110 104 111 0 ]
-
+"49
+[v __rx_done `uc ~T0 @X0 1 e ]
+[; ;main.c: 49: uint8_t _rx_done;
+"50
+[v _isr_usart_rx_teste `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 50: void isr_usart_rx_teste(void) {
+[e :U _isr_usart_rx_teste ]
+[f ]
+[; ;main.c: 51: _rx_done = 1;
+"51
+[e = __rx_done -> -> 1 `i `uc ]
+[; ;main.c: 52: }
+"52
+[e :UE 623 ]
+}
+"54
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 54: void main(void) {
+[e :U _main ]
+[f ]
+[; ;main.c: 55: TRISBbits.TRISB4 = 0;
+"55
+[e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 56: PORTBbits.RB4 = 0;
+"56
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 58: timer0_start( TIMER0_MODE_TIMER, PRESCALAR_USE_YES, PRESCALAR_RATE_256, isr_timer0_pisca_led );
+"58
+[e ( _timer0_start (4 , , , . `E6003 0 . `E6007 1 . `E6011 7 &U _isr_timer0_pisca_led ]
+[; ;main.c: 60: usart_start( USART_SYNC_MODE_ASYNCHRONOUS, USART_BAUD_RATE_300 );
+"60
+[e ( _usart_start (2 , . `E6027 0 _USART_BAUD_RATE_300 ]
+[; ;main.c: 62: INTCONbits.GIE = 1;
+"62
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 65: usart_transmite_lock_write_message( "\r" );
+"65
+[e ( _usart_transmite_lock_write_message (1 -> :s 1C `*uc ]
+[; ;main.c: 66: usart_transmite_lock_write_message( "Testezinho\r" );
+"66
+[e ( _usart_transmite_lock_write_message (1 -> :s 2C `*uc ]
+[; ;main.c: 68: usart_transmite_lock_write_message( "Foo bar\r" );
+"68
+[e ( _usart_transmite_lock_write_message (1 -> :s 3C `*uc ]
+[; ;main.c: 74: _rx_done = 0;
+"74
+[e = __rx_done -> -> 0 `i `uc ]
+[; ;main.c: 75: usart_receive_interrupt_read_message( isr_usart_rx_teste );
+"75
+[e ( _usart_receive_interrupt_read_message (1 &U _isr_usart_rx_teste ]
+[; ;main.c: 77: while(1) {
+"77
+[e :U 626 ]
+{
+[; ;main.c: 78: if( _rx_done ) {
+"78
+[e $ ! != -> __rx_done `i -> -> -> 0 `i `uc `i 628  ]
+{
+"79
+[v _message `*uc ~T0 @X0 1 a ]
+[; ;main.c: 79: char* message = usart_receive_interrupt_get_message();
+[e = _message ( _usart_receive_interrupt_get_message ..  ]
+[; ;main.c: 81: usart_transmite_interrupt_write_message( message, isr_usart_tx_acende_led );
+"81
+[e ( _usart_transmite_interrupt_write_message (2 , _message &U _isr_usart_tx_acende_led ]
+[; ;main.c: 82: _rx_done = 0;
+"82
+[e = __rx_done -> -> 0 `i `uc ]
+"83
+}
+[e :U 628 ]
+"94
+}
+[e :U 625 ]
+"77
+[e $U 626  ]
+[e :U 627 ]
+[; ;main.c: 83: }
+[; ;main.c: 94: }
+[; ;main.c: 96: return;
+"96
+[e $UE 624  ]
+[; ;main.c: 97: }
+"97
+[e :UE 624 ]
+}
+[a 3C 70 111 111 32 98 97 114 13 0 ]
+[a 2C 84 101 115 116 101 122 105 110 104 111 13 0 ]
+[a 1C 13 0 ]

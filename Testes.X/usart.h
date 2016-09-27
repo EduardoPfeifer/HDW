@@ -11,6 +11,7 @@
 #include "types.h"
 
 #define TX_BUFFER_MAX_SIZE 256
+#define RX_BUFFER_MAX_SIZE 256
 
 typedef enum {
     USART_SYNC_MODE_ASYNCHRONOUS = LOW,
@@ -48,7 +49,7 @@ void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
 /**
  * @remark Não precisa chamar esta função. Ela é chamada automaticamente pela função tratadora de interrupções.
- * Função que trata a interrupção.
+ * Função que trata a interrupção de envio de mensagem.
  * @todo Transformar em uma macro depois.
  */
 void usart_transmite_interrupt_isr();
@@ -58,6 +59,37 @@ void usart_transmite_interrupt_isr();
  * @param message String que será transmitida.
  */
 void usart_transmite_lock_write_message( char * message );
+
+/**
+ * Recebe um byte (mas trava a tarefa).
+ * @return O valor recebido do RX.
+ */
+byte usart_receive_lock_read_byte();
+
+/**
+ * Recebe uma string inteira (mas trava a tarefa). A string deve terminar em '\r'.
+ * @param buffer O buffer onde a mensagem será salva.
+ * @param size O tamanho do buffer.
+ * @return A quantidade de caracteres recebida.
+ */
+uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
+
+/**
+ * Recebe uma string inteira, utilizando interrupções. A string deve terminar em '\r'.
+ * @param usart_callback_receive_done função que será chamada quando a mensagem for totalmente recebida.
+ */
+void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
+/**
+ * @remark Não precisa chamar esta função. Ela é chamada automaticamente pela função tratadora de interrupções.
+ * Função que trata a interrupção de recepção de mensagem.
+ * @todo Transformar em uma macro depois.
+ */
+void usart_receive_interrupt_isr();
+
+/**
+ * Recupera o ponteiro para a mensagem recebida ao final da interrupção.
+ */
+char* usart_receive_interrupt_get_message();
 
 #endif	/* USART_H */
 

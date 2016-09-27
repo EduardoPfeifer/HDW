@@ -1,18 +1,28 @@
 #include "usart.h"
 
 #include <pic16lf1786.h>
+#include <pic.h>
 #include "string.h"
+
+char _tx_buffer[TX_BUFFER_MAX_SIZE];
+/***/
+char* _tx_iterator = NULL;
 
 /**
  * Função disparda quando a mensagem for totalmente enviada.
  */
-callback_isr_t _usart_callback_transmit_done = NULL;
+callback_isr_t _tx_isr_done_callback = NULL;
 
-char _tx_buffer[TX_BUFFER_MAX_SIZE];
-/***/
-char * _tx_iterator = NULL;
+char _rx_buffer[RX_BUFFER_MAX_SIZE];
 
-byte _tx_done = HIGH;
+char* _rx_iterator = NULL;
+
+byte _rx_message_size;
+
+/**
+ * Função disparda quando uma mensagem for totalmente recebida (terminada em 'r').
+ */
+callback_isr_t _rx_isr_done_callback = NULL;
 
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
     // Ativa o envio (Transmit Enable)
@@ -21,6 +31,19 @@ void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
     RCSTAbits.SPEN = HIGH;
     // Synchronization Mode
     TX1STAbits.SYNC = usart_sync_mode;
+    
+    
+    
+    // Ativa a recepção (Receive Enable)
+    RCSTAbits.CREN = HIGH;
+    // Segundo o manual, o pino de entrada deve ser setado manualmente.
+    TRISCbits.TRISC7 = INPUT;    
+    
+    // TODO: Implementar o protocolo pra 9 bits, se necessário.
+    TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
+    RCSTAbits.RX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;            
+    
+    
     // -------------------------------------------------------------------------
     // The default state of this bit is ?0? which selects high true transmit 
     // idle and data bits. Setting the SCKP bit to ?1? will invert the transmit
@@ -31,10 +54,9 @@ void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
     //   SCKP(HIGH) => Faz transmissao com sinal 0 (invertido)
     if( usart_sync_mode == USART_SYNC_MODE_ASYNCHRONOUS ) {
         BAUDCONbits.SCKP = LOW;
-    }
+    }    
     
-    // TODO: Implementar o protocolo pra 9 bits, se necessário.
-    TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
+    
     
     // Faz o calculo do Baud Rate!
     // Primeiro, determina a frequencia
@@ -92,27 +114,12 @@ void usart_transmite_interrupt_write_message( char * message, callback_isr_t usa
     // Copia a mensagem e prepara o iterador
     usart_transmite_set_message(message);
     // seta a função que será chamada no final da transmissão
-    _usart_callback_transmit_done = usart_callback_transmit_done;
+    _tx_isr_done_callback = usart_callback_transmit_done;
     // Ativa as interrupções de periféricos externos.
     INTCONbits.PEIE = HIGH;
     // Ativa o uso de interrupções para transmissão
     // É para disparar uma interrupção imediatamente.
     PIE1bits.TXIE = HIGH;    
-}
-
-/**
- * @remark Função privada (Não acessivel de fora - não é pra cagar nela).
- * 
- * Função disparada quando a mensagem foi totalmente enviada.
- */
-void usart_transmite_interrupt_done() {
-    // Se o canal de envio ainda não havia sido encerrado E existe uma função de callback...
-    if( PIE1bits.TXIE && _usart_callback_transmit_done ) {
-        // Faz a chamada da função
-        _usart_callback_transmit_done();
-    }
-    // Desativa interrupções para transmissão
-    PIE1bits.TXIE = LOW;
 }
 
 void usart_transmite_interrupt_isr() {
@@ -122,7 +129,13 @@ void usart_transmite_interrupt_isr() {
         _tx_iterator++;
     // Do contrário, encerra o envio e dispara o callback.
     } else {
-        usart_transmite_interrupt_done();
+        // Se o canal de envio ainda não havia sido encerrado E existe uma função de callback...
+        if( PIE1bits.TXIE && _tx_isr_done_callback ) {
+            // Faz a chamada da função
+            _tx_isr_done_callback();
+        }
+        // Desativa interrupções para transmissão
+        PIE1bits.TXIE = LOW;
     }
 }
 
@@ -135,9 +148,9 @@ void usart_transmite_interrupt_isr() {
  */
 void usart_transmite_lock_write_byte( byte data ) {        
     // <TXIF (Interrupt Flag Bit for Transmiting) é controlado por hardware>
-    // Aguarda a flag ir para low ...    
+    // Aguarda a a transmissão anterior encerrar ...
     while( !PIR1bits.TXIF ) {
-        asm("nop");
+        NOP();
     }
     // ... para então escrever o byte.
 	TXREG = data;
@@ -155,4 +168,78 @@ void usart_transmite_lock_write_message( char * message ) {
     }
     // Finalmente, desabilita o canal de transmissao
     PIE1bits.TXIE = LOW;
+}
+
+byte usart_receive_lock_read_byte() {
+ 	/*// Verifica se ocorreu algum erro (Frame/Overflow)
+    if( RCSTAbits.FERR || RCSTAbits.OERR ) {
+        //TODO fazer um tratamento de erro
+		// Reinicia o receiver, para poder resetar as flags de erro.
+        RCSTAbits.CREN = LOW;
+		RCSTAbits.CREN = HIGH;        
+	}*/
+    
+    // <RCIF (Interrupt Flag bit for Receiving) é controlador por hardware>
+    // Aguarda a flag ir para high (indicando que recebeu 8+ bytes) ...
+    while( !PIR1bits.RCIF ) {
+        NOP();
+    }
+    // ... para então fazer a leitura do byte
+    return RCREG;
+}
+
+uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
+    char* cursor = buffer;
+    uint8_t i;
+    for( i = 0; i < size; i++ ) {
+        byte letter = usart_receive_lock_read_byte();
+        if( letter == '\r' ) {
+            *cursor = '\0';
+            break;
+        } else {
+            *cursor = letter;
+            cursor++;
+        }
+    }
+    // Retorna a quantidade de caracters lido (incluindo o nulo)
+    return i;
+}
+
+void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done ) {
+    // Inicia as variaveis de interrupção para RX.
+    _rx_iterator = _rx_buffer;
+    _rx_message_size = 0;
+    _rx_isr_done_callback = usart_callback_receive_done;
+    // Ativa as interrupções de periféricos externos.
+    INTCONbits.PEIE = HIGH;
+    // Ativa o uso de interrupções para transmissão
+    // É para disparar uma interrupção imediatamente.
+    PIE1bits.RCIE = HIGH;
+}
+
+void usart_receive_interrupt_isr() {
+    // Recebeu um byte inteiro, e agora armazena ele no buffer.
+    *_rx_iterator = RCREG;    
+    // Aumenta o tamanho recebido no buffer.
+    _rx_message_size++;
+    
+    if( *_rx_iterator == '\r' ) {
+        *_rx_iterator = '\0';
+        // Se o canal de recepção ainda não havia sido encerrado E existe uma função de callback...
+        if( PIE1bits.RCIE && _rx_isr_done_callback ) {
+            // Faz a chamada da função
+            _rx_isr_done_callback();
+        }
+        // Desativa interrupções para recepção
+        PIE1bits.RCIE = LOW;
+    } else if( _rx_message_size == 255 ) {
+        //TODO deu merda
+        PIE1bits.RCIE = LOW;
+    } else {
+        _rx_iterator++;
+    }
+}
+
+char* usart_receive_interrupt_get_message() {
+    return _rx_buffer;
 }

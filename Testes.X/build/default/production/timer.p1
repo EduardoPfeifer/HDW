@@ -29,11 +29,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S26 . . . ]
 "360
 [v _INTCONbits `VS26 ~T0 @X0 0 e@11 ]
-[; ;types.h: 27: typedef unsigned char byte;
-[; ;types.h: 30: typedef unsigned char uint8_t;
-[; ;types.h: 33: typedef unsigned int uint16_t;
-[; ;types.h: 36: typedef unsigned long uint32_t;
-[; ;types.h: 41: typedef void (*callback_isr_t)(void);
+[; ;types.h: 32: typedef unsigned char byte;
+[; ;types.h: 35: typedef unsigned char uint8_t;
+[; ;types.h: 38: typedef unsigned int uint16_t;
+[; ;types.h: 41: typedef unsigned long uint32_t;
+[; ;types.h: 46: typedef void (*callback_isr_t)(void);
 [; ;timer.h: 13: typedef enum {
 [; ;timer.h: 14: TIMER0_MODE_TIMER = 0,
 [; ;timer.h: 15: TIMER0_MODE_COUNTER = 1

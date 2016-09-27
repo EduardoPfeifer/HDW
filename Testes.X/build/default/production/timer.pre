@@ -1,7 +1,7 @@
 
 # 1 "timer.c"
 
-# 27 "types.h"
+# 32 "types.h"
 typedef unsigned char byte;
 
 
@@ -13,7 +13,7 @@ typedef unsigned int uint16_t;
 
 typedef unsigned long uint32_t;
 
-# 41
+# 46
 typedef void (*callback_isr_t)(void);
 
 # 13 "timer.h"

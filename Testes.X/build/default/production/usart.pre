@@ -1,7 +1,7 @@
 
 # 1 "usart.c"
 
-# 27 "types.h"
+# 32 "types.h"
 typedef unsigned char byte;
 
 
@@ -13,10 +13,10 @@ typedef unsigned int uint16_t;
 
 typedef unsigned long uint32_t;
 
-# 41
+# 46
 typedef void (*callback_isr_t)(void);
 
-# 15 "usart.h"
+# 16 "usart.h"
 typedef enum {
 USART_SYNC_MODE_ASYNCHRONOUS = 0,
 USART_SYNC_MODE_SYNCHRONOUS = 1
@@ -36,17 +36,32 @@ const uint32_t USART_BAUD_RATE_19200 = 19200ul;
 const uint32_t USART_BAUD_RATE_57600 = 57600ul;
 const uint32_t USART_BAUD_RATE_115200 = 115200ul;
 
-# 41
+# 42
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
 
-# 48
+# 49
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
 
-# 54
+# 55
 void usart_transmite_interrupt_isr();
 
-# 60
+# 61
 void usart_transmite_lock_write_message( char * message );
+
+# 67
+byte usart_receive_lock_read_byte();
+
+# 75
+uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
+
+# 81
+void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
+
+# 87
+void usart_receive_interrupt_isr();
+
+# 92
+char* usart_receive_interrupt_get_message();
 
 # 49 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h"
 extern volatile unsigned char INDF0 @ 0x000;
@@ -7630,6 +7645,40 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
+# 26 "/home/bruno/Programs/microchip/xc8/v1.37/include/htc.h"
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+# 13 "/home/bruno/Programs/microchip/xc8/v1.37/include/xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+
+
+# 27 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic.h"
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+# 77
+extern unsigned int flash_read(unsigned short addr);
+
+# 114 "/home/bruno/Programs/microchip/xc8/v1.37/include/eeprom_routines.h"
+extern void eeprom_write(unsigned char addr, unsigned char value);
+extern unsigned char eeprom_read(unsigned char addr);
+extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
+extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
+
+
+# 151 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic.h"
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+# 186
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
+
 # 4 "/home/bruno/Programs/microchip/xc8/v1.37/include/__size_t.h"
 typedef unsigned size_t;
 
@@ -7670,14 +7719,22 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 9 "usart.c"
-callback_isr_t _usart_callback_transmit_done = ((void*)0);
-
+# 7 "usart.c"
 char _tx_buffer[256];
 
-char * _tx_iterator = ((void*)0);
+char* _tx_iterator = ((void*)0);
 
-byte _tx_done = 1;
+# 14
+callback_isr_t _tx_isr_done_callback = ((void*)0);
+
+char _rx_buffer[256];
+
+char* _rx_iterator = ((void*)0);
+
+byte _rx_message_size;
+
+# 25
+callback_isr_t _rx_isr_done_callback = ((void*)0);
 
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
 
@@ -7687,16 +7744,23 @@ RCSTAbits.SPEN = 1;
 
 TX1STAbits.SYNC = usart_sync_mode;
 
-# 32
+
+
+
+RCSTAbits.CREN = 1;
+
+TRISCbits.TRISC7 = 1;
+
+
+TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
+RCSTAbits.RX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
+
+# 55
 if( usart_sync_mode == USART_SYNC_MODE_ASYNCHRONOUS ) {
 BAUDCONbits.SCKP = 0;
 }
 
-
-TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
-
-
-
+# 63
 uint32_t fosc;
 switch( OSCCONbits.IRCF ) {
 case 0b1111: fosc = 16000000ul; break;
@@ -7735,7 +7799,7 @@ SPBRG = ( fosc / ( 4ul * baud_rate ) ) - 1ul; break;
 }
 }
 
-# 84
+# 106
 void usart_transmite_set_message( char * message ) {
 
 strcpy( _tx_buffer, message );
@@ -7747,23 +7811,12 @@ void usart_transmite_interrupt_write_message( char * message, callback_isr_t usa
 
 usart_transmite_set_message(message);
 
-_usart_callback_transmit_done = usart_callback_transmit_done;
+_tx_isr_done_callback = usart_callback_transmit_done;
 
 INTCONbits.PEIE = 1;
 
 
 PIE1bits.TXIE = 1;
-}
-
-# 108
-void usart_transmite_interrupt_done() {
-
-if( PIE1bits.TXIE && _usart_callback_transmit_done ) {
-
-_usart_callback_transmit_done();
-}
-
-PIE1bits.TXIE = 0;
 }
 
 void usart_transmite_interrupt_isr() {
@@ -7773,16 +7826,22 @@ TXREG = *_tx_iterator;
 _tx_iterator++;
 
 } else {
-usart_transmite_interrupt_done();
+
+if( PIE1bits.TXIE && _tx_isr_done_callback ) {
+
+_tx_isr_done_callback();
+}
+
+PIE1bits.TXIE = 0;
 }
 }
 
-# 136
+# 149
 void usart_transmite_lock_write_byte( byte data ) {
 
 
 while( !PIR1bits.TXIF ) {
-asm("nop");
+__nop();
 }
 
 TXREG = data;
@@ -7800,4 +7859,70 @@ _tx_iterator++;
 }
 
 PIE1bits.TXIE = 0;
+}
+
+byte usart_receive_lock_read_byte() {
+
+# 184
+while( !PIR1bits.RCIF ) {
+__nop();
+}
+
+return RCREG;
+}
+
+uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
+char* cursor = buffer;
+uint8_t i;
+for( i = 0; i < size; i++ ) {
+byte letter = usart_receive_lock_read_byte();
+if( letter == '\r' ) {
+*cursor = '\0';
+break;
+} else {
+*cursor = letter;
+cursor++;
+}
+}
+
+return i;
+}
+
+void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done ) {
+
+_rx_iterator = _rx_buffer;
+_rx_message_size = 0;
+_rx_isr_done_callback = usart_callback_receive_done;
+
+INTCONbits.PEIE = 1;
+
+
+PIE1bits.RCIE = 1;
+}
+
+void usart_receive_interrupt_isr() {
+
+*_rx_iterator = RCREG;
+
+_rx_message_size++;
+
+if( *_rx_iterator == '\r' ) {
+*_rx_iterator = '\0';
+
+if( PIE1bits.RCIE && _rx_isr_done_callback ) {
+
+_rx_isr_done_callback();
+}
+
+PIE1bits.RCIE = 0;
+} else if( _rx_message_size == 255 ) {
+
+PIE1bits.RCIE = 0;
+} else {
+_rx_iterator++;
+}
+}
+
+char* usart_receive_interrupt_get_message() {
+return _rx_buffer;
 }
