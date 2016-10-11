@@ -10,8 +10,9 @@
 
 #include "types.h"
 
-#define TX_BUFFER_MAX_SIZE 256
-#define RX_BUFFER_MAX_SIZE 256
+// TODO talvez trocar os buffers internos por ponteiros para buffers externos.
+#define TX_BUFFER_MAX_SIZE 61
+#define RX_BUFFER_MAX_SIZE 61
 
 typedef enum {
     USART_SYNC_MODE_ASYNCHRONOUS = LOW,

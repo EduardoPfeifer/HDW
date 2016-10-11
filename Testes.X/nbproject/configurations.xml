@@ -7,6 +7,7 @@
       <itemPath>timer.h</itemPath>
       <itemPath>types.h</itemPath>
       <itemPath>usart.h</itemPath>
+      <itemPath>analog.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +19,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>timer.c</itemPath>
       <itemPath>usart.c</itemPath>
+      <itemPath>analog.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -4,24 +4,20 @@
 #include <pic.h>
 #include "string.h"
 
+/**Buffer para envio de mensagens*/
 char _tx_buffer[TX_BUFFER_MAX_SIZE];
-/***/
-char* _tx_iterator = NULL;
-
-/**
- * Função disparda quando a mensagem for totalmente enviada.
- */
+/**Iterador do buffer de envio*/
+char* _tx_buffer_iterator = NULL;
+/**Função disparda quando a mensagem for totalmente enviada no modo por interrupção*/
 callback_isr_t _tx_isr_done_callback = NULL;
 
+/**Buffer para recebimento de mensagens*/
 char _rx_buffer[RX_BUFFER_MAX_SIZE];
-
-char* _rx_iterator = NULL;
-
-byte _rx_message_size;
-
-/**
- * Função disparda quando uma mensagem for totalmente recebida (terminada em 'r').
- */
+/**Iterador do buffer de recebimento*/
+char* _rx_buffer_iterator = NULL;
+/**Tamanho da mensagem recebida pelo buffer*/
+byte _rx_buffer_message_size;
+/**Função disparda quando uma mensagem for totalmente recebida (terminada em 'r')*/
 callback_isr_t _rx_isr_done_callback = NULL;
 
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
@@ -31,9 +27,7 @@ void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
     RCSTAbits.SPEN = HIGH;
     // Synchronization Mode
     TX1STAbits.SYNC = usart_sync_mode;
-    
-    
-    
+            
     // Ativa a recepção (Receive Enable)
     RCSTAbits.CREN = HIGH;
     // Segundo o manual, o pino de entrada deve ser setado manualmente.
@@ -42,8 +36,7 @@ void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
     // TODO: Implementar o protocolo pra 9 bits, se necessário.
     TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
     RCSTAbits.RX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;            
-    
-    
+        
     // -------------------------------------------------------------------------
     // The default state of this bit is ?0? which selects high true transmit 
     // idle and data bits. Setting the SCKP bit to ?1? will invert the transmit
@@ -54,9 +47,7 @@ void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
     //   SCKP(HIGH) => Faz transmissao com sinal 0 (invertido)
     if( usart_sync_mode == USART_SYNC_MODE_ASYNCHRONOUS ) {
         BAUDCONbits.SCKP = LOW;
-    }    
-    
-    
+    }
     
     // Faz o calculo do Baud Rate!
     // Primeiro, determina a frequencia
@@ -107,7 +98,7 @@ void usart_transmite_set_message( char * message ) {
     // Copia a mensagem para o buffer, para que ela fique disponivel durante todo o processo.
     strcpy( _tx_buffer, message );
     // Inicia o iterador que ira enviar caracter por caracter para o inicio da mensagem.
-    _tx_iterator = _tx_buffer;
+    _tx_buffer_iterator = _tx_buffer;
 }
 
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done ) {
@@ -124,9 +115,9 @@ void usart_transmite_interrupt_write_message( char * message, callback_isr_t usa
 
 void usart_transmite_interrupt_isr() {
     // Envia o proximo caracter, se ele existir.
-    if( *_tx_iterator ) {        
-        TXREG = *_tx_iterator;        
-        _tx_iterator++;
+    if( *_tx_buffer_iterator ) {        
+        TXREG = *_tx_buffer_iterator;        
+        _tx_buffer_iterator++;
     // Do contrário, encerra o envio e dispara o callback.
     } else {
         // Se o canal de envio ainda não havia sido encerrado E existe uma função de callback...
@@ -160,11 +151,11 @@ void usart_transmite_lock_write_message( char * message ) {
     // Habilita o canal de transmissao e prepara o iterador.
     usart_transmite_set_message( message );
     // Enquanto tiver mensagem para escrever...
-    while( *_tx_iterator ) {
+    while( *_tx_buffer_iterator ) {
         // Escreve um byte ...
-        usart_transmite_lock_write_byte( *_tx_iterator );
+        usart_transmite_lock_write_byte( *_tx_buffer_iterator );
         // ...  e avança um byte por vez
-        _tx_iterator++;
+        _tx_buffer_iterator++;
     }
     // Finalmente, desabilita o canal de transmissao
     PIE1bits.TXIE = LOW;
@@ -189,14 +180,22 @@ byte usart_receive_lock_read_byte() {
 }
 
 uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
+    // Cursor que irá navegar o buffer
     char* cursor = buffer;
+    // Conta a quantidade de caratereres recebida pela mensagem
     uint8_t i;
+    // Itera pelo buffer, salvando nele os bytes recebidos
     for( i = 0; i < size; i++ ) {
+        // Recebe uma letra do RX
         byte letter = usart_receive_lock_read_byte();
+        // Verifica se é final do buffer. Estamos usando o carriage return, mas ideal era ver pelo caracter NULO mesmo...
         if( letter == '\r' ) {
+            // Arrumamos a string para final NULO antes de retornar.
             *cursor = '\0';
             break;
+        // Se não for a letra de termino de string
         } else {
+            // salva a letra no buffer e posiciona o cursor na proxima posição.
             *cursor = letter;
             cursor++;
         }
@@ -207,8 +206,8 @@ uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
 
 void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done ) {
     // Inicia as variaveis de interrupção para RX.
-    _rx_iterator = _rx_buffer;
-    _rx_message_size = 0;
+    _rx_buffer_iterator = _rx_buffer;
+    _rx_buffer_message_size = 0;
     _rx_isr_done_callback = usart_callback_receive_done;
     // Ativa as interrupções de periféricos externos.
     INTCONbits.PEIE = HIGH;
@@ -219,12 +218,12 @@ void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive
 
 void usart_receive_interrupt_isr() {
     // Recebeu um byte inteiro, e agora armazena ele no buffer.
-    *_rx_iterator = RCREG;    
+    *_rx_buffer_iterator = RCREG;    
     // Aumenta o tamanho recebido no buffer.
-    _rx_message_size++;
+    _rx_buffer_message_size++;
     
-    if( *_rx_iterator == '\r' ) {
-        *_rx_iterator = '\0';
+    if( *_rx_buffer_iterator == '\r' ) {
+        *_rx_buffer_iterator = '\0';
         // Se o canal de recepção ainda não havia sido encerrado E existe uma função de callback...
         if( PIE1bits.RCIE && _rx_isr_done_callback ) {
             // Faz a chamada da função
@@ -232,11 +231,12 @@ void usart_receive_interrupt_isr() {
         }
         // Desativa interrupções para recepção
         PIE1bits.RCIE = LOW;
-    } else if( _rx_message_size == 255 ) {
-        //TODO deu merda
+    } else if( _rx_buffer_message_size == (RX_BUFFER_MAX_SIZE-1) ) {
+        //TODO deu merda. Veio mais caracteres do que o buffer comportava.
         PIE1bits.RCIE = LOW;
     } else {
-        _rx_iterator++;
+        // Move o cursor para a proxima posição
+        _rx_buffer_iterator++;
     }
 }
 

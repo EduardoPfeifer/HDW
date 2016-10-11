@@ -3,4 +3,5 @@
  main.c  \
 timer.h  \
 usart.h  \
+analog.h  \
 types.h 

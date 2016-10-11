@@ -3,29 +3,40 @@
 [d edition pro ]
 [d chip 16LF1786 ]
 [d frameptr 6 ]
-"58 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
-[e E6003 . `uc
-TIMER0_MODE_TIMER 0
-TIMER0_MODE_COUNTER 1
-]
-[e E6007 . `uc
-PRESCALAR_USE_NO 0
-PRESCALAR_USE_YES 1
-]
-[e E6011 . `uc
-PRESCALAR_RATE_2 0
-PRESCALAR_RATE_4 1
-PRESCALAR_RATE_8 2
-PRESCALAR_RATE_16 3
-PRESCALAR_RATE_32 4
-PRESCALAR_RATE_64 1
-PRESCALAR_RATE_128 2
-PRESCALAR_RATE_256 7
-]
-"60
-[e E6027 . `uc
+"60 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
+[e E6089 . `uc
 USART_SYNC_MODE_ASYNCHRONOUS 0
 USART_SYNC_MODE_SYNCHRONOUS 1
+]
+"69
+[e E6121 analog_voltage_reference_positive_e `uc
+analog_voltage_reference_positive_vdd 0
+analog_voltage_reference_positive_vrefp 1
+analog_voltage_reference_positive_fvr 3
+]
+[e E6126 analog_voltage_reference_negative_e `uc
+analog_voltage_reference_negative_vss 0
+analog_voltage_reference_negative_vrefm 1
+]
+[e E6130 analog_conversion_clock_e `uc
+analog_conversion_clock_fosc_2 0
+analog_conversion_clock_fosc_4 4
+analog_conversion_clock_fosc_8 1
+analog_conversion_clock_fosc_16 5
+analog_conversion_clock_fosc_32 2
+analog_conversion_clock_fosc_64 6
+analog_conversion_clock_frc 3
+]
+[e E6139 analog_result_format_e `uc
+analog_result_format_sign_magnitude 0
+analog_result_format_twos_compliment 1
+]
+[e E6143 analog_result_mode_bit_e `uc
+analog_result_mode_bit_12 0
+analog_result_mode_bit_10 1
+]
+[e E6147 analog_channel_select_e `uc
+analog_channel_select_0 0
 ]
 "10 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/timer.c
 [e E8 . `uc
@@ -46,61 +57,93 @@ PRESCALAR_RATE_64 1
 PRESCALAR_RATE_128 2
 PRESCALAR_RATE_256 7
 ]
-"27 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+"23 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
 [e E8 . `uc
 USART_SYNC_MODE_ASYNCHRONOUS 0
 USART_SYNC_MODE_SYNCHRONOUS 1
 ]
-"43
+"37
 [e E12 . `uc
 USART_9BIT_MODE_NOT_IMPLEMENTED 0
 ]
+"15 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/analog.c
+[e E5978 analog_voltage_reference_positive_e `uc
+analog_voltage_reference_positive_vdd 0
+analog_voltage_reference_positive_vrefp 1
+analog_voltage_reference_positive_fvr 3
+]
+[e E5983 analog_voltage_reference_negative_e `uc
+analog_voltage_reference_negative_vss 0
+analog_voltage_reference_negative_vrefm 1
+]
+[e E5987 analog_conversion_clock_e `uc
+analog_conversion_clock_fosc_2 0
+analog_conversion_clock_fosc_4 4
+analog_conversion_clock_fosc_8 1
+analog_conversion_clock_fosc_16 5
+analog_conversion_clock_fosc_32 2
+analog_conversion_clock_fosc_64 6
+analog_conversion_clock_frc 3
+]
+[e E5996 analog_result_format_e `uc
+analog_result_format_sign_magnitude 0
+analog_result_format_twos_compliment 1
+]
+[e E6000 analog_result_mode_bit_e `uc
+analog_result_mode_bit_12 0
+analog_result_mode_bit_10 1
+]
+[e E6004 analog_channel_select_e `uc
+analog_channel_select_0 0
+]
+"492 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "62 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
 "6 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "8 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/strcpy.c
-[v _strcpy strcpy `(*.39uc  1 e 1 0 ]
+[v _strcpy strcpy `(*.5uc  1 e 1 0 ]
 "6 /home/bruno/Programs/microchip/xc8/v1.37/sources/pic/eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"28 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
+"8 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/analog.c
+[v _analog_start analog_start `(v  1 e 1 0 ]
+"47
+[v _analog_channel_select analog_channel_select `(v  1 e 1 0 ]
+"58
+[v _analog_read_interrupt_get_value analog_read_interrupt_get_value `(ui  1 e 2 0 ]
+"101
+[v _analog_read_interrupt analog_read_interrupt `(v  1 e 1 0 ]
+"114
+[v _analog_read_isr analog_read_isr `(v  1 e 1 0 ]
+"30 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
 [v _isr_general isr_general `II(v  1 e 1 0 ]
-"41
-[v _isr_timer0_pisca_led isr_timer0_pisca_led `(v  1 e 1 0 ]
-"45
-[v _isr_usart_tx_acende_led isr_usart_tx_acende_led `(v  1 e 1 0 ]
-"50
-[v _isr_usart_rx_teste isr_usart_rx_teste `(v  1 e 1 0 ]
+"46
+[v _baby_callback baby_callback `(v  1 e 1 0 ]
 "54
 [v _main main `(v  1 e 1 0 ]
-"10 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/timer.c
-[v _timer0_start timer0_start `(v  1 e 1 0 ]
-"21
+"21 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/timer.c
 [v _timer0_isr timer0_isr `(v  1 e 1 0 ]
-"27 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+"23 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
 [v _usart_start usart_start `(v  1 e 1 0 ]
-"106
+"97
 [v _usart_transmite_set_message usart_transmite_set_message `(v  1 e 1 0 ]
-"113
-[v _usart_transmite_interrupt_write_message usart_transmite_interrupt_write_message `(v  1 e 1 0 ]
-"125
+"116
 [v _usart_transmite_interrupt_isr usart_transmite_interrupt_isr `(v  1 e 1 0 ]
-"149
+"140
 [v _usart_transmite_lock_write_byte usart_transmite_lock_write_byte `(v  1 e 1 0 ]
-"159
+"150
 [v _usart_transmite_lock_write_message usart_transmite_lock_write_message `(v  1 e 1 0 ]
-"173
+"164
 [v _usart_receive_lock_read_byte usart_receive_lock_read_byte `(uc  1 e 1 0 ]
-"208
-[v _usart_receive_interrupt_read_message usart_receive_interrupt_read_message `(v  1 e 1 0 ]
-"220
+"219
 [v _usart_receive_interrupt_isr usart_receive_interrupt_isr `(v  1 e 1 0 ]
-"243
-[v _usart_receive_interrupt_get_message usart_receive_interrupt_get_message `(*.39uc  1 e 1 0 ]
 [s S19 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -118,7 +161,7 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 ]
 [u S33 . 1 `S19 1 . 1 0 `S28 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES33  1 e 1 @11 ]
-[s S105 . 1 `uc 1 RB0 1 0 :1:0 
+[s S150 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -128,10 +171,10 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 RB7 1 0 :1:7 
 ]
 "503
-[s S114 . 1 `uc 1 PORTB 1 0 :8:0 
+[s S159 . 1 `uc 1 PORTB 1 0 :8:0 
 ]
-[u S116 . 1 `S105 1 . 1 0 `S114 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES116  1 e 1 @13 ]
+[u S161 . 1 `S150 1 . 1 0 `S159 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES161  1 e 1 @13 ]
 [s S76 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -144,7 +187,21 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 "658
 [u S85 . 1 `S76 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES85  1 e 1 @17 ]
-[s S157 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S700 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1164
+[s S709 . 1 `uc 1 TRISA 1 0 :8:0 
+]
+[u S711 . 1 `S700 1 . 1 0 `S709 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES711  1 e 1 @140 ]
+[s S124 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -154,11 +211,11 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1233
-[s S166 . 1 `uc 1 TRISB 1 0 :8:0 
+[s S133 . 1 `uc 1 TRISB 1 0 :8:0 
 ]
-[u S168 . 1 `S157 1 . 1 0 `S166 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES168  1 e 1 @141 ]
-[s S440 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S135 . 1 `S124 1 . 1 0 `S133 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES135  1 e 1 @141 ]
+[s S421 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -168,10 +225,10 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1302
-[s S449 . 1 `uc 1 TRISC 1 0 :8:0 
+[s S430 . 1 `uc 1 TRISC 1 0 :8:0 
 ]
-[u S451 . 1 `S440 1 . 1 0 `S449 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES451  1 e 1 @142 ]
+[u S432 . 1 `S421 1 . 1 0 `S430 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES432  1 e 1 @142 ]
 [s S55 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
@@ -184,7 +241,7 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 "1388
 [u S64 . 1 `S55 1 . 1 0 ]
 [v _PIE1bits PIE1bits `VES64  1 e 1 @145 ]
-[s S319 . 1 `uc 1 PS0 1 0 :1:0 
+[s S300 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -194,14 +251,14 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "1595
-[s S328 . 1 `uc 1 PS 1 0 :3:0 
+[s S309 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S333 . 1 `S319 1 . 1 0 `S328 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES333  1 e 1 @149 ]
-[s S510 . 1 `uc 1 SCS0 1 0 :1:0 
+[u S314 . 1 `S300 1 . 1 0 `S309 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES314  1 e 1 @149 ]
+[s S491 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF0 1 0 :1:3 
@@ -211,33 +268,88 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 SPLLEN 1 0 :1:7 
 ]
 "1847
-[s S519 . 1 `uc 1 SCS 1 0 :2:0 
+[s S500 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF 1 0 :4:3 
 ]
-[u S523 . 1 `S510 1 . 1 0 `S519 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES523  1 e 1 @153 ]
-[s S131 . 1 `uc 1 LATB0 1 0 :1:0 
-`uc 1 LATB1 1 0 :1:1 
-`uc 1 LATB2 1 0 :1:2 
-`uc 1 LATB3 1 0 :1:3 
-`uc 1 LATB4 1 0 :1:4 
-`uc 1 LATB5 1 0 :1:5 
-`uc 1 LATB6 1 0 :1:6 
-`uc 1 LATB7 1 0 :1:7 
+[u S504 . 1 `S491 1 . 1 0 `S500 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES504  1 e 1 @153 ]
+"1957
+[v _ADRES ADRES `VEus  1 e 2 @155 ]
+[s S782 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+`uc 1 ADRMD 1 0 :1:7 
 ]
-"2330
-[s S140 . 1 `uc 1 LATB 1 0 :8:0 
+"2031
+[s S791 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADGO 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
 ]
-[u S142 . 1 `S131 1 . 1 0 `S140 1 . 1 0 ]
-[v _LATBbits LATBbits `VES142  1 e 1 @269 ]
+[s S795 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S798 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[u S801 . 1 `S782 1 . 1 0 `S791 1 . 1 0 `S795 1 . 1 0 `S798 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES801  1 e 1 @157 ]
+[s S752 . 1 `uc 1 ADPREF0 1 0 :1:0 
+`uc 1 ADPREF1 1 0 :1:1 
+`uc 1 ADNREF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCS0 1 0 :1:4 
+`uc 1 ADCS1 1 0 :1:5 
+`uc 1 ADCS2 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"2117
+[s S761 . 1 `uc 1 ADPREF 1 0 :2:0 
+`uc 1 . 1 0 :2:2 
+`uc 1 ADCS 1 0 :3:4 
+]
+[u S765 . 1 `S752 1 . 1 0 `S761 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES765  1 e 1 @158 ]
+[s S832 . 1 `uc 1 CHSN0 1 0 :1:0 
+`uc 1 CHSN1 1 0 :1:1 
+`uc 1 CHSN2 1 0 :1:2 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 TRIGSEL0 1 0 :1:4 
+`uc 1 TRIGSEL1 1 0 :1:5 
+`uc 1 TRIGSEL2 1 0 :1:6 
+`uc 1 TRIGSEL3 1 0 :1:7 
+]
+"2187
+[s S841 . 1 `uc 1 CHSN 1 0 :4:0 
+`uc 1 TRIGSEL 1 0 :4:4 
+]
+[u S844 . 1 `S832 1 . 1 0 `S841 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES844  1 e 1 @159 ]
+[s S726 . 1 `uc 1 ANSA0 1 0 :1:0 
+`uc 1 ANSA1 1 0 :1:1 
+`uc 1 ANSA2 1 0 :1:2 
+`uc 1 ANSA3 1 0 :1:3 
+`uc 1 ANSA4 1 0 :1:4 
+`uc 1 ANSA5 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 ANSA7 1 0 :1:7 
+]
+"3483
+[s S735 . 1 `uc 1 ANSELA 1 0 :8:0 
+]
+[u S737 . 1 `S726 1 . 1 0 `S735 1 . 1 0 ]
+[v _ANSELAbits ANSELAbits `VES737  1 e 1 @396 ]
 "3781
 [v _RCREG RCREG `VEuc  1 e 1 @409 ]
 "3838
 [v _TXREG TXREG `VEuc  1 e 1 @410 ]
 "3893
 [v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
-[s S419 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S400 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -247,9 +359,9 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4145
-[u S428 . 1 `S419 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES428  1 e 1 @413 ]
-[s S398 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S409 . 1 `S400 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES409  1 e 1 @413 ]
+[s S379 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -259,11 +371,11 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4215
-[u S407 . 1 `S398 1 . 1 0 ]
-[v _TX1STAbits TX1STAbits `VES407  1 e 1 @414 ]
+[u S388 . 1 `S379 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES388  1 e 1 @414 ]
 "4324
-[v _TXSTAbits TXSTAbits `VES407  1 e 1 @414 ]
-[s S489 . 1 `uc 1 ABDEN 1 0 :1:0 
+[v _TXSTAbits TXSTAbits `VES388  1 e 1 @414 ]
+[s S470 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -273,159 +385,228 @@ USART_9BIT_MODE_NOT_IMPLEMENTED 0
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4535
-[u S498 . 1 `S489 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES498  1 e 1 @415 ]
+[u S479 . 1 `S470 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES479  1 e 1 @415 ]
 "13372
 [v _BRG16 BRG16 `VEb  1 e 0 @3323 ]
 "13374
 [v _BRGH BRGH `VEb  1 e 0 @3314 ]
 "15506
 [v _SYNC SYNC `VEb  1 e 0 @3316 ]
-"49 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
-[v __rx_done _rx_done `uc  1 e 1 0 ]
+"362 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/doprnt.c
+[v _hexpowers hexpowers `DCC[4]ui  1 s 8 hexpowers ]
+"6 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/analog.c
+[v __analog_callback_isr _analog_callback_isr `*.37(v  1 e 2 0 ]
 "8 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/timer.c
 [v __timer0_callback _timer0_callback `*.37(v  1 e 2 0 ]
-"7 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
-[v __tx_buffer _tx_buffer `[256]uc  1 e 256 @8688 ]
-"9
-[v __tx_iterator _tx_iterator `*.39uc  1 e 2 0 ]
-"14
+"8 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+[v __tx_buffer _tx_buffer `[61]uc  1 e 61 0 ]
+"10
+[v __tx_buffer_iterator _tx_buffer_iterator `*.1uc  1 e 1 0 ]
+"12
 [v __tx_isr_done_callback _tx_isr_done_callback `*.37(v  1 e 2 0 ]
-"16
-[v __rx_buffer _rx_buffer `[256]uc  1 e 256 @8944 ]
-"18
-[v __rx_iterator _rx_iterator `*.39uc  1 e 2 0 ]
-"20
-[v __rx_message_size _rx_message_size `uc  1 e 1 0 ]
-"25
+"15
+[v __rx_buffer _rx_buffer `[61]uc  1 e 61 0 ]
+"17
+[v __rx_buffer_iterator _rx_buffer_iterator `*.1uc  1 e 1 0 ]
+"19
+[v __rx_buffer_message_size _rx_buffer_message_size `uc  1 e 1 0 ]
+"21
 [v __rx_isr_done_callback _rx_isr_done_callback `*.37(v  1 e 2 0 ]
-"26 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.h
+"27 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.h
 [v _USART_BAUD_RATE_300 USART_BAUD_RATE_300 `DCCul  1 e 4 0 ]
 "54 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"79
-[v main@message message `*.39uc  1 a 2 21 ]
-"97
+"75
+[v main@comando comando `uc  1 a 1 29 ]
+"92
 } 0
-"159 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
-[v _usart_transmite_lock_write_message usart_transmite_lock_write_message `(v  1 e 1 0 ]
-{
-[v usart_transmite_lock_write_message@message message `*.25uc  1 p 2 0 ]
-"171
-} 0
-"149
-[v _usart_transmite_lock_write_byte usart_transmite_lock_write_byte `(v  1 e 1 0 ]
-{
-[v usart_transmite_lock_write_byte@data data `uc  1 a 1 wreg ]
-[v usart_transmite_lock_write_byte@data data `uc  1 a 1 wreg ]
-[v usart_transmite_lock_write_byte@data data `uc  1 a 1 2 ]
-"157
-} 0
-"113
-[v _usart_transmite_interrupt_write_message usart_transmite_interrupt_write_message `(v  1 e 1 0 ]
-{
-[v usart_transmite_interrupt_write_message@message message `*.39uc  1 p 2 0 ]
-[v usart_transmite_interrupt_write_message@usart_callback_transmit_done usart_callback_transmit_done `*.37(v  1 p 2 2 ]
-"123
-} 0
-"106
-[v _usart_transmite_set_message usart_transmite_set_message `(v  1 e 1 0 ]
-{
-[v usart_transmite_set_message@message message `*.26uc  1 p 2 8 ]
-"111
-} 0
-"8 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/strcpy.c
-[v _strcpy strcpy `(*.39uc  1 e 1 0 ]
-{
-"15
-[v strcpy@cp cp `*.39uc  1 a 2 6 ]
-"8
-[v strcpy@to to `*.39uc  1 p 2 2 ]
-[v strcpy@from from `*.26DCCuc  1 p 2 4 ]
-"24
-} 0
-"27 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+"23 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
 [v _usart_start usart_start `(v  1 e 1 0 ]
 {
 [v usart_start@usart_sync_mode usart_sync_mode `E8  1 a 1 wreg ]
-"63
-[v usart_start@fosc fosc `ul  1 a 4 16 ]
-"90
-[v usart_start@baud_switch baud_switch `uc  1 a 1 14 ]
-"27
+"54
+[v usart_start@fosc fosc `ul  1 a 4 24 ]
+"81
+[v usart_start@baud_switch baud_switch `uc  1 a 1 22 ]
+"23
 [v usart_start@usart_sync_mode usart_sync_mode `E8  1 a 1 wreg ]
-[v usart_start@baud_rate baud_rate `ul  1 p 4 6 ]
-"29
-[v usart_start@usart_sync_mode usart_sync_mode `E8  1 a 1 15 ]
-"99
+[v usart_start@baud_rate baud_rate `ul  1 p 4 14 ]
+"25
+[v usart_start@usart_sync_mode usart_sync_mode `E8  1 a 1 23 ]
+"90
 } 0
 "6 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
-[v ___lldiv@quotient quotient `ul  1 a 4 1 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
 "12
-[v ___lldiv@counter counter `uc  1 a 1 5 ]
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
 "6
-[v ___lldiv@divisor divisor `ul  1 p 4 2 ]
-[v ___lldiv@dividend dividend `ul  1 p 4 6 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "31
 } 0
-"208 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
-[v _usart_receive_interrupt_read_message usart_receive_interrupt_read_message `(v  1 e 1 0 ]
+"164 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+[v _usart_receive_lock_read_byte usart_receive_lock_read_byte `(uc  1 e 1 0 ]
 {
-[v usart_receive_interrupt_read_message@usart_callback_receive_done usart_callback_receive_done `*.37(v  1 p 2 2 ]
-"218
+"180
 } 0
-"243
-[v _usart_receive_interrupt_get_message usart_receive_interrupt_get_message `(*.39uc  1 e 1 0 ]
+"8 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/analog.c
+[v _analog_start analog_start `(v  1 e 1 0 ]
 {
-"245
+"9
+[v analog_start@voltage_reference_positive voltage_reference_positive `E5978  1 a 1 wreg ]
+[v analog_start@voltage_reference_positive voltage_reference_positive `E5978  1 a 1 wreg ]
+"10
+[v analog_start@voltage_reference_negative voltage_reference_negative `E5983  1 p 1 3 ]
+"11
+[v analog_start@conversion_clock conversion_clock `E5987  1 p 1 4 ]
+"12
+[v analog_start@analog_result_format analog_result_format `E5996  1 p 1 5 ]
+"13
+[v analog_start@analog_result_mode_bit analog_result_mode_bit `E6000  1 p 1 6 ]
+"14
+[v analog_start@channel_select channel_select `E6004  1 p 1 7 ]
+"16
+[v analog_start@voltage_reference_positive voltage_reference_positive `E5978  1 a 1 9 ]
+"45
 } 0
-"10 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/timer.c
-[v _timer0_start timer0_start `(v  1 e 1 0 ]
+"47
+[v _analog_channel_select analog_channel_select `(v  1 e 1 0 ]
 {
-[v timer0_start@mode mode `E8  1 a 1 wreg ]
-[v timer0_start@mode mode `E8  1 a 1 wreg ]
-[v timer0_start@prescalar_use prescalar_use `E12  1 p 1 2 ]
-[v timer0_start@prescalar_rate prescalar_rate `E16  1 p 1 3 ]
-[v timer0_start@timer0_callback timer0_callback `*.37(v  1 p 2 4 ]
-[v timer0_start@mode mode `E8  1 a 1 6 ]
-"19
+[v analog_channel_select@channel_select channel_select `E6004  1 a 1 wreg ]
+[v analog_channel_select@channel_select channel_select `E6004  1 a 1 wreg ]
+[v analog_channel_select@skip_delay skip_delay `uc  1 p 1 0 ]
+[v analog_channel_select@channel_select channel_select `E6004  1 a 1 2 ]
+"56
 } 0
-"28 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
+"101
+[v _analog_read_interrupt analog_read_interrupt `(v  1 e 1 0 ]
+{
+[v analog_read_interrupt@analog_callback_done analog_callback_done `*.37(v  1 p 2 0 ]
+"112
+} 0
+"30 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
 [v _isr_general isr_general `II(v  1 e 1 0 ]
 {
-"39
+"44
 } 0
-"125 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+"116 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
 [v _usart_transmite_interrupt_isr usart_transmite_interrupt_isr `(v  1 e 1 0 ]
 {
-"140
+"131
 } 0
-"45 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
-[v _isr_usart_tx_acende_led isr_usart_tx_acende_led `(v  1 e 1 0 ]
-{
-"47
-} 0
-"220 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+"219
 [v _usart_receive_interrupt_isr usart_receive_interrupt_isr `(v  1 e 1 0 ]
 {
 "241
-} 0
-"50 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
-[v _isr_usart_rx_teste isr_usart_rx_teste `(v  1 e 1 0 ]
-{
-"52
 } 0
 "21 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/timer.c
 [v _timer0_isr timer0_isr `(v  1 e 1 0 ]
 {
 "26
 } 0
-"41 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
-[v _isr_timer0_pisca_led isr_timer0_pisca_led `(v  1 e 1 0 ]
+"114 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/analog.c
+[v _analog_read_isr analog_read_isr `(v  1 e 1 0 ]
 {
-"43
+"124
+} 0
+"46 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/main.c
+[v _baby_callback baby_callback `(v  1 e 1 0 ]
+{
+"49
+[v baby_callback@memoria memoria `[64]uc  1 a 64 12 ]
+"47
+[v baby_callback@valor valor `ui  1 a 2 76 ]
+"52
+} 0
+"150 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+[v _usart_transmite_lock_write_message usart_transmite_lock_write_message `(v  1 e 1 0 ]
+{
+[v usart_transmite_lock_write_message@message message `*.4uc  1 a 1 wreg ]
+[v usart_transmite_lock_write_message@message message `*.4uc  1 a 1 wreg ]
+"152
+[v usart_transmite_lock_write_message@message message `*.4uc  1 a 1 7 ]
+"162
+} 0
+"97
+[v _usart_transmite_set_message usart_transmite_set_message `(v  1 e 1 0 ]
+{
+[v usart_transmite_set_message@message message `*.4uc  1 a 1 wreg ]
+[v usart_transmite_set_message@message message `*.4uc  1 a 1 wreg ]
+"99
+[v usart_transmite_set_message@message message `*.4uc  1 a 1 5 ]
+"102
+} 0
+"8 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/strcpy.c
+[v _strcpy strcpy `(*.5uc  1 e 1 0 ]
+{
+[v strcpy@to to `*.5uc  1 a 1 wreg ]
+"15
+[v strcpy@cp cp `*.5uc  1 a 1 3 ]
+"8
+[v strcpy@to to `*.5uc  1 a 1 wreg ]
+[v strcpy@from from `*.4DCCuc  1 p 1 0 ]
+"18
+[v strcpy@to to `*.5uc  1 a 1 2 ]
+"24
+} 0
+"140 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/usart.c
+[v _usart_transmite_lock_write_byte usart_transmite_lock_write_byte `(v  1 e 1 0 ]
+{
+[v usart_transmite_lock_write_byte@data data `uc  1 a 1 wreg ]
+[v usart_transmite_lock_write_byte@data data `uc  1 a 1 wreg ]
+[v usart_transmite_lock_write_byte@data data `uc  1 a 1 0 ]
+"148
+} 0
+"492 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"1500
+[v sprintf@idx idx `uc  1 a 1 5 ]
+"528
+[v sprintf@val val `ui  1 a 2 7 ]
+"499
+[v sprintf@c c `c  1 a 1 11 ]
+"506
+[v sprintf@prec prec `c  1 a 1 9 ]
+"494
+[v sprintf@ap ap `[1]*.1v  1 a 1 6 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 4 ]
+"492
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.25DCCuc  1 p 2 8 ]
+"533
+[v sprintf@sp sp `*.4uc  1 a 1 10 ]
+"1541
+} 0
+"6 /home/bruno/Programs/microchip/xc8/v1.37/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"31
+} 0
+"58 /home/bruno/Documents/UFSC/2016.2/ARA7513 - Projeto de Sistemas Embarcados/Workspace/HDW/Testes.X/analog.c
+[v _analog_read_interrupt_get_value analog_read_interrupt_get_value `(ui  1 e 2 0 ]
+{
+"79
+[v analog_read_interrupt_get_value@result_962 result `ui  1 a 2 10 ]
+"64
+[v analog_read_interrupt_get_value@result result `ui  1 a 2 8 ]
+"66
+[v analog_read_interrupt_get_value@sign sign `uc  1 a 1 7 ]
+"62
+[v analog_read_interrupt_get_value@shift shift `uc  1 a 1 6 ]
+"90
 } 0

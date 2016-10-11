@@ -1,53 +1,5 @@
 
-# 1 "timer.c"
-
-# 37 "types.h"
-typedef unsigned char byte;
-
-
-typedef unsigned char uint8_t;
-
-
-typedef unsigned int uint16_t;
-
-
-typedef unsigned long uint32_t;
-
-# 51
-typedef void (*callback_isr_t)(void);
-
-# 13 "timer.h"
-typedef enum {
-TIMER0_MODE_TIMER = 0,
-TIMER0_MODE_COUNTER = 1
-} timer0_mode_t;
-
-typedef enum {
-PRESCALAR_USE_NO = 0,
-PRESCALAR_USE_YES = 1
-} prescalar_use_t;
-
-typedef enum {
-PRESCALAR_RATE_2 = 0b000,
-PRESCALAR_RATE_4 = 0b001,
-PRESCALAR_RATE_8 = 0b010,
-PRESCALAR_RATE_16 = 0b011,
-PRESCALAR_RATE_32 = 0b100,
-PRESCALAR_RATE_64 = 0b001,
-PRESCALAR_RATE_128 = 0b010,
-PRESCALAR_RATE_256 = 0b111
-} prescalar_rate_t;
-
-# 41
-void timer0_start(
-timer0_mode_t mode,
-prescalar_use_t prescalar_use,
-prescalar_rate_t prescalar_rate,
-callback_isr_t timer0_isr
-);
-
-# 51
-void timer0_isr();
+# 1 "analog.c"
 
 # 49 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h"
 extern volatile unsigned char INDF0 @ 0x000;
@@ -7631,23 +7583,232 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
-# 8 "timer.c"
-callback_isr_t _timer0_callback = ((void*)0);
+# 26 "/home/bruno/Programs/microchip/xc8/v1.37/include/htc.h"
+extern const char __xc8_OPTIM_SPEED;
 
-void timer0_start( timer0_mode_t mode, prescalar_use_t prescalar_use, prescalar_rate_t prescalar_rate, callback_isr_t timer0_callback ) {
-OPTION_REGbits.TMR0CS = mode;
-OPTION_REGbits.PSA = prescalar_use ? 0 : 1;
-OPTION_REGbits.PS = prescalar_rate;
+extern double __fpnormalize(double);
 
-_timer0_callback = timer0_callback;
 
-INTCONbits.TMR0IF = 0;
-INTCONbits.TMR0IE = 1;
+# 13 "/home/bruno/Programs/microchip/xc8/v1.37/include/xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+
+
+# 27 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic.h"
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+# 77
+extern unsigned int flash_read(unsigned short addr);
+
+# 114 "/home/bruno/Programs/microchip/xc8/v1.37/include/eeprom_routines.h"
+extern void eeprom_write(unsigned char addr, unsigned char value);
+extern unsigned char eeprom_read(unsigned char addr);
+extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
+extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
+
+
+# 151 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic.h"
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+# 186
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
+
+# 37 "types.h"
+typedef unsigned char byte;
+
+
+typedef unsigned char uint8_t;
+
+
+typedef unsigned int uint16_t;
+
+
+typedef unsigned long uint32_t;
+
+# 51
+typedef void (*callback_isr_t)(void);
+
+# 13 "analog.h"
+typedef enum analog_voltage_reference_positive_e {
+analog_voltage_reference_positive_vdd = 0b00,
+analog_voltage_reference_positive_vrefp = 0b01,
+analog_voltage_reference_positive_fvr = 0b11
+} analog_voltage_reference_positive_t;
+
+typedef enum analog_voltage_reference_negative_e {
+analog_voltage_reference_negative_vss = 0b0,
+analog_voltage_reference_negative_vrefm = 0b1
+} analog_voltage_reference_negative_t;
+
+typedef enum analog_conversion_clock_e {
+analog_conversion_clock_fosc_2 = 0b000,
+analog_conversion_clock_fosc_4 = 0b100,
+analog_conversion_clock_fosc_8 = 0b001,
+analog_conversion_clock_fosc_16 = 0b101,
+analog_conversion_clock_fosc_32 = 0b010,
+analog_conversion_clock_fosc_64 = 0b110,
+analog_conversion_clock_frc = 0b011
+} analog_conversion_clock_t;
+
+# 37
+typedef enum analog_result_format_e {
+
+analog_result_format_sign_magnitude = 0b0,
+
+analog_result_format_twos_compliment = 0b1
+} analog_result_format_t;
+
+# 47
+typedef enum analog_result_mode_bit_e {
+
+analog_result_mode_bit_12 = 0b0,
+
+analog_result_mode_bit_10 = 0b1
+} analog_result_mode_bit_t;
+
+# 58
+typedef enum analog_channel_select_e {
+analog_channel_select_0 = 0b00000
+} analog_channel_select_t;
+
+# 71
+void analog_start(
+analog_voltage_reference_positive_t voltage_reference_positive,
+analog_voltage_reference_negative_t voltage_reference_negative,
+analog_conversion_clock_t conversion_clock,
+analog_result_format_t analog_result_format,
+analog_result_mode_bit_t analog_result_mode_bit,
+analog_channel_select_t channel_select
+);
+
+# 85
+void analog_channel_select( analog_channel_select_t channel_select, uint8_t skip_delay );
+
+# 91
+uint16_t analog_read_lock();
+
+# 98
+void analog_read_interrupt( callback_isr_t analog_callback_done );
+
+# 104
+uint16_t analog_read_interrupt_get_value();
+
+# 110
+void analog_read_isr();
+
+# 6 "analog.c"
+callback_isr_t _analog_callback_isr;
+
+void analog_start(
+analog_voltage_reference_positive_t voltage_reference_positive,
+analog_voltage_reference_negative_t voltage_reference_negative,
+analog_conversion_clock_t conversion_clock,
+analog_result_format_t analog_result_format,
+analog_result_mode_bit_t analog_result_mode_bit,
+analog_channel_select_t channel_select
+) {
+_analog_callback_isr = ((void*)0);
+
+# 22
+TRISAbits.TRISA0 = 1;
+ANSELAbits.ANSA0 = 1;
+
+# 31
+ADCON1bits.ADCS = conversion_clock;
+
+ADCON1bits.ADPREF = voltage_reference_positive;
+ADCON1bits.ADNREF = voltage_reference_negative;
+
+ADCON1bits.ADFM = analog_result_format;
+
+ADCON0bits.ADRMD = analog_result_mode_bit;
+
+analog_channel_select( channel_select, 0 );
+
+ADCON0bits.GO = 0;
+
+ADCON0bits.ADON = 1;
 }
 
-void timer0_isr() {
-if( _timer0_callback ) {
-_timer0_callback();
+void analog_channel_select( analog_channel_select_t channel_select, uint8_t skip_delay ) {
+ADCON0bits.CHS = channel_select;
+ADCON2bits.CHSN = 0b1111;
+
+
+if( skip_delay ) {
+
+__nop();
 }
-INTCONbits.TMR0IF = 0;
+}
+
+uint16_t analog_read_interrupt_get_value() {
+
+if( ADCON1bits.ADFM == analog_result_format_sign_magnitude ) {
+
+uint8_t shift = ADCON0bits.ADRMD == analog_result_mode_bit_12 ? 16-12 : 16-10;
+
+uint16_t result = ADRES;
+
+uint8_t sign = result & 0x0001;
+
+result = result >> shift;
+
+if( sign ) {
+result = -result;
+}
+
+return result;
+
+} else {
+
+
+uint16_t result = ADRES;
+if( result & 0x8000 ) {
+
+result = ~result;
+
+result++;
+
+result = -result;
+}
+return result;
+}
+}
+
+uint16_t analog_read_lock() {
+
+ADCON0bits.GO = 1;
+
+while( ADCON0bits.GO ) { __nop(); }
+
+return analog_read_interrupt_get_value();
+}
+
+void analog_read_interrupt( callback_isr_t analog_callback_done ) {
+
+_analog_callback_isr = analog_callback_done;
+
+INTCONbits.PEIE = 1;
+
+PIR1bits.ADIF = 0;
+
+PIE1bits.ADIE = 1;
+
+ADCON0bits.GO = 1;
+}
+
+void analog_read_isr() {
+
+PIR1bits.ADIF = 0;
+
+if( _analog_callback_isr ) {
+_analog_callback_isr();
+_analog_callback_isr = ((void*)0);
+}
+
+PIE1bits.ADIE = 0;
 }

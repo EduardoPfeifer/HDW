@@ -1,7 +1,7 @@
 
 # 1 "usart.c"
 
-# 32 "types.h"
+# 37 "types.h"
 typedef unsigned char byte;
 
 
@@ -13,10 +13,10 @@ typedef unsigned int uint16_t;
 
 typedef unsigned long uint32_t;
 
-# 46
+# 51
 typedef void (*callback_isr_t)(void);
 
-# 16 "usart.h"
+# 17 "usart.h"
 typedef enum {
 USART_SYNC_MODE_ASYNCHRONOUS = 0,
 USART_SYNC_MODE_SYNCHRONOUS = 1
@@ -36,31 +36,31 @@ const uint32_t USART_BAUD_RATE_19200 = 19200ul;
 const uint32_t USART_BAUD_RATE_57600 = 57600ul;
 const uint32_t USART_BAUD_RATE_115200 = 115200ul;
 
-# 42
+# 43
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
 
-# 49
+# 50
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
 
-# 55
+# 56
 void usart_transmite_interrupt_isr();
 
-# 61
+# 62
 void usart_transmite_lock_write_message( char * message );
 
-# 67
+# 68
 byte usart_receive_lock_read_byte();
 
-# 75
+# 76
 uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
 
-# 81
+# 82
 void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
 
-# 87
+# 88
 void usart_receive_interrupt_isr();
 
-# 92
+# 93
 char* usart_receive_interrupt_get_message();
 
 # 49 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h"
@@ -7719,21 +7719,20 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 7 "usart.c"
-char _tx_buffer[256];
+# 8 "usart.c"
+char _tx_buffer[61];
 
-char* _tx_iterator = ((void*)0);
+char* _tx_buffer_iterator = ((void*)0);
 
-# 14
 callback_isr_t _tx_isr_done_callback = ((void*)0);
 
-char _rx_buffer[256];
 
-char* _rx_iterator = ((void*)0);
+char _rx_buffer[61];
 
-byte _rx_message_size;
+char* _rx_buffer_iterator = ((void*)0);
 
-# 25
+byte _rx_buffer_message_size;
+
 callback_isr_t _rx_isr_done_callback = ((void*)0);
 
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
@@ -7745,8 +7744,6 @@ RCSTAbits.SPEN = 1;
 TX1STAbits.SYNC = usart_sync_mode;
 
 
-
-
 RCSTAbits.CREN = 1;
 
 TRISCbits.TRISC7 = 1;
@@ -7755,12 +7752,13 @@ TRISCbits.TRISC7 = 1;
 TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
 RCSTAbits.RX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
 
-# 55
+# 48
 if( usart_sync_mode == USART_SYNC_MODE_ASYNCHRONOUS ) {
 BAUDCONbits.SCKP = 0;
 }
 
-# 63
+
+
 uint32_t fosc;
 switch( OSCCONbits.IRCF ) {
 case 0b1111: fosc = 16000000ul; break;
@@ -7799,12 +7797,12 @@ SPBRG = ( fosc / ( 4ul * baud_rate ) ) - 1ul; break;
 }
 }
 
-# 106
+# 97
 void usart_transmite_set_message( char * message ) {
 
 strcpy( _tx_buffer, message );
 
-_tx_iterator = _tx_buffer;
+_tx_buffer_iterator = _tx_buffer;
 }
 
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done ) {
@@ -7821,9 +7819,9 @@ PIE1bits.TXIE = 1;
 
 void usart_transmite_interrupt_isr() {
 
-if( *_tx_iterator ) {
-TXREG = *_tx_iterator;
-_tx_iterator++;
+if( *_tx_buffer_iterator ) {
+TXREG = *_tx_buffer_iterator;
+_tx_buffer_iterator++;
 
 } else {
 
@@ -7836,7 +7834,7 @@ PIE1bits.TXIE = 0;
 }
 }
 
-# 149
+# 140
 void usart_transmite_lock_write_byte( byte data ) {
 
 
@@ -7851,11 +7849,11 @@ void usart_transmite_lock_write_message( char * message ) {
 
 usart_transmite_set_message( message );
 
-while( *_tx_iterator ) {
+while( *_tx_buffer_iterator ) {
 
-usart_transmite_lock_write_byte( *_tx_iterator );
+usart_transmite_lock_write_byte( *_tx_buffer_iterator );
 
-_tx_iterator++;
+_tx_buffer_iterator++;
 }
 
 PIE1bits.TXIE = 0;
@@ -7863,7 +7861,7 @@ PIE1bits.TXIE = 0;
 
 byte usart_receive_lock_read_byte() {
 
-# 184
+# 175
 while( !PIR1bits.RCIF ) {
 __nop();
 }
@@ -7872,14 +7870,22 @@ return RCREG;
 }
 
 uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
+
 char* cursor = buffer;
+
 uint8_t i;
+
 for( i = 0; i < size; i++ ) {
+
 byte letter = usart_receive_lock_read_byte();
+
 if( letter == '\r' ) {
+
 *cursor = '\0';
 break;
+
 } else {
+
 *cursor = letter;
 cursor++;
 }
@@ -7890,8 +7896,8 @@ return i;
 
 void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done ) {
 
-_rx_iterator = _rx_buffer;
-_rx_message_size = 0;
+_rx_buffer_iterator = _rx_buffer;
+_rx_buffer_message_size = 0;
 _rx_isr_done_callback = usart_callback_receive_done;
 
 INTCONbits.PEIE = 1;
@@ -7902,12 +7908,12 @@ PIE1bits.RCIE = 1;
 
 void usart_receive_interrupt_isr() {
 
-*_rx_iterator = RCREG;
+*_rx_buffer_iterator = RCREG;
 
-_rx_message_size++;
+_rx_buffer_message_size++;
 
-if( *_rx_iterator == '\r' ) {
-*_rx_iterator = '\0';
+if( *_rx_buffer_iterator == '\r' ) {
+*_rx_buffer_iterator = '\0';
 
 if( PIE1bits.RCIE && _rx_isr_done_callback ) {
 
@@ -7915,11 +7921,12 @@ _rx_isr_done_callback();
 }
 
 PIE1bits.RCIE = 0;
-} else if( _rx_message_size == 255 ) {
+} else if( _rx_buffer_message_size == (61-1) ) {
 
 PIE1bits.RCIE = 0;
 } else {
-_rx_iterator++;
+
+_rx_buffer_iterator++;
 }
 }
 

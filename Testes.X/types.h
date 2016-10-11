@@ -28,6 +28,11 @@
 /**Indica se o pino será de saída*/
 #define OUTPUT LOW
 
+/**Condição Booleana para Verdadeiro*/
+#define TRUE HIGH
+/**Condição Booleana para False*/
+#define FALSE LOW
+
 /**Tipo para representar um byte (8 bits)*/
 typedef unsigned char byte;
 

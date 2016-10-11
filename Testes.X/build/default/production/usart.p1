@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F6 `(v ~T0 @X0 0 tf ]
-"27 usart.c
+"23 usart.c
 [c E8 0 1 .. ]
 [n E8 . USART_SYNC_MODE_ASYNCHRONOUS USART_SYNC_MODE_SYNCHRONOUS  ]
 "4204 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
@@ -38,7 +38,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S224 . . ]
 "4324
 [v _TXSTAbits `VS224 ~T0 @X0 0 e@414 ]
-"43 usart.c
+"37 usart.c
 [c E12 0 .. ]
 [n E12 . USART_9BIT_MODE_NOT_IMPLEMENTED  ]
 "4524 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
@@ -104,75 +104,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS40 ~T0 @X0 0 e@17 ]
 "3781
 [v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-[; ;types.h: 32: typedef unsigned char byte;
-[; ;types.h: 35: typedef unsigned char uint8_t;
-[; ;types.h: 38: typedef unsigned int uint16_t;
-[; ;types.h: 41: typedef unsigned long uint32_t;
-[; ;types.h: 46: typedef void (*callback_isr_t)(void);
-[; ;usart.h: 16: typedef enum {
-[; ;usart.h: 17: USART_SYNC_MODE_ASYNCHRONOUS = 0,
-[; ;usart.h: 18: USART_SYNC_MODE_SYNCHRONOUS = 1
-[; ;usart.h: 19: } usart_sync_mode_t;
-[; ;usart.h: 21: typedef enum {
-[; ;usart.h: 22: USART_9BIT_MODE_NOT_IMPLEMENTED = 0
-[; ;usart.h: 23: } usart_9bit_mode_t;
-"26 usart.h
+[; ;types.h: 37: typedef unsigned char byte;
+[; ;types.h: 40: typedef unsigned char uint8_t;
+[; ;types.h: 43: typedef unsigned int uint16_t;
+[; ;types.h: 46: typedef unsigned long uint32_t;
+[; ;types.h: 51: typedef void (*callback_isr_t)(void);
+[; ;usart.h: 17: typedef enum {
+[; ;usart.h: 18: USART_SYNC_MODE_ASYNCHRONOUS = 0,
+[; ;usart.h: 19: USART_SYNC_MODE_SYNCHRONOUS = 1
+[; ;usart.h: 20: } usart_sync_mode_t;
+[; ;usart.h: 22: typedef enum {
+[; ;usart.h: 23: USART_9BIT_MODE_NOT_IMPLEMENTED = 0
+[; ;usart.h: 24: } usart_9bit_mode_t;
+"27 usart.h
 [v _USART_BAUD_RATE_300 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_300
 -> 300 `ul
 ]
-[; ;usart.h: 26: const uint32_t USART_BAUD_RATE_300 = 300ul;
-"27
+[; ;usart.h: 27: const uint32_t USART_BAUD_RATE_300 = 300ul;
+"28
 [v _USART_BAUD_RATE_1200 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_1200
 -> 1200 `ul
 ]
-[; ;usart.h: 27: const uint32_t USART_BAUD_RATE_1200 = 1200ul;
-"28
+[; ;usart.h: 28: const uint32_t USART_BAUD_RATE_1200 = 1200ul;
+"29
 [v _USART_BAUD_RATE_2400 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_2400
 -> 2400 `ul
 ]
-[; ;usart.h: 28: const uint32_t USART_BAUD_RATE_2400 = 2400ul;
-"29
+[; ;usart.h: 29: const uint32_t USART_BAUD_RATE_2400 = 2400ul;
+"30
 [v _USART_BAUD_RATE_9600 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_9600
 -> 9600 `ul
 ]
-[; ;usart.h: 29: const uint32_t USART_BAUD_RATE_9600 = 9600ul;
-"30
+[; ;usart.h: 30: const uint32_t USART_BAUD_RATE_9600 = 9600ul;
+"31
 [v _USART_BAUD_RATE_10417 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_10417
 -> 10417 `ul
 ]
-[; ;usart.h: 30: const uint32_t USART_BAUD_RATE_10417 = 10417ul;
-"31
+[; ;usart.h: 31: const uint32_t USART_BAUD_RATE_10417 = 10417ul;
+"32
 [v _USART_BAUD_RATE_19200 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_19200
 -> 19200 `ul
 ]
-[; ;usart.h: 31: const uint32_t USART_BAUD_RATE_19200 = 19200ul;
-"32
+[; ;usart.h: 32: const uint32_t USART_BAUD_RATE_19200 = 19200ul;
+"33
 [v _USART_BAUD_RATE_57600 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_57600
 -> 57600 `ul
 ]
-[; ;usart.h: 32: const uint32_t USART_BAUD_RATE_57600 = 57600ul;
-"33
+[; ;usart.h: 33: const uint32_t USART_BAUD_RATE_57600 = 57600ul;
+"34
 [v _USART_BAUD_RATE_115200 `Cul ~T0 @X0 1 e ]
 [i _USART_BAUD_RATE_115200
 -> 115200 `ul
 ]
-[; ;usart.h: 33: const uint32_t USART_BAUD_RATE_115200 = 115200ul;
-[; ;usart.h: 42: void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
-[; ;usart.h: 49: void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
-[; ;usart.h: 55: void usart_transmite_interrupt_isr();
-[; ;usart.h: 61: void usart_transmite_lock_write_message( char * message );
-[; ;usart.h: 67: byte usart_receive_lock_read_byte();
-[; ;usart.h: 75: uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
-[; ;usart.h: 81: void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
-[; ;usart.h: 87: void usart_receive_interrupt_isr();
-[; ;usart.h: 92: char* usart_receive_interrupt_get_message();
+[; ;usart.h: 34: const uint32_t USART_BAUD_RATE_115200 = 115200ul;
+[; ;usart.h: 43: void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
+[; ;usart.h: 50: void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
+[; ;usart.h: 56: void usart_transmite_interrupt_isr();
+[; ;usart.h: 62: void usart_transmite_lock_write_message( char * message );
+[; ;usart.h: 68: byte usart_receive_lock_read_byte();
+[; ;usart.h: 76: uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
+[; ;usart.h: 82: void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
+[; ;usart.h: 88: void usart_receive_interrupt_isr();
+[; ;usart.h: 93: char* usart_receive_interrupt_get_message();
 [; ;pic16lf1786.h: 49: extern volatile unsigned char INDF0 @ 0x000;
 "51 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
 [; ;pic16lf1786.h: 51: asm("INDF0 equ 00h");
@@ -5745,177 +5745,177 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 56: extern char * strichr(const char *, int);
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
-"7 usart.c
-[v __tx_buffer `uc ~T0 @X0 -> 256 `i e ]
-[; ;usart.c: 7: char _tx_buffer[256];
-"9
-[v __tx_iterator `*uc ~T0 @X0 1 e ]
-[i __tx_iterator
+"8 usart.c
+[v __tx_buffer `uc ~T0 @X0 -> 61 `i e ]
+[; ;usart.c: 8: char _tx_buffer[61];
+"10
+[v __tx_buffer_iterator `*uc ~T0 @X0 1 e ]
+[i __tx_buffer_iterator
 -> -> -> 0 `i `*v `*uc
 ]
-[; ;usart.c: 9: char* _tx_iterator = ((void*)0);
-"14
+[; ;usart.c: 10: char* _tx_buffer_iterator = ((void*)0);
+"12
 [v __tx_isr_done_callback `*F6 ~T0 @X0 1 e ]
 [i __tx_isr_done_callback
 -> -> -> 0 `i `*v `*F6
 ]
-[; ;usart.c: 14: callback_isr_t _tx_isr_done_callback = ((void*)0);
-"16
-[v __rx_buffer `uc ~T0 @X0 -> 256 `i e ]
-[; ;usart.c: 16: char _rx_buffer[256];
-"18
-[v __rx_iterator `*uc ~T0 @X0 1 e ]
-[i __rx_iterator
+[; ;usart.c: 12: callback_isr_t _tx_isr_done_callback = ((void*)0);
+"15
+[v __rx_buffer `uc ~T0 @X0 -> 61 `i e ]
+[; ;usart.c: 15: char _rx_buffer[61];
+"17
+[v __rx_buffer_iterator `*uc ~T0 @X0 1 e ]
+[i __rx_buffer_iterator
 -> -> -> 0 `i `*v `*uc
 ]
-[; ;usart.c: 18: char* _rx_iterator = ((void*)0);
-"20
-[v __rx_message_size `uc ~T0 @X0 1 e ]
-[; ;usart.c: 20: byte _rx_message_size;
-"25
+[; ;usart.c: 17: char* _rx_buffer_iterator = ((void*)0);
+"19
+[v __rx_buffer_message_size `uc ~T0 @X0 1 e ]
+[; ;usart.c: 19: byte _rx_buffer_message_size;
+"21
 [v __rx_isr_done_callback `*F6 ~T0 @X0 1 e ]
 [i __rx_isr_done_callback
 -> -> -> 0 `i `*v `*F6
 ]
-[; ;usart.c: 25: callback_isr_t _rx_isr_done_callback = ((void*)0);
-"27
+[; ;usart.c: 21: callback_isr_t _rx_isr_done_callback = ((void*)0);
+"23
 [v _usart_start `(v ~T0 @X0 1 ef2`E8`ul ]
 {
-[; ;usart.c: 27: void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
+[; ;usart.c: 23: void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate ) {
 [e :U _usart_start ]
 [v _usart_sync_mode `E8 ~T0 @X0 1 r1 ]
 [v _baud_rate `ul ~T0 @X0 1 r2 ]
 [f ]
-[; ;usart.c: 29: TX1STAbits.TXEN = 1;
-"29
+[; ;usart.c: 25: TX1STAbits.TXEN = 1;
+"25
 [e = . . _TX1STAbits 0 5 -> -> 1 `i `uc ]
-[; ;usart.c: 31: RCSTAbits.SPEN = 1;
-"31
+[; ;usart.c: 27: RCSTAbits.SPEN = 1;
+"27
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;usart.c: 33: TX1STAbits.SYNC = usart_sync_mode;
-"33
+[; ;usart.c: 29: TX1STAbits.SYNC = usart_sync_mode;
+"29
 [e = . . _TX1STAbits 0 4 -> _usart_sync_mode `uc ]
-[; ;usart.c: 38: RCSTAbits.CREN = 1;
-"38
+[; ;usart.c: 32: RCSTAbits.CREN = 1;
+"32
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;usart.c: 40: TRISCbits.TRISC7 = 1;
-"40
+[; ;usart.c: 34: TRISCbits.TRISC7 = 1;
+"34
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-[; ;usart.c: 43: TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
-"43
+[; ;usart.c: 37: TXSTAbits.TX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
+"37
 [e = . . _TXSTAbits 0 6 -> . `E12 0 `uc ]
-[; ;usart.c: 44: RCSTAbits.RX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
-"44
+[; ;usart.c: 38: RCSTAbits.RX9 = USART_9BIT_MODE_NOT_IMPLEMENTED;
+"38
 [e = . . _RCSTAbits 0 6 -> . `E12 0 `uc ]
-[; ;usart.c: 55: if( usart_sync_mode == USART_SYNC_MODE_ASYNCHRONOUS ) {
-"55
+[; ;usart.c: 48: if( usart_sync_mode == USART_SYNC_MODE_ASYNCHRONOUS ) {
+"48
 [e $ ! == -> _usart_sync_mode `i -> . `E8 0 `i 618  ]
 {
-[; ;usart.c: 56: BAUDCONbits.SCKP = 0;
-"56
+[; ;usart.c: 49: BAUDCONbits.SCKP = 0;
+"49
 [e = . . _BAUDCONbits 0 4 -> -> 0 `i `uc ]
-"57
+"50
 }
 [e :U 618 ]
-"63
+"54
 [v _fosc `ul ~T0 @X0 1 a ]
-[; ;usart.c: 57: }
-[; ;usart.c: 63: uint32_t fosc;
-[; ;usart.c: 64: switch( OSCCONbits.IRCF ) {
-"64
+[; ;usart.c: 50: }
+[; ;usart.c: 54: uint32_t fosc;
+[; ;usart.c: 55: switch( OSCCONbits.IRCF ) {
+"55
 [e $U 620  ]
 {
-[; ;usart.c: 65: case 0b1111: fosc = 16000000ul; break;
-"65
+[; ;usart.c: 56: case 0b1111: fosc = 16000000ul; break;
+"56
 [e :U 621 ]
 [e = _fosc -> 16000000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 66: case 0b1110: fosc = 8000000ul; break;
-"66
+[; ;usart.c: 57: case 0b1110: fosc = 8000000ul; break;
+"57
 [e :U 622 ]
 [e = _fosc -> 8000000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 67: case 0b1101: fosc = 4000000ul; break;
-"67
+[; ;usart.c: 58: case 0b1101: fosc = 4000000ul; break;
+"58
 [e :U 623 ]
 [e = _fosc -> 4000000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 68: case 0b1100: fosc = 2000000ul; break;
-"68
+[; ;usart.c: 59: case 0b1100: fosc = 2000000ul; break;
+"59
 [e :U 624 ]
 [e = _fosc -> 2000000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 69: case 0b1011: fosc = 1000000ul; break;
-"69
+[; ;usart.c: 60: case 0b1011: fosc = 1000000ul; break;
+"60
 [e :U 625 ]
 [e = _fosc -> 1000000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 70: case 0b1010: fosc = 500000ul; break;
-"70
+[; ;usart.c: 61: case 0b1010: fosc = 500000ul; break;
+"61
 [e :U 626 ]
 [e = _fosc -> 500000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 71: case 0b1001: fosc = 250000ul; break;
-"71
+[; ;usart.c: 62: case 0b1001: fosc = 250000ul; break;
+"62
 [e :U 627 ]
 [e = _fosc -> 250000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 72: case 0b1000: fosc = 125000ul; break;
-"72
+[; ;usart.c: 63: case 0b1000: fosc = 125000ul; break;
+"63
 [e :U 628 ]
 [e = _fosc -> 125000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 73: case 0b0111: fosc = 500000ul; break;
-"73
+[; ;usart.c: 64: case 0b0111: fosc = 500000ul; break;
+"64
 [e :U 629 ]
 [e = _fosc -> 500000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 74: case 0b0110: fosc = 250000ul; break;
-"74
+[; ;usart.c: 65: case 0b0110: fosc = 250000ul; break;
+"65
 [e :U 630 ]
 [e = _fosc -> 250000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 75: case 0b0101: fosc = 125000ul; break;
-"75
+[; ;usart.c: 66: case 0b0101: fosc = 125000ul; break;
+"66
 [e :U 631 ]
 [e = _fosc -> 125000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 76: case 0b0100: fosc = 62500ul; break;
-"76
+[; ;usart.c: 67: case 0b0100: fosc = 62500ul; break;
+"67
 [e :U 632 ]
 [e = _fosc -> 62500 `ul ]
 [e $U 619  ]
-[; ;usart.c: 77: case 0b0011: fosc = 31250ul; break;
-"77
+[; ;usart.c: 68: case 0b0011: fosc = 31250ul; break;
+"68
 [e :U 633 ]
 [e = _fosc -> 31250 `ul ]
 [e $U 619  ]
-[; ;usart.c: 78: case 0b0010: fosc = 31250ul; break;
-"78
+[; ;usart.c: 69: case 0b0010: fosc = 31250ul; break;
+"69
 [e :U 634 ]
 [e = _fosc -> 31250 `ul ]
 [e $U 619  ]
-[; ;usart.c: 79: case 0b0001: fosc = 31000ul; break;
-"79
+[; ;usart.c: 70: case 0b0001: fosc = 31000ul; break;
+"70
 [e :U 635 ]
 [e = _fosc -> 31000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 80: case 0b0000: fosc = 31000ul; break;
-"80
+[; ;usart.c: 71: case 0b0000: fosc = 31000ul; break;
+"71
 [e :U 636 ]
 [e = _fosc -> 31000 `ul ]
 [e $U 619  ]
-[; ;usart.c: 81: default:
-"81
+[; ;usart.c: 72: default:
+"72
 [e :U 637 ]
-[; ;usart.c: 82: fosc = 0ul;
-"82
+[; ;usart.c: 73: fosc = 0ul;
+"73
 [e = _fosc -> 0 `ul ]
-"83
+"74
 }
-[; ;usart.c: 83: }
+[; ;usart.c: 74: }
 [e $U 619  ]
-"64
+"55
 [e :U 620 ]
 [e [\ . . _OSCCONbits 1 2 , $ -> -> 15 `i `uc 621
  , $ -> -> 14 `i `uc 622
@@ -5934,389 +5934,389 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 1 `i `uc 635
  , $ -> -> 0 `i `uc 636
  637 ]
-"83
+"74
 [e :U 619 ]
-[; ;usart.c: 85: if( OSCCONbits.SPLLEN && ( fosc == 16000000ul || fosc == 8000000ul ) ) {
-"85
+[; ;usart.c: 76: if( OSCCONbits.SPLLEN && ( fosc == 16000000ul || fosc == 8000000ul ) ) {
+"76
 [e $ ! && != -> . . _OSCCONbits 0 7 `i -> -> -> 0 `i `Vuc `i || == _fosc -> 16000000 `ul == _fosc -> 8000000 `ul 638  ]
 {
-[; ;usart.c: 86: fosc = 32000000ul;
-"86
+[; ;usart.c: 77: fosc = 32000000ul;
+"77
 [e = _fosc -> 32000000 `ul ]
-"87
+"78
 }
 [e :U 638 ]
-"90
+"81
 [v _baud_switch `uc ~T0 @X0 1 a ]
-[; ;usart.c: 87: }
-[; ;usart.c: 90: uint8_t baud_switch = SYNC << 2 | BRG16 << 1 | BRGH << 0;
+[; ;usart.c: 78: }
+[; ;usart.c: 81: uint8_t baud_switch = SYNC << 2 | BRG16 << 1 | BRGH << 0;
 [e = _baud_switch -> | | << -> _SYNC `i -> 2 `i << -> _BRG16 `i -> 1 `i << -> _BRGH `i -> 0 `i `uc ]
-[; ;usart.c: 92: switch( baud_switch ) {
-"92
+[; ;usart.c: 83: switch( baud_switch ) {
+"83
 [e $U 640  ]
 {
-[; ;usart.c: 93: case 0b000: SPBRG = ( fosc / ( 64ul * baud_rate ) ) - 1ul; break;
-"93
+[; ;usart.c: 84: case 0b000: SPBRG = ( fosc / ( 64ul * baud_rate ) ) - 1ul; break;
+"84
 [e :U 641 ]
 [e = _SPBRG -> - / _fosc * -> 64 `ul _baud_rate -> 1 `ul `uc ]
 [e $U 639  ]
-[; ;usart.c: 94: case 0b001:
-"94
+[; ;usart.c: 85: case 0b001:
+"85
 [e :U 642 ]
-"95
+"86
 [e :U 643 ]
-[; ;usart.c: 95: case 0b010: SPBRG = ( fosc / ( 16ul * baud_rate ) ) - 1ul; break;
+[; ;usart.c: 86: case 0b010: SPBRG = ( fosc / ( 16ul * baud_rate ) ) - 1ul; break;
 [e = _SPBRG -> - / _fosc * -> 16 `ul _baud_rate -> 1 `ul `uc ]
 [e $U 639  ]
-[; ;usart.c: 96: default:
-"96
+[; ;usart.c: 87: default:
+"87
 [e :U 644 ]
-[; ;usart.c: 97: SPBRG = ( fosc / ( 4ul * baud_rate ) ) - 1ul; break;
-"97
+[; ;usart.c: 88: SPBRG = ( fosc / ( 4ul * baud_rate ) ) - 1ul; break;
+"88
 [e = _SPBRG -> - / _fosc * -> 4 `ul _baud_rate -> 1 `ul `uc ]
 [e $U 639  ]
-"98
+"89
 }
-[; ;usart.c: 98: }
+[; ;usart.c: 89: }
 [e $U 639  ]
-"92
+"83
 [e :U 640 ]
 [e [\ _baud_switch , $ -> -> 0 `i `uc 641
  , $ -> -> 1 `i `uc 642
  , $ -> -> 2 `i `uc 643
  644 ]
-"98
+"89
 [e :U 639 ]
-[; ;usart.c: 99: }
-"99
+[; ;usart.c: 90: }
+"90
 [e :UE 617 ]
 }
-"106
+"97
 [v _usart_transmite_set_message `(v ~T0 @X0 1 ef1`*uc ]
 {
-[; ;usart.c: 106: void usart_transmite_set_message( char * message ) {
+[; ;usart.c: 97: void usart_transmite_set_message( char * message ) {
 [e :U _usart_transmite_set_message ]
 [v _message `*uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 108: strcpy( _tx_buffer, message );
-"108
+[; ;usart.c: 99: strcpy( _tx_buffer, message );
+"99
 [e ( _strcpy (2 , &U __tx_buffer -> _message `*Cuc ]
-[; ;usart.c: 110: _tx_iterator = _tx_buffer;
-"110
-[e = __tx_iterator &U __tx_buffer ]
-[; ;usart.c: 111: }
-"111
+[; ;usart.c: 101: _tx_buffer_iterator = _tx_buffer;
+"101
+[e = __tx_buffer_iterator &U __tx_buffer ]
+[; ;usart.c: 102: }
+"102
 [e :UE 645 ]
 }
-"113
+"104
 [v _usart_transmite_interrupt_write_message `(v ~T0 @X0 1 ef2`*uc`*F6 ]
 {
-[; ;usart.c: 113: void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done ) {
+[; ;usart.c: 104: void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done ) {
 [e :U _usart_transmite_interrupt_write_message ]
 [v _message `*uc ~T0 @X0 1 r1 ]
 [v _usart_callback_transmit_done `*F6 ~T0 @X0 1 r2 ]
 [f ]
-[; ;usart.c: 115: usart_transmite_set_message(message);
-"115
+[; ;usart.c: 106: usart_transmite_set_message(message);
+"106
 [e ( _usart_transmite_set_message (1 _message ]
-[; ;usart.c: 117: _tx_isr_done_callback = usart_callback_transmit_done;
-"117
+[; ;usart.c: 108: _tx_isr_done_callback = usart_callback_transmit_done;
+"108
 [e = __tx_isr_done_callback _usart_callback_transmit_done ]
-[; ;usart.c: 119: INTCONbits.PEIE = 1;
-"119
+[; ;usart.c: 110: INTCONbits.PEIE = 1;
+"110
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;usart.c: 122: PIE1bits.TXIE = 1;
-"122
+[; ;usart.c: 113: PIE1bits.TXIE = 1;
+"113
 [e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-[; ;usart.c: 123: }
-"123
+[; ;usart.c: 114: }
+"114
 [e :UE 646 ]
 }
-"125
+"116
 [v _usart_transmite_interrupt_isr `(v ~T0 @X0 1 ef ]
 {
-[; ;usart.c: 125: void usart_transmite_interrupt_isr() {
+[; ;usart.c: 116: void usart_transmite_interrupt_isr() {
 [e :U _usart_transmite_interrupt_isr ]
 [f ]
-[; ;usart.c: 127: if( *_tx_iterator ) {
-"127
-[e $ ! != -> *U __tx_iterator `i -> -> -> 0 `i `uc `i 648  ]
+[; ;usart.c: 118: if( *_tx_buffer_iterator ) {
+"118
+[e $ ! != -> *U __tx_buffer_iterator `i -> -> -> 0 `i `uc `i 648  ]
 {
-[; ;usart.c: 128: TXREG = *_tx_iterator;
-"128
-[e = _TXREG *U __tx_iterator ]
-[; ;usart.c: 129: _tx_iterator++;
-"129
-[e ++ __tx_iterator * -> -> 1 `i `x -> -> # *U __tx_iterator `i `x ]
-"131
+[; ;usart.c: 119: TXREG = *_tx_buffer_iterator;
+"119
+[e = _TXREG *U __tx_buffer_iterator ]
+[; ;usart.c: 120: _tx_buffer_iterator++;
+"120
+[e ++ __tx_buffer_iterator * -> -> 1 `i `x -> -> # *U __tx_buffer_iterator `i `x ]
+"122
 }
-[; ;usart.c: 131: } else {
+[; ;usart.c: 122: } else {
 [e $U 649  ]
 [e :U 648 ]
 {
-[; ;usart.c: 133: if( PIE1bits.TXIE && _tx_isr_done_callback ) {
-"133
+[; ;usart.c: 124: if( PIE1bits.TXIE && _tx_isr_done_callback ) {
+"124
 [e $ ! && != -> . . _PIE1bits 0 4 `i -> -> -> 0 `i `Vuc `i != __tx_isr_done_callback -> -> 0 `i `*F6 650  ]
 {
-[; ;usart.c: 135: _tx_isr_done_callback();
-"135
+[; ;usart.c: 126: _tx_isr_done_callback();
+"126
 [e ( *U __tx_isr_done_callback ..  ]
-"136
+"127
 }
 [e :U 650 ]
-[; ;usart.c: 136: }
-[; ;usart.c: 138: PIE1bits.TXIE = 0;
-"138
+[; ;usart.c: 127: }
+[; ;usart.c: 129: PIE1bits.TXIE = 0;
+"129
 [e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"139
+"130
 }
 [e :U 649 ]
-[; ;usart.c: 139: }
-[; ;usart.c: 140: }
-"140
+[; ;usart.c: 130: }
+[; ;usart.c: 131: }
+"131
 [e :UE 647 ]
 }
-"149
+"140
 [v _usart_transmite_lock_write_byte `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;usart.c: 149: void usart_transmite_lock_write_byte( byte data ) {
+[; ;usart.c: 140: void usart_transmite_lock_write_byte( byte data ) {
 [e :U _usart_transmite_lock_write_byte ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 152: while( !PIR1bits.TXIF ) {
-"152
+[; ;usart.c: 143: while( !PIR1bits.TXIF ) {
+"143
 [e $U 652  ]
 [e :U 653 ]
 {
-[; ;usart.c: 153: __nop();
-"153
+[; ;usart.c: 144: __nop();
+"144
 [e ( ___nop ..  ]
-"154
+"145
 }
 [e :U 652 ]
-"152
+"143
 [e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 653  ]
 [e :U 654 ]
-[; ;usart.c: 154: }
-[; ;usart.c: 156: TXREG = data;
-"156
+[; ;usart.c: 145: }
+[; ;usart.c: 147: TXREG = data;
+"147
 [e = _TXREG _data ]
-[; ;usart.c: 157: }
-"157
+[; ;usart.c: 148: }
+"148
 [e :UE 651 ]
 }
-"159
+"150
 [v _usart_transmite_lock_write_message `(v ~T0 @X0 1 ef1`*uc ]
 {
-[; ;usart.c: 159: void usart_transmite_lock_write_message( char * message ) {
+[; ;usart.c: 150: void usart_transmite_lock_write_message( char * message ) {
 [e :U _usart_transmite_lock_write_message ]
 [v _message `*uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 161: usart_transmite_set_message( message );
-"161
+[; ;usart.c: 152: usart_transmite_set_message( message );
+"152
 [e ( _usart_transmite_set_message (1 _message ]
-[; ;usart.c: 163: while( *_tx_iterator ) {
-"163
+[; ;usart.c: 154: while( *_tx_buffer_iterator ) {
+"154
 [e $U 656  ]
 [e :U 657 ]
 {
-[; ;usart.c: 165: usart_transmite_lock_write_byte( *_tx_iterator );
-"165
-[e ( _usart_transmite_lock_write_byte (1 *U __tx_iterator ]
-[; ;usart.c: 167: _tx_iterator++;
-"167
-[e ++ __tx_iterator * -> -> 1 `i `x -> -> # *U __tx_iterator `i `x ]
-"168
+[; ;usart.c: 156: usart_transmite_lock_write_byte( *_tx_buffer_iterator );
+"156
+[e ( _usart_transmite_lock_write_byte (1 *U __tx_buffer_iterator ]
+[; ;usart.c: 158: _tx_buffer_iterator++;
+"158
+[e ++ __tx_buffer_iterator * -> -> 1 `i `x -> -> # *U __tx_buffer_iterator `i `x ]
+"159
 }
 [e :U 656 ]
-"163
-[e $ != -> *U __tx_iterator `i -> -> -> 0 `i `uc `i 657  ]
+"154
+[e $ != -> *U __tx_buffer_iterator `i -> -> -> 0 `i `uc `i 657  ]
 [e :U 658 ]
-[; ;usart.c: 168: }
-[; ;usart.c: 170: PIE1bits.TXIE = 0;
-"170
+[; ;usart.c: 159: }
+[; ;usart.c: 161: PIE1bits.TXIE = 0;
+"161
 [e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-[; ;usart.c: 171: }
-"171
+[; ;usart.c: 162: }
+"162
 [e :UE 655 ]
 }
-"173
+"164
 [v _usart_receive_lock_read_byte `(uc ~T0 @X0 1 ef ]
 {
-[; ;usart.c: 173: byte usart_receive_lock_read_byte() {
+[; ;usart.c: 164: byte usart_receive_lock_read_byte() {
 [e :U _usart_receive_lock_read_byte ]
 [f ]
-[; ;usart.c: 184: while( !PIR1bits.RCIF ) {
-"184
+[; ;usart.c: 175: while( !PIR1bits.RCIF ) {
+"175
 [e $U 660  ]
 [e :U 661 ]
 {
-[; ;usart.c: 185: __nop();
-"185
+[; ;usart.c: 176: __nop();
+"176
 [e ( ___nop ..  ]
-"186
+"177
 }
 [e :U 660 ]
-"184
+"175
 [e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 661  ]
 [e :U 662 ]
-[; ;usart.c: 186: }
-[; ;usart.c: 188: return RCREG;
-"188
+[; ;usart.c: 177: }
+[; ;usart.c: 179: return RCREG;
+"179
 [e ) _RCREG ]
 [e $UE 659  ]
-[; ;usart.c: 189: }
-"189
+[; ;usart.c: 180: }
+"180
 [e :UE 659 ]
 }
-"191
+"182
 [v _usart_receive_lock_read_message `(uc ~T0 @X0 1 ef2`*uc`uc ]
 {
-[; ;usart.c: 191: uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
+[; ;usart.c: 182: uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size ) {
 [e :U _usart_receive_lock_read_message ]
 [v _buffer `*uc ~T0 @X0 1 r1 ]
 [v _size `uc ~T0 @X0 1 r2 ]
 [f ]
-"192
+"184
 [v _cursor `*uc ~T0 @X0 1 a ]
-[; ;usart.c: 192: char* cursor = buffer;
+[; ;usart.c: 184: char* cursor = buffer;
 [e = _cursor _buffer ]
-"193
+"186
 [v _i `uc ~T0 @X0 1 a ]
-[; ;usart.c: 193: uint8_t i;
-[; ;usart.c: 194: for( i = 0; i < size; i++ ) {
-"194
+[; ;usart.c: 186: uint8_t i;
+[; ;usart.c: 188: for( i = 0; i < size; i++ ) {
+"188
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 667  ]
 [e :U 664 ]
 {
-"195
+"190
 [v _letter `uc ~T0 @X0 1 a ]
-[; ;usart.c: 195: byte letter = usart_receive_lock_read_byte();
+[; ;usart.c: 190: byte letter = usart_receive_lock_read_byte();
 [e = _letter ( _usart_receive_lock_read_byte ..  ]
-[; ;usart.c: 196: if( letter == '\r' ) {
-"196
+[; ;usart.c: 192: if( letter == '\r' ) {
+"192
 [e $ ! == -> _letter `ui -> 13 `ui 668  ]
 {
-[; ;usart.c: 197: *cursor = '\0';
-"197
+[; ;usart.c: 194: *cursor = '\0';
+"194
 [e = *U _cursor -> -> 0 `ui `uc ]
-[; ;usart.c: 198: break;
-"198
+[; ;usart.c: 195: break;
+"195
 [e $U 665  ]
-"199
+"197
 }
-[; ;usart.c: 199: } else {
+[; ;usart.c: 197: } else {
 [e $U 669  ]
 [e :U 668 ]
 {
-[; ;usart.c: 200: *cursor = letter;
-"200
+[; ;usart.c: 199: *cursor = letter;
+"199
 [e = *U _cursor _letter ]
-[; ;usart.c: 201: cursor++;
-"201
+[; ;usart.c: 200: cursor++;
+"200
 [e ++ _cursor * -> -> 1 `i `x -> -> # *U _cursor `i `x ]
-"202
+"201
 }
 [e :U 669 ]
-"203
+"202
 }
-"194
+"188
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 667 ]
 [e $ < -> _i `i -> _size `i 664  ]
 [e :U 665 ]
-"203
+"202
 }
+[; ;usart.c: 201: }
 [; ;usart.c: 202: }
-[; ;usart.c: 203: }
-[; ;usart.c: 205: return i;
-"205
+[; ;usart.c: 204: return i;
+"204
 [e ) _i ]
 [e $UE 663  ]
-[; ;usart.c: 206: }
-"206
+[; ;usart.c: 205: }
+"205
 [e :UE 663 ]
 }
-"208
+"207
 [v _usart_receive_interrupt_read_message `(v ~T0 @X0 1 ef1`*F6 ]
 {
-[; ;usart.c: 208: void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done ) {
+[; ;usart.c: 207: void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done ) {
 [e :U _usart_receive_interrupt_read_message ]
 [v _usart_callback_receive_done `*F6 ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 210: _rx_iterator = _rx_buffer;
+[; ;usart.c: 209: _rx_buffer_iterator = _rx_buffer;
+"209
+[e = __rx_buffer_iterator &U __rx_buffer ]
+[; ;usart.c: 210: _rx_buffer_message_size = 0;
 "210
-[e = __rx_iterator &U __rx_buffer ]
-[; ;usart.c: 211: _rx_message_size = 0;
+[e = __rx_buffer_message_size -> -> 0 `i `uc ]
+[; ;usart.c: 211: _rx_isr_done_callback = usart_callback_receive_done;
 "211
-[e = __rx_message_size -> -> 0 `i `uc ]
-[; ;usart.c: 212: _rx_isr_done_callback = usart_callback_receive_done;
-"212
 [e = __rx_isr_done_callback _usart_callback_receive_done ]
-[; ;usart.c: 214: INTCONbits.PEIE = 1;
-"214
+[; ;usart.c: 213: INTCONbits.PEIE = 1;
+"213
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;usart.c: 217: PIE1bits.RCIE = 1;
-"217
+[; ;usart.c: 216: PIE1bits.RCIE = 1;
+"216
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;usart.c: 218: }
-"218
+[; ;usart.c: 217: }
+"217
 [e :UE 670 ]
 }
-"220
+"219
 [v _usart_receive_interrupt_isr `(v ~T0 @X0 1 ef ]
 {
-[; ;usart.c: 220: void usart_receive_interrupt_isr() {
+[; ;usart.c: 219: void usart_receive_interrupt_isr() {
 [e :U _usart_receive_interrupt_isr ]
 [f ]
-[; ;usart.c: 222: *_rx_iterator = RCREG;
-"222
-[e = *U __rx_iterator _RCREG ]
-[; ;usart.c: 224: _rx_message_size++;
-"224
-[e ++ __rx_message_size -> -> 1 `i `uc ]
-[; ;usart.c: 226: if( *_rx_iterator == '\r' ) {
-"226
-[e $ ! == -> *U __rx_iterator `ui -> 13 `ui 672  ]
+[; ;usart.c: 221: *_rx_buffer_iterator = RCREG;
+"221
+[e = *U __rx_buffer_iterator _RCREG ]
+[; ;usart.c: 223: _rx_buffer_message_size++;
+"223
+[e ++ __rx_buffer_message_size -> -> 1 `i `uc ]
+[; ;usart.c: 225: if( *_rx_buffer_iterator == '\r' ) {
+"225
+[e $ ! == -> *U __rx_buffer_iterator `ui -> 13 `ui 672  ]
 {
-[; ;usart.c: 227: *_rx_iterator = '\0';
-"227
-[e = *U __rx_iterator -> -> 0 `ui `uc ]
-[; ;usart.c: 229: if( PIE1bits.RCIE && _rx_isr_done_callback ) {
-"229
+[; ;usart.c: 226: *_rx_buffer_iterator = '\0';
+"226
+[e = *U __rx_buffer_iterator -> -> 0 `ui `uc ]
+[; ;usart.c: 228: if( PIE1bits.RCIE && _rx_isr_done_callback ) {
+"228
 [e $ ! && != -> . . _PIE1bits 0 5 `i -> -> -> 0 `i `Vuc `i != __rx_isr_done_callback -> -> 0 `i `*F6 673  ]
 {
-[; ;usart.c: 231: _rx_isr_done_callback();
-"231
+[; ;usart.c: 230: _rx_isr_done_callback();
+"230
 [e ( *U __rx_isr_done_callback ..  ]
-"232
+"231
 }
 [e :U 673 ]
-[; ;usart.c: 232: }
-[; ;usart.c: 234: PIE1bits.RCIE = 0;
-"234
+[; ;usart.c: 231: }
+[; ;usart.c: 233: PIE1bits.RCIE = 0;
+"233
 [e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-"235
+"234
 }
-[; ;usart.c: 235: } else if( _rx_message_size == 255 ) {
+[; ;usart.c: 234: } else if( _rx_buffer_message_size == (61-1) ) {
 [e $U 674  ]
 [e :U 672 ]
-[e $ ! == -> __rx_message_size `i -> 255 `i 675  ]
+[e $ ! == -> __rx_buffer_message_size `i - -> 61 `i -> 1 `i 675  ]
 {
-[; ;usart.c: 237: PIE1bits.RCIE = 0;
-"237
+[; ;usart.c: 236: PIE1bits.RCIE = 0;
+"236
 [e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-"238
+"237
 }
-[; ;usart.c: 238: } else {
+[; ;usart.c: 237: } else {
 [e $U 676  ]
 [e :U 675 ]
 {
-[; ;usart.c: 239: _rx_iterator++;
+[; ;usart.c: 239: _rx_buffer_iterator++;
 "239
-[e ++ __rx_iterator * -> -> 1 `i `x -> -> # *U __rx_iterator `i `x ]
+[e ++ __rx_buffer_iterator * -> -> 1 `i `x -> -> # *U __rx_buffer_iterator `i `x ]
 "240
 }
 [e :U 676 ]

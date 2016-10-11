@@ -7707,7 +7707,70 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 32 "types.h"
+# 4 "/home/bruno/Programs/microchip/xc8/v1.37/include/__size_t.h"
+typedef unsigned size_t;
+
+# 7 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "/home/bruno/Programs/microchip/xc8/v1.37/include/errno.h"
+extern int errno;
+
+# 12 "/home/bruno/Programs/microchip/xc8/v1.37/include/conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 37 "types.h"
 typedef unsigned char byte;
 
 
@@ -7719,7 +7782,7 @@ typedef unsigned int uint16_t;
 
 typedef unsigned long uint32_t;
 
-# 46
+# 51
 typedef void (*callback_isr_t)(void);
 
 # 13 "timer.h"
@@ -7755,7 +7818,7 @@ callback_isr_t timer0_isr
 # 51
 void timer0_isr();
 
-# 16 "usart.h"
+# 17 "usart.h"
 typedef enum {
 USART_SYNC_MODE_ASYNCHRONOUS = 0,
 USART_SYNC_MODE_SYNCHRONOUS = 1
@@ -7775,40 +7838,108 @@ const uint32_t USART_BAUD_RATE_19200 = 19200ul;
 const uint32_t USART_BAUD_RATE_57600 = 57600ul;
 const uint32_t USART_BAUD_RATE_115200 = 115200ul;
 
-# 42
+# 43
 void usart_start( usart_sync_mode_t usart_sync_mode, uint32_t baud_rate );
 
-# 49
+# 50
 void usart_transmite_interrupt_write_message( char * message, callback_isr_t usart_callback_transmit_done );
 
-# 55
+# 56
 void usart_transmite_interrupt_isr();
 
-# 61
+# 62
 void usart_transmite_lock_write_message( char * message );
 
-# 67
+# 68
 byte usart_receive_lock_read_byte();
 
-# 75
+# 76
 uint8_t usart_receive_lock_read_message( char * buffer, uint8_t size );
 
-# 81
+# 82
 void usart_receive_interrupt_read_message( callback_isr_t usart_callback_receive_done );
 
-# 87
+# 88
 void usart_receive_interrupt_isr();
 
-# 92
+# 93
 char* usart_receive_interrupt_get_message();
 
+# 13 "analog.h"
+typedef enum analog_voltage_reference_positive_e {
+analog_voltage_reference_positive_vdd = 0b00,
+analog_voltage_reference_positive_vrefp = 0b01,
+analog_voltage_reference_positive_fvr = 0b11
+} analog_voltage_reference_positive_t;
 
-# 19 "main.c"
+typedef enum analog_voltage_reference_negative_e {
+analog_voltage_reference_negative_vss = 0b0,
+analog_voltage_reference_negative_vrefm = 0b1
+} analog_voltage_reference_negative_t;
+
+typedef enum analog_conversion_clock_e {
+analog_conversion_clock_fosc_2 = 0b000,
+analog_conversion_clock_fosc_4 = 0b100,
+analog_conversion_clock_fosc_8 = 0b001,
+analog_conversion_clock_fosc_16 = 0b101,
+analog_conversion_clock_fosc_32 = 0b010,
+analog_conversion_clock_fosc_64 = 0b110,
+analog_conversion_clock_frc = 0b011
+} analog_conversion_clock_t;
+
+# 37
+typedef enum analog_result_format_e {
+
+analog_result_format_sign_magnitude = 0b0,
+
+analog_result_format_twos_compliment = 0b1
+} analog_result_format_t;
+
+# 47
+typedef enum analog_result_mode_bit_e {
+
+analog_result_mode_bit_12 = 0b0,
+
+analog_result_mode_bit_10 = 0b1
+} analog_result_mode_bit_t;
+
+# 58
+typedef enum analog_channel_select_e {
+analog_channel_select_0 = 0b00000
+} analog_channel_select_t;
+
+# 71
+void analog_start(
+analog_voltage_reference_positive_t voltage_reference_positive,
+analog_voltage_reference_negative_t voltage_reference_negative,
+analog_conversion_clock_t conversion_clock,
+analog_result_format_t analog_result_format,
+analog_result_mode_bit_t analog_result_mode_bit,
+analog_channel_select_t channel_select
+);
+
+# 85
+void analog_channel_select( analog_channel_select_t channel_select, uint8_t skip_delay );
+
+# 91
+uint16_t analog_read_lock();
+
+# 98
+void analog_read_interrupt( callback_isr_t analog_callback_done );
+
+# 104
+uint16_t analog_read_interrupt_get_value();
+
+# 110
+void analog_read_isr();
+
+
+# 21 "main.c"
 #pragma config FOSC = INTOSC
 
 #pragma config WDTE = OFF
 
-# 28
+# 30
 void interrupt isr_general() {
 
 if( INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1 ) {
@@ -7820,50 +7951,48 @@ usart_transmite_interrupt_isr();
 if( PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1 ) {
 usart_receive_interrupt_isr();
 }
+if( PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1 ) {
+analog_read_isr();
+}
 }
 
-void isr_timer0_pisca_led(void) {
+void baby_callback() {
+uint16_t valor = analog_read_interrupt_get_value();
 
-}
-
-void isr_usart_tx_acende_led(void) {
-PORTBbits.RB4 = ~LATBbits.LATB4;
-}
-
-uint8_t _rx_done;
-void isr_usart_rx_teste(void) {
-_rx_done = 1;
+char memoria[64];
+sprintf( memoria, "Oi, eu sou o goku! Meu ki é: %x\r\n", valor );
+usart_transmite_lock_write_message( memoria );
 }
 
 void main(void) {
 TRISBbits.TRISB4 = 0;
 PORTBbits.RB4 = 0;
 
-timer0_start( TIMER0_MODE_TIMER, PRESCALAR_USE_YES, PRESCALAR_RATE_256, isr_timer0_pisca_led );
+
 
 usart_start( USART_SYNC_MODE_ASYNCHRONOUS, USART_BAUD_RATE_300 );
+
+analog_start(
+analog_voltage_reference_positive_vdd,
+analog_voltage_reference_negative_vss,
+analog_conversion_clock_frc,
+analog_result_format_sign_magnitude,
+analog_result_mode_bit_12,
+analog_channel_select_0
+);
 
 INTCONbits.GIE = 1;
 
 
-usart_transmite_lock_write_message( "\r" );
-usart_transmite_lock_write_message( "Testezinho\r" );
-
-usart_transmite_lock_write_message( "Foo bar\r" );
-
-# 74
-_rx_done = 0;
-usart_receive_interrupt_read_message( isr_usart_rx_teste );
-
 while(1) {
-if( _rx_done ) {
-char* message = usart_receive_interrupt_get_message();
+byte comando = usart_receive_lock_read_byte();
+if( comando == 'a' ) {
+analog_read_interrupt( baby_callback );
 
-usart_transmite_interrupt_write_message( message, isr_usart_tx_acende_led );
-_rx_done = 0;
+# 86
 }
+asm("sleep");
 
-# 94
 }
 
 return;
