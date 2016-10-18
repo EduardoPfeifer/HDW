@@ -16,7 +16,6 @@
 #include "timer.h"
 #include "usart.h"
 #include "analog.h"
-
 // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin)
 #pragma config FOSC = INTOSC
 // Watchdog Timer Enable (WDT disabled)

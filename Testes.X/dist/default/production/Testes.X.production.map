@@ -1,11 +1,11 @@
-Microchip MPLAB XC8 Compiler V1.37 ()
+Microchip MPLAB XC8 Compiler V1.38 ()
 
 Linker command line:
 
--W-3 --edf=/home/bruno/Programs/microchip/xc8/v1.37/dat/en_msgs.txt -cs \
+-W-3 --edf=/opt/microchip/xc8/v1.38/dat/en_msgs.txt -cs \
   -h+dist/default/production/Testes.X.production.sym \
   --cmf=dist/default/production/Testes.X.production.cmf -z -Q16LF1786 \
-  -o/tmp/xcXozL3vp -Mdist/default/production/Testes.X.production.map -E1 \
+  -o/tmp/xcXwjUSTh -Mdist/default/production/Testes.X.production.map -E1 \
   -ver=XC8 -ASTACK=0212Dh-023efh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
   -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -30,7 +30,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXzIAn7B.obj \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcX56r1B7.obj \
   dist/default/production/Testes.X.production.obj 
 
 Object code version is 3.11
@@ -40,16 +40,16 @@ Machine type is 16LF1786
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXzIAn7B.obj
+/tmp/xcX56r1B7.obj
                 end_init                             2E       2E        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        1    1000E       0
 dist/default/production/Testes.X.production.obj
-                cinit                                30       30       1E        8       0
+                cinit                                30       30       1F        8       0
                 intentry                              4        4       2A        8       0
-                text19                              2E0      2E0       49      51A       0
-                text18                              360      360       34      51A       0
-                text17                              182      182       B0        8       0
+                text19                              2E1      2E1       49      51C       0
+                text18                              361      361       34      51C       0
+                text17                              183      183       B0        8       0
                 text16                              4C1      4C1        A      840       0
                 text15                              43C      43C       1A      840       0
                 text14                              4A8      4A8        D      840       0
@@ -57,38 +57,38 @@ dist/default/production/Testes.X.production.obj
                 text12                              456      456       18      840       0
                 text11                              497      497       11      840       0
                 text10                              4D9      4D9        2      840       0
-                text9                               394      394       2D      51A       0
+                text9                               395      395       2D      51C       0
                 text8                               46E      46E       17      840       0
                 text6                               4B5      4B5        C      840       0
                 text5                               485      485       12      840       0
-                text4                               3C1      3C1       2C      51A       0
+                text4                               3C2      3C2       2C      51C       0
                 text3                               4CB      4CB        8      840       0
-                text2                               28D      28D       53      51A       0
+                text2                               28E      28E       53      51C       0
                 swtext1                             400      400       20      800       0
-                text1                                4E       4E      134        8       0
-                maintext                            329      329       37      51A       0
+                text1                                4F       4F      134        8       0
+                maintext                            32A      32A       37      51C       0
                 cstackBANK0                          20       20       4E       20       1
                 cstackCOMMON                         70       70        D       70       1
                 cstackBANK1                          A0       A0       1E       A0       1
                 clrtext                             4D3      4D3        6      840       0
                 bssBANK3                            1A0      1A0       3D      1A0       1
                 bssBANK2                            120      120       3D      120       1
-                bssBANK1                             BE       BE        8       A0       1
+                bssBANK1                             BE       BE        A       A0       1
                 bssBANK0                             6E       6E        2       20       1
                 bssCOMMON                            7D       7D        1       70       1
-                stringtext                          232      232       5B      464       0
+                stringtext                          233      233       5B      466       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                             2E       2E        2         0
-                cinit                                30       30       1E         0
+                cinit                                30       30       1F         0
                 intentry                              4        4       2A         0
                 reset_vec                             0        0        2         0
-                text19                              2E0      2E0       49         0
-                text18                              360      360       34         0
-                text17                              182      182       B0         0
+                text19                              2E1      2E1       49         0
+                text18                              361      361       34         0
+                text17                              183      183       B0         0
                 text16                              4C1      4C1        A         0
                 text15                              43C      43C       1A         0
                 text14                              4A8      4A8        D         0
@@ -96,19 +96,19 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text12                              456      456       18         0
                 text11                              497      497       11         0
                 text10                              4D9      4D9        2         0
-                text9                               394      394       2D         0
+                text9                               395      395       2D         0
                 text8                               46E      46E       17         0
                 text6                               4B5      4B5        C         0
                 text5                               485      485       12         0
-                text4                               3C1      3C1       2C         0
+                text4                               3C2      3C2       2C         0
                 text3                               4CB      4CB        8         0
-                text2                               28D      28D       53         0
-                text1                                4E       4E      134         0
-                maintext                            329      329       37         0
+                text2                               28E      28E       53         0
+                text1                                4F       4F      134         0
+                maintext                            32A      32A       37         0
                 clrtext                             4D3      4D3        6         0
 
         CLASS   STRCODE        
-                stringtext                          232      232       5B         0
+                stringtext                          233      233       5B         0
 
         CLASS   STRING         
 
@@ -127,7 +127,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   BANK1          
                 cstackBANK1                          A0       A0       1E         1
-                bssBANK1                             BE       BE        8         1
+                bssBANK1                             BE       BE        A         1
 
         CLASS   BANK2          
                 bssBANK2                            120      120       3D         1
@@ -274,14 +274,14 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  00022E  000232         8       0  CODE        2
+                intentry                       000004  00022F  000233         8       0  CODE        2
                 cstackBANK0                    000020  000050  000070        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                cstackBANK1                    0000A0  000026  0000C6        A0       1  BANK1       1
+                cstackBANK1                    0000A0  000028  0000C8        A0       1  BANK1       1
                 bssBANK2                       000120  00003D  00015D       120       1  BANK2       1
                 bssBANK3                       0001A0  00003D  0001DD       1A0       1  BANK3       1
-                stringtext                     000232  00005B  00028D       464       0  STRCODE     2
-                text2                          00028D  000160  0003ED       51A       0  CODE        2
+                stringtext                     000233  00005B  00028E       466       0  STRCODE     2
+                text2                          00028E  000160  0003EE       51C       0  CODE        2
                 swtext1                        000400  000020  000420       800       0  CONST       2
                 text13                         000420  0000BB  0004DB       840       0  CODE        2
                 config                         008007  000001  008008     1000E       0  CONFIG      2
@@ -290,7 +290,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK1            000C6-000EF              2A           1
+        BANK1            000C8-000EF              28           1
         BANK10           00520-0056F              50           1
         BANK11           005A0-005EF              50           1
         BANK12           00620-0064F              30           1
@@ -304,18 +304,18 @@ UNUSED ADDRESS RANGES
         BANK9            004A0-004EF              50           1
         BIGRAM           02000-023EF             3F0           1
         CODE             00002-00003               2           2
-                         003ED-003FF              13
+                         003EE-003FF              12
                          004DB-01FFF             800
         CONFIG           08008-08008               1           2
         CONST            00002-00003               2           2
-                         003ED-003FF              13
+                         003EE-003FF              12
                          004DB-01FFF             100
         EEDATA           0F000-0F0FF             100           2
         ENTRY            00002-00003               2           2
-                         003ED-003FF              13
+                         003EE-003FF              12
                          004DB-01FFF             100
         IDLOC            08000-08003               4           2
-        RAM              000C6-000EF              2A           1
+        RAM              000C8-000EF              28           1
                          0015D-0016F              13
                          001DD-001EF              13
                          00220-0026F              50
@@ -361,10 +361,10 @@ UNUSED ADDRESS RANGES
         SFR9             00480-0049F              20           1
         STACK            0212D-023EF             2C3           1
         STRCODE          00002-00003               2           2
-                         003ED-003FF              13
+                         003EE-003FF              12
                          004DB-01FFF            1B25
         STRING           00002-00003               2           2
-                         003ED-003FF              13
+                         003EE-003FF              12
                          004DB-01FFF             100
 
                                   Symbol Table
@@ -391,13 +391,16 @@ _RCREG                                       (abs)        00199
 _RCSTAbits                                   (abs)        0019D
 _SPBRG                                       (abs)        0019B
 _SYNC                                        (abs)        00CF4
+_T1CONbits                                   (abs)        00018
+_T1GCONbits                                  (abs)        00019
+_TMR1IF                                      (abs)        00088
 _TRISAbits                                   (abs)        0008C
 _TRISBbits                                   (abs)        0008D
 _TRISCbits                                   (abs)        0008E
 _TX1STAbits                                  (abs)        0019E
 _TXREG                                       (abs)        0019A
 _TXSTAbits                                   (abs)        0019E
-_USART_BAUD_RATE_300                         stringtext   0024E
+_USART_BAUD_RATE_300                         stringtext   0024F
 __CFG_FOSC$INTOSC                            (abs)        00000
 __CFG_WDTE$OFF                               (abs)        00000
 __Habs1                                      abs1         00000
@@ -439,7 +442,7 @@ __HbssBANK1                                  bssBANK1     00000
 __HbssBANK2                                  bssBANK2     00000
 __HbssBANK3                                  bssBANK3     00000
 __HbssCOMMON                                 bssCOMMON    00000
-__Hcinit                                     cinit        0004E
+__Hcinit                                     cinit        0004F
 __Hclrtext                                   clrtext      00000
 __Hcode                                      code         00000
 __Hcommon                                    common       00000
@@ -600,44 +603,44 @@ __S2                                         (abs)        00000
 __S3                                         (abs)        00000
 ___int_sp                                    stack        00000
 ___latbits                                   (abs)        00002
-___lldiv                                     text2        0028D
+___lldiv                                     text2        0028E
 ___lldiv@counter                             cstackBANK1  000AD
 ___lldiv@dividend                            cstackBANK1  000A4
 ___lldiv@divisor                             cstackBANK1  000A0
 ___lldiv@quotient                            cstackBANK1  000A9
-___lwdiv                                     text18       00360
+___lwdiv                                     text18       00361
 ___lwdiv@counter                             cstackCOMMON 00077
 ___lwdiv@dividend                            cstackCOMMON 00072
 ___lwdiv@divisor                             cstackCOMMON 00070
 ___lwdiv@quotient                            cstackCOMMON 00075
 ___sp                                        stack        00000
 __analog_callback_isr                        bssBANK1     000BE
-__end_of_USART_BAUD_RATE_10417               stringtext   0023E
-__end_of_USART_BAUD_RATE_115200              stringtext   00242
-__end_of_USART_BAUD_RATE_1200                stringtext   00246
-__end_of_USART_BAUD_RATE_19200               stringtext   0024A
-__end_of_USART_BAUD_RATE_2400                stringtext   0024E
-__end_of_USART_BAUD_RATE_300                 stringtext   00252
-__end_of_USART_BAUD_RATE_57600               stringtext   00256
-__end_of_USART_BAUD_RATE_9600                stringtext   0025A
-__end_of___lldiv                             text2        002E0
-__end_of___lwdiv                             text18       00394
-__end_of__initialization                     cinit        0004A
+__end_of_USART_BAUD_RATE_10417               stringtext   0023F
+__end_of_USART_BAUD_RATE_115200              stringtext   00243
+__end_of_USART_BAUD_RATE_1200                stringtext   00247
+__end_of_USART_BAUD_RATE_19200               stringtext   0024B
+__end_of_USART_BAUD_RATE_2400                stringtext   0024F
+__end_of_USART_BAUD_RATE_300                 stringtext   00253
+__end_of_USART_BAUD_RATE_57600               stringtext   00257
+__end_of_USART_BAUD_RATE_9600                stringtext   0025B
+__end_of___lldiv                             text2        002E1
+__end_of___lwdiv                             text18       00395
+__end_of__initialization                     cinit        0004B
 __end_of_analog_channel_select               text5        00497
 __end_of_analog_read_interrupt               text6        004C1
-__end_of_analog_read_interrupt_get_value     text19       00329
+__end_of_analog_read_interrupt_get_value     text19       0032A
 __end_of_analog_read_isr                     text11       004A8
-__end_of_analog_start                        text4        003ED
+__end_of_analog_start                        text4        003EE
 __end_of_baby_callback                       text12       0046E
-__end_of_hexpowers                           stringtext   0023A
+__end_of_hexpowers                           stringtext   0023B
 __end_of_isr_general                         intentry     0002E
-__end_of_main                                maintext     00360
-__end_of_sprintf                             text17       00232
+__end_of_main                                maintext     00361
+__end_of_sprintf                             text17       00233
 __end_of_strcpy                              text15       00456
 __end_of_timer0_isr                          text10       004DB
-__end_of_usart_receive_interrupt_isr         text9        003C1
+__end_of_usart_receive_interrupt_isr         text9        003C2
 __end_of_usart_receive_lock_read_byte        text3        004D3
-__end_of_usart_start                         text1        00182
+__end_of_usart_start                         text1        00183
 __end_of_usart_transmite_interrupt_isr       text8        00485
 __end_of_usart_transmite_lock_write_byte     text16       004CB
 __end_of_usart_transmite_lock_write_message  text13       0043C
@@ -652,10 +655,10 @@ __pcstackBANK0                               cstackBANK0  00020
 __pcstackBANK1                               cstackBANK1  000A0
 __pcstackCOMMON                              cstackCOMMON 00070
 __pintentry                                  intentry     00004
-__pmaintext                                  maintext     00329
-__pstringtext                                stringtext   00232
+__pmaintext                                  maintext     0032A
+__pstringtext                                stringtext   00233
 __pswtext1                                   swtext1      00400
-__ptext1                                     text1        0004E
+__ptext1                                     text1        0004F
 __ptext10                                    text10       004D9
 __ptext11                                    text11       00497
 __ptext12                                    text12       00456
@@ -663,16 +666,16 @@ __ptext13                                    text13       00420
 __ptext14                                    text14       004A8
 __ptext15                                    text15       0043C
 __ptext16                                    text16       004C1
-__ptext17                                    text17       00182
-__ptext18                                    text18       00360
-__ptext19                                    text19       002E0
-__ptext2                                     text2        0028D
+__ptext17                                    text17       00183
+__ptext18                                    text18       00361
+__ptext19                                    text19       002E1
+__ptext2                                     text2        0028E
 __ptext3                                     text3        004CB
-__ptext4                                     text4        003C1
+__ptext4                                     text4        003C2
 __ptext5                                     text5        00485
 __ptext6                                     text6        004B5
 __ptext8                                     text8        0046E
-__ptext9                                     text9        00394
+__ptext9                                     text9        00395
 __rx_buffer                                  bssBANK3     001A0
 __rx_buffer_iterator                         bssBANK0     0006E
 __rx_buffer_message_size                     bssBANK0     0006F
@@ -698,25 +701,26 @@ __size_of_usart_transmite_lock_write_byte    (abs)        00000
 __size_of_usart_transmite_lock_write_message (abs)        00000
 __size_of_usart_transmite_set_message        (abs)        00000
 __timer0_callback                            bssBANK1     000C2
+__timer1_callback                            bssBANK1     000C4
 __tx_buffer                                  bssBANK2     00120
 __tx_buffer_iterator                         bssCOMMON    0007D
-__tx_isr_done_callback                       bssBANK1     000C4
+__tx_isr_done_callback                       bssBANK1     000C6
 _analog_channel_select                       text5        00485
 _analog_read_interrupt                       text6        004B5
-_analog_read_interrupt_get_value             text19       002E0
-_analog_read_interrupt_get_value$959         cstackCOMMON 00074
+_analog_read_interrupt_get_value             text19       002E1
+_analog_read_interrupt_get_value$1068        cstackCOMMON 00074
 _analog_read_isr                             text11       00497
-_analog_start                                text4        003C1
+_analog_start                                text4        003C2
 _baby_callback                               text12       00456
-_hexpowers                                   stringtext   00232
+_hexpowers                                   stringtext   00233
 _isr_general                                 intentry     00004
-_main                                        maintext     00329
-_sprintf                                     text17       00182
+_main                                        maintext     0032A
+_sprintf                                     text17       00183
 _strcpy                                      text15       0043C
 _timer0_isr                                  text10       004D9
-_usart_receive_interrupt_isr                 text9        00394
+_usart_receive_interrupt_isr                 text9        00395
 _usart_receive_lock_read_byte                text3        004CB
-_usart_start                                 text1        0004E
+_usart_start                                 text1        0004F
 _usart_transmite_interrupt_isr               text8        0046E
 _usart_transmite_lock_write_byte             text16       004C1
 _usart_transmite_lock_write_message          text13       00420
@@ -725,7 +729,7 @@ analog_channel_select@channel_select         cstackBANK1  000A2
 analog_channel_select@skip_delay             cstackBANK1  000A0
 analog_read_interrupt@analog_callback_done   cstackBANK1  000A0
 analog_read_interrupt_get_value@result       cstackCOMMON 00078
-analog_read_interrupt_get_value@result_962   cstackCOMMON 0007A
+analog_read_interrupt_get_value@result_1071  cstackCOMMON 0007A
 analog_read_interrupt_get_value@shift        cstackCOMMON 00076
 analog_read_interrupt_get_value@sign         cstackCOMMON 00077
 analog_start@analog_result_format            cstackBANK1  000A5
@@ -738,7 +742,7 @@ baby_callback@memoria                        cstackBANK0  0002C
 baby_callback@valor                          cstackBANK0  0006C
 btemp                                        (abs)        0007E
 clear_ram0                                   clrtext      004D3
-end_of_initialization                        cinit        0004A
+end_of_initialization                        cinit        0004B
 int$flags                                    (abs)        0007E
 intlevel0                                    functab      00000
 intlevel1                                    functab      00000
@@ -795,7 +799,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 54 in file "main.c"
+		line 53 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -860,7 +864,7 @@ Total ram usage:       14 bytes
 
  *************** function ___lldiv *****************
  Defined at:
-		line 6 in file "/home/bruno/Programs/microchip/xc8/v1.37/sources/common/lldiv.c"
+		line 6 in file "/opt/microchip/xc8/v1.38/sources/common/lldiv.c"
  Parameters:    Size  Location     Type
   divisor         4    0[BANK1 ] unsigned long 
   dividend        4    4[BANK1 ] unsigned long 
@@ -1020,7 +1024,7 @@ Total ram usage:        2 bytes
 
  *************** function _isr_general *****************
  Defined at:
-		line 30 in file "main.c"
+		line 29 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1111,7 +1115,7 @@ Total ram usage:        1 bytes
 
  *************** function _timer0_isr *****************
  Defined at:
-		line 21 in file "timer.c"
+		line 23 in file "timer.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1171,7 +1175,7 @@ Total ram usage:        0 bytes
 
  *************** function _baby_callback *****************
  Defined at:
-		line 46 in file "main.c"
+		line 45 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1271,7 +1275,7 @@ Total ram usage:        2 bytes
 
  *************** function _strcpy *****************
  Defined at:
-		line 8 in file "/home/bruno/Programs/microchip/xc8/v1.37/sources/common/strcpy.c"
+		line 8 in file "/opt/microchip/xc8/v1.38/sources/common/strcpy.c"
  Parameters:    Size  Location     Type
   to              1    wreg     PTR unsigned char 
 		 -> _tx_buffer(61), 
@@ -1335,7 +1339,7 @@ Total ram usage:        1 bytes
 
  *************** function _sprintf *****************
  Defined at:
-		line 492 in file "/home/bruno/Programs/microchip/xc8/v1.37/sources/common/doprnt.c"
+		line 492 in file "/opt/microchip/xc8/v1.38/sources/common/doprnt.c"
  Parameters:    Size  Location     Type
   sp              1    wreg     PTR unsigned char 
 		 -> baby_callback@memoria(64), 
@@ -1379,7 +1383,7 @@ Total ram usage:       16 bytes
 
  *************** function ___lwdiv *****************
  Defined at:
-		line 6 in file "/home/bruno/Programs/microchip/xc8/v1.37/sources/common/lwdiv.c"
+		line 6 in file "/opt/microchip/xc8/v1.38/sources/common/lwdiv.c"
  Parameters:    Size  Location     Type
   divisor         2    0[COMMON] unsigned int 
   dividend        2    2[COMMON] unsigned int 
@@ -1445,27 +1449,17 @@ Total ram usage:       12 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/lwdiv.c
-		___lwdiv       		CODE           	0360	0000	53
+/opt/microchip/xc8/v1.38/sources/common/strcpy.c
+		_strcpy        		CODE           	043C	0000	27
 
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/lwdiv.c estimated size: 53
-
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/doprnt.c
-		_sprintf       		CODE           	0182	0000	177
-
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/doprnt.c estimated size: 177
-
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/lldiv.c
-		___lldiv       		CODE           	028D	0000	84
-
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/lldiv.c estimated size: 84
+/opt/microchip/xc8/v1.38/sources/common/strcpy.c estimated size: 27
 
 usart.c
 		_usart_transmite_lock_write_message		CODE           	0420	0000	29
 		_usart_transmite_set_message		CODE           	04A8	0000	14
-		_usart_start   		CODE           	004E	0000	309
+		_usart_start   		CODE           	004F	0000	309
 		_usart_transmite_lock_write_byte		CODE           	04C1	0000	11
-		_usart_receive_interrupt_isr		CODE           	0394	0000	46
+		_usart_receive_interrupt_isr		CODE           	0395	0000	46
 		_usart_receive_lock_read_byte		CODE           	04CB	0000	9
 		_usart_transmite_interrupt_isr		CODE           	046E	0000	24
 
@@ -1476,23 +1470,38 @@ timer.c
 
 timer.c estimated size: 3
 
+/opt/microchip/xc8/v1.38/sources/common/lwdiv.c
+		___lwdiv       		CODE           	0361	0000	53
+
+/opt/microchip/xc8/v1.38/sources/common/lwdiv.c estimated size: 53
+
+/opt/microchip/xc8/v1.38/sources/common/doprnt.c
+		_sprintf       		CODE           	0183	0000	177
+
+/opt/microchip/xc8/v1.38/sources/common/doprnt.c estimated size: 177
+
+/opt/microchip/xc8/v1.38/sources/common/lldiv.c
+		___lldiv       		CODE           	028E	0000	84
+
+/opt/microchip/xc8/v1.38/sources/common/lldiv.c estimated size: 84
+
 shared
 		_USART_BAUD_RATE_9600		STRCODE        	0000	0000	0
 		_USART_BAUD_RATE_19200		STRCODE        	0000	0000	0
-		__initialization		CODE           	0030	0000	27
+		__initialization		CODE           	0030	0000	28
 		_USART_BAUD_RATE_57600		STRCODE        	0000	0000	0
 		_USART_BAUD_RATE_10417		STRCODE        	0000	0000	0
-		_hexpowers     		STRCODE        	0232	0000	9
-		_USART_BAUD_RATE_300		STRCODE        	024E	0000	5
+		_hexpowers     		STRCODE        	0233	0000	9
+		_USART_BAUD_RATE_300		STRCODE        	024F	0000	5
 		_USART_BAUD_RATE_1200		STRCODE        	0000	0000	0
 		_USART_BAUD_RATE_2400		STRCODE        	0000	0000	0
 		_USART_BAUD_RATE_115200		STRCODE        	0000	0000	0
 
-shared estimated size: 41
+shared estimated size: 42
 
 main.c
 		_baby_callback 		CODE           	0456	0000	25
-		_main          		CODE           	0329	0000	56
+		_main          		CODE           	032A	0000	56
 		_isr_general   		CODE           	0004	0000	43
 
 main.c estimated size: 124
@@ -1500,14 +1509,9 @@ main.c estimated size: 124
 analog.c
 		_analog_channel_select		CODE           	0485	0000	19
 		_analog_read_interrupt		CODE           	04B5	0000	13
-		_analog_read_interrupt_get_value		CODE           	02E0	0000	74
+		_analog_read_interrupt_get_value		CODE           	02E1	0000	74
 		_analog_read_isr		CODE           	0497	0000	18
-		_analog_start  		CODE           	03C1	0000	45
+		_analog_start  		CODE           	03C2	0000	45
 
 analog.c estimated size: 169
-
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/strcpy.c
-		_strcpy        		CODE           	043C	0000	27
-
-/home/bruno/Programs/microchip/xc8/v1.37/sources/common/strcpy.c estimated size: 27
 

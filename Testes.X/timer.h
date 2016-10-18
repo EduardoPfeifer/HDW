@@ -10,6 +10,8 @@
 
 #include "types.h"
 
+/* timer 0*/
+
 typedef enum {
     TIMER0_MODE_TIMER = LOW,
     TIMER0_MODE_COUNTER = HIGH    
@@ -31,6 +33,28 @@ typedef enum {
     PRESCALAR_RATE_256 = 0b111
 } prescalar_rate_t;
 
+/*timer 1*/
+
+typedef enum {
+    TIMER1_MODE_TIMER = LOW,
+    TIMER1_MODE_COUNTER = HIGH    
+} timer1_mode_t;
+
+typedef enum{
+    TIMER1_SOURCE_LFINTOSC = 0b11,
+    TIMER1_SOURCE_SYSCLOCK = 0b01,
+    TIMER1_SOURCE_SYSLOCK4 = 0b00,
+    TIMER1_SOURCE_EXTERNAL = 0b10
+} source_t1;
+
+typedef enum { 
+    PRESCALART1_RATE_1 = 0b00,
+    PRESCALART1_RATE_2 = 0b01,
+    PRESCALART1_RATE_4 = 0b10,
+    PRESCALART1_RATE_8 = 0b11
+
+} prescalar_rate_t1;
+
 /**
  * 
  * @param mode Modo de execução (Timer/Counter)
@@ -44,11 +68,22 @@ void timer0_start(
     prescalar_rate_t prescalar_rate, 
     callback_isr_t timer0_isr 
 );
+/*
+ * Liga o maravilhoso timer 1
+ */
+void timer1_start(
+    timer1_mode_t mode,
+    source_t1 source,
+    prescalar_rate_t1 prescaler,
+    callback_isr_t timer1_isr
+
+);
 
 /**
  * Invoca a rotina associada a interrupção do timer.
  */
 void timer0_isr();
+void timer1_isr();
 
 #endif	/* TIMER_H */
 

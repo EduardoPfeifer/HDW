@@ -1,13 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F6 `(v ~T0 @X0 0 tf ]
-"10 timer.c
+"12 timer.c
 [c E8 0 1 .. ]
 [n E8 . TIMER0_MODE_TIMER TIMER0_MODE_COUNTER  ]
 [c E12 0 1 .. ]
 [n E12 . PRESCALAR_USE_NO PRESCALAR_USE_YES  ]
 [c E16 0 1 2 3 4 1 2 7 .. ]
 [n E16 . PRESCALAR_RATE_2 PRESCALAR_RATE_4 PRESCALAR_RATE_8 PRESCALAR_RATE_16 PRESCALAR_RATE_32 PRESCALAR_RATE_64 PRESCALAR_RATE_128 PRESCALAR_RATE_256  ]
-"1578 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"1578 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S88 . PS0 PS1 PS2 PSA TMR0SE TMR0CS INTEDG nWPUEN ]
 "1588
@@ -29,38 +29,100 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S26 . . . ]
 "360
 [v _INTCONbits `VS26 ~T0 @X0 0 e@11 ]
+"31 timer.c
+[c E26 0 1 .. ]
+[n E26 . TIMER1_MODE_TIMER TIMER1_MODE_COUNTER  ]
+[c E30 3 1 0 2 .. ]
+[n E30 . TIMER1_SOURCE_LFINTOSC TIMER1_SOURCE_SYSCLOCK TIMER1_SOURCE_SYSLOCK4 TIMER1_SOURCE_EXTERNAL  ]
+[c E36 0 1 2 3 .. ]
+[n E36 . PRESCALART1_RATE_1 PRESCALART1_RATE_2 PRESCALART1_RATE_4 PRESCALART1_RATE_8  ]
+"902 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
+[s S55 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S55 . TMR1ON . nT1SYNC T1OSCEN T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
+"912
+[s S56 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S56 . . T1CKPS TMR1CS ]
+"901
+[u S54 `S55 1 `S56 1 ]
+[n S54 . . . ]
+"918
+[v _T1CONbits `VS54 ~T0 @X0 0 e@24 ]
+"1377
+[s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S79 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+"1376
+[u S78 `S79 1 ]
+[n S78 . . ]
+"1388
+[v _PIE1bits `VS78 ~T0 @X0 0 e@145 ]
+"15570
+[v _TMR1IF `Vb ~T0 @X0 0 e@136 ]
+"973
+[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S58 . T1GSS0 T1GSS1 T1GVAL T1GGO T1GSPM T1GTM T1GPOL TMR1GE ]
+"983
+[s S59 :2 `uc 1 ]
+[n S59 . T1GSS ]
+"972
+[u S57 `S58 1 `S59 1 ]
+[n S57 . . . ]
+"987
+[v _T1GCONbits `VS57 ~T0 @X0 0 e@25 ]
 [; ;types.h: 37: typedef unsigned char byte;
 [; ;types.h: 40: typedef unsigned char uint8_t;
 [; ;types.h: 43: typedef unsigned int uint16_t;
 [; ;types.h: 46: typedef unsigned long uint32_t;
 [; ;types.h: 51: typedef void (*callback_isr_t)(void);
-[; ;timer.h: 13: typedef enum {
-[; ;timer.h: 14: TIMER0_MODE_TIMER = 0,
-[; ;timer.h: 15: TIMER0_MODE_COUNTER = 1
-[; ;timer.h: 16: } timer0_mode_t;
-[; ;timer.h: 18: typedef enum {
-[; ;timer.h: 19: PRESCALAR_USE_NO = 0,
-[; ;timer.h: 20: PRESCALAR_USE_YES = 1
-[; ;timer.h: 21: } prescalar_use_t;
-[; ;timer.h: 23: typedef enum {
-[; ;timer.h: 24: PRESCALAR_RATE_2 = 0b000,
-[; ;timer.h: 25: PRESCALAR_RATE_4 = 0b001,
-[; ;timer.h: 26: PRESCALAR_RATE_8 = 0b010,
-[; ;timer.h: 27: PRESCALAR_RATE_16 = 0b011,
-[; ;timer.h: 28: PRESCALAR_RATE_32 = 0b100,
-[; ;timer.h: 29: PRESCALAR_RATE_64 = 0b001,
-[; ;timer.h: 30: PRESCALAR_RATE_128 = 0b010,
-[; ;timer.h: 31: PRESCALAR_RATE_256 = 0b111
-[; ;timer.h: 32: } prescalar_rate_t;
-[; ;timer.h: 41: void timer0_start(
-[; ;timer.h: 42: timer0_mode_t mode,
-[; ;timer.h: 43: prescalar_use_t prescalar_use,
-[; ;timer.h: 44: prescalar_rate_t prescalar_rate,
-[; ;timer.h: 45: callback_isr_t timer0_isr
-[; ;timer.h: 46: );
-[; ;timer.h: 51: void timer0_isr();
+[; ;timer.h: 15: typedef enum {
+[; ;timer.h: 16: TIMER0_MODE_TIMER = 0,
+[; ;timer.h: 17: TIMER0_MODE_COUNTER = 1
+[; ;timer.h: 18: } timer0_mode_t;
+[; ;timer.h: 20: typedef enum {
+[; ;timer.h: 21: PRESCALAR_USE_NO = 0,
+[; ;timer.h: 22: PRESCALAR_USE_YES = 1
+[; ;timer.h: 23: } prescalar_use_t;
+[; ;timer.h: 25: typedef enum {
+[; ;timer.h: 26: PRESCALAR_RATE_2 = 0b000,
+[; ;timer.h: 27: PRESCALAR_RATE_4 = 0b001,
+[; ;timer.h: 28: PRESCALAR_RATE_8 = 0b010,
+[; ;timer.h: 29: PRESCALAR_RATE_16 = 0b011,
+[; ;timer.h: 30: PRESCALAR_RATE_32 = 0b100,
+[; ;timer.h: 31: PRESCALAR_RATE_64 = 0b001,
+[; ;timer.h: 32: PRESCALAR_RATE_128 = 0b010,
+[; ;timer.h: 33: PRESCALAR_RATE_256 = 0b111
+[; ;timer.h: 34: } prescalar_rate_t;
+[; ;timer.h: 38: typedef enum {
+[; ;timer.h: 39: TIMER1_MODE_TIMER = 0,
+[; ;timer.h: 40: TIMER1_MODE_COUNTER = 1
+[; ;timer.h: 41: } timer1_mode_t;
+[; ;timer.h: 43: typedef enum{
+[; ;timer.h: 44: TIMER1_SOURCE_LFINTOSC = 0b11,
+[; ;timer.h: 45: TIMER1_SOURCE_SYSCLOCK = 0b01,
+[; ;timer.h: 46: TIMER1_SOURCE_SYSLOCK4 = 0b00,
+[; ;timer.h: 47: TIMER1_SOURCE_EXTERNAL = 0b10
+[; ;timer.h: 48: } source_t1;
+[; ;timer.h: 50: typedef enum {
+[; ;timer.h: 51: PRESCALART1_RATE_1 = 0b00,
+[; ;timer.h: 52: PRESCALART1_RATE_2 = 0b01,
+[; ;timer.h: 53: PRESCALART1_RATE_4 = 0b10,
+[; ;timer.h: 54: PRESCALART1_RATE_8 = 0b11
+[; ;timer.h: 56: } prescalar_rate_t1;
+[; ;timer.h: 65: void timer0_start(
+[; ;timer.h: 66: timer0_mode_t mode,
+[; ;timer.h: 67: prescalar_use_t prescalar_use,
+[; ;timer.h: 68: prescalar_rate_t prescalar_rate,
+[; ;timer.h: 69: callback_isr_t timer0_isr
+[; ;timer.h: 70: );
+[; ;timer.h: 74: void timer1_start(
+[; ;timer.h: 75: timer1_mode_t mode,
+[; ;timer.h: 76: source_t1 source,
+[; ;timer.h: 77: prescalar_rate_t1 prescaler,
+[; ;timer.h: 78: callback_isr_t timer1_isr
+[; ;timer.h: 80: );
+[; ;timer.h: 85: void timer0_isr();
+[; ;timer.h: 86: void timer1_isr();
 [; ;pic16lf1786.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"51 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [; ;pic16lf1786.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1786.h: 54: typedef union {
@@ -5596,59 +5658,131 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `*v `*F6
 ]
 [; ;timer.c: 8: callback_isr_t _timer0_callback = ((void*)0);
-"10
+"9
+[v __timer1_callback `*F6 ~T0 @X0 1 e ]
+[i __timer1_callback
+-> -> -> 0 `i `*v `*F6
+]
+[; ;timer.c: 9: callback_isr_t _timer1_callback = ((void*)0);
+"12
 [v _timer0_start `(v ~T0 @X0 1 ef4`E8`E12`E16`*F6 ]
 {
-[; ;timer.c: 10: void timer0_start( timer0_mode_t mode, prescalar_use_t prescalar_use, prescalar_rate_t prescalar_rate, callback_isr_t timer0_callback ) {
+[; ;timer.c: 12: void timer0_start( timer0_mode_t mode, prescalar_use_t prescalar_use, prescalar_rate_t prescalar_rate, callback_isr_t timer0_callback ) {
 [e :U _timer0_start ]
 [v _mode `E8 ~T0 @X0 1 r1 ]
 [v _prescalar_use `E12 ~T0 @X0 1 r2 ]
 [v _prescalar_rate `E16 ~T0 @X0 1 r3 ]
 [v _timer0_callback `*F6 ~T0 @X0 1 r4 ]
 [f ]
-[; ;timer.c: 11: OPTION_REGbits.TMR0CS = mode;
-"11
-[e = . . _OPTION_REGbits 0 5 -> _mode `uc ]
-[; ;timer.c: 12: OPTION_REGbits.PSA = prescalar_use ? 0 : 1;
-"12
-[e = . . _OPTION_REGbits 0 3 -> ? != -> _prescalar_use `i -> -> -> 0 `i `E12 `i : -> 0 `i -> 1 `i `uc ]
-[; ;timer.c: 13: OPTION_REGbits.PS = prescalar_rate;
+[; ;timer.c: 13: OPTION_REGbits.TMR0CS = mode;
 "13
-[e = . . _OPTION_REGbits 1 0 -> _prescalar_rate `uc ]
-[; ;timer.c: 15: _timer0_callback = timer0_callback;
+[e = . . _OPTION_REGbits 0 5 -> _mode `uc ]
+[; ;timer.c: 14: OPTION_REGbits.PSA = prescalar_use ? 0 : 1;
+"14
+[e = . . _OPTION_REGbits 0 3 -> ? != -> _prescalar_use `i -> -> -> 0 `i `E12 `i : -> 0 `i -> 1 `i `uc ]
+[; ;timer.c: 15: OPTION_REGbits.PS = prescalar_rate;
 "15
-[e = __timer0_callback _timer0_callback ]
-[; ;timer.c: 17: INTCONbits.TMR0IF = 0;
+[e = . . _OPTION_REGbits 1 0 -> _prescalar_rate `uc ]
+[; ;timer.c: 17: _timer0_callback = timer0_callback;
 "17
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;timer.c: 18: INTCONbits.TMR0IE = 1;
-"18
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-[; ;timer.c: 19: }
+[e = __timer0_callback _timer0_callback ]
+[; ;timer.c: 19: INTCONbits.TMR0IF = 0;
 "19
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;timer.c: 20: INTCONbits.TMR0IE = 1;
+"20
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;timer.c: 21: }
+"21
 [e :UE 617 ]
 }
-"21
+"23
 [v _timer0_isr `(v ~T0 @X0 1 ef ]
 {
-[; ;timer.c: 21: void timer0_isr() {
+[; ;timer.c: 23: void timer0_isr() {
 [e :U _timer0_isr ]
 [f ]
-[; ;timer.c: 22: if( _timer0_callback ) {
-"22
+[; ;timer.c: 24: if( _timer0_callback ) {
+"24
 [e $ ! != __timer0_callback -> -> 0 `i `*F6 619  ]
 {
-[; ;timer.c: 23: _timer0_callback();
-"23
+[; ;timer.c: 25: _timer0_callback();
+"25
 [e ( *U __timer0_callback ..  ]
-"24
+"26
 }
 [e :U 619 ]
-[; ;timer.c: 24: }
-[; ;timer.c: 25: INTCONbits.TMR0IF = 0;
-"25
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 [; ;timer.c: 26: }
-"26
+[; ;timer.c: 27: INTCONbits.TMR0IF = 0;
+"27
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;timer.c: 28: }
+"28
 [e :UE 618 ]
+}
+"30
+[v _timer1_start `(v ~T0 @X0 1 ef4`E26`E30`E36`*F6 ]
+"31
+{
+[; ;timer.c: 30: void timer1_start(timer1_mode_t mode, source_t1 source , prescalar_rate_t1 prescaler,
+[; ;timer.c: 31: callback_isr_t timer1_callback){
+[e :U _timer1_start ]
+"30
+[v _mode `E26 ~T0 @X0 1 r1 ]
+[v _source `E30 ~T0 @X0 1 r2 ]
+[v _prescaler `E36 ~T0 @X0 1 r3 ]
+"31
+[v _timer1_callback `*F6 ~T0 @X0 1 r4 ]
+[f ]
+[; ;timer.c: 33: T1CONbits.TMR1CS = source;
+"33
+[e = . . _T1CONbits 1 2 -> _source `uc ]
+[; ;timer.c: 34: T1CONbits.T1CKPS = prescaler;
+"34
+[e = . . _T1CONbits 1 1 -> _prescaler `uc ]
+[; ;timer.c: 35: _timer1_callback = timer1_callback;
+"35
+[e = __timer1_callback _timer1_callback ]
+[; ;timer.c: 39: PIE1bits.TMR1IE = 1;
+"39
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;timer.c: 40: TMR1IF = 0;
+"40
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;timer.c: 41: T1CONbits.T1OSCEN = 1;
+"41
+[e = . . _T1CONbits 0 3 -> -> 1 `i `uc ]
+[; ;timer.c: 42: T1GCONbits.TMR1GE = mode;
+"42
+[e = . . _T1GCONbits 0 7 -> _mode `uc ]
+[; ;timer.c: 43: T1CONbits.TMR1ON = 1;
+"43
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+[; ;timer.c: 44: }
+"44
+[e :UE 620 ]
+}
+"47
+[v _timer1_isr `(v ~T0 @X0 1 ef ]
+{
+[; ;timer.c: 47: void timer1_isr() {
+[e :U _timer1_isr ]
+[f ]
+[; ;timer.c: 48: if( _timer1_callback ) {
+"48
+[e $ ! != __timer1_callback -> -> 0 `i `*F6 622  ]
+{
+[; ;timer.c: 49: _timer1_callback();
+"49
+[e ( *U __timer1_callback ..  ]
+"50
+}
+[e :U 622 ]
+[; ;timer.c: 50: }
+[; ;timer.c: 51: TMR1IF = 0;
+"51
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;timer.c: 52: }
+"52
+[e :UE 621 ]
 }

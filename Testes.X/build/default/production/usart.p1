@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23 usart.c
 [c E8 0 1 .. ]
 [n E8 . USART_SYNC_MODE_ASYNCHRONOUS USART_SYNC_MODE_SYNCHRONOUS  ]
-"4204 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"4204 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S221 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S221 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
 "4203
@@ -41,7 +41,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "37 usart.c
 [c E12 0 .. ]
 [n E12 . USART_9BIT_MODE_NOT_IMPLEMENTED  ]
-"4524 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"4524 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S233 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S233 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
 "4523
@@ -68,9 +68,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BRGH `Vb ~T0 @X0 0 e@3314 ]
 "3893
 [v _SPBRG `Vuc ~T0 @X0 0 e@411 ]
-"35 /home/bruno/Programs/microchip/xc8/v1.37/include/string.h
+"35 /opt/microchip/xc8/v1.38/include/string.h
 [v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
-"343 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"343 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S27 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
 "353
@@ -91,10 +91,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIE1bits `VS78 ~T0 @X0 0 e@145 ]
 "3838
 [v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-"28 /home/bruno/Programs/microchip/xc8/v1.37/include/pic.h
+"28 /opt/microchip/xc8/v1.38/include/pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"647 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"647 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S41 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
 "646
@@ -174,7 +174,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 88: void usart_receive_interrupt_isr();
 [; ;usart.h: 93: char* usart_receive_interrupt_get_message();
 [; ;pic16lf1786.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"51 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [; ;pic16lf1786.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1786.h: 54: typedef union {

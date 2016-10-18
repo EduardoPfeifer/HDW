@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"343 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"343 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S27 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
 "353
@@ -10,9 +10,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S26 . . . ]
 "360
 [v _INTCONbits `VS26 ~T0 @X0 0 e@11 ]
-"51 timer.h
+"85 timer.h
 [v _timer0_isr `(v ~T0 @X0 0 ef ]
-"1377 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"1377 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S79 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S79 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
 "1376
@@ -36,12 +36,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _analog_read_isr `(v ~T0 @X0 0 ef ]
 "104
 [v _analog_read_interrupt_get_value `(ui ~T0 @X0 0 ef ]
-"194 /home/bruno/Programs/microchip/xc8/v1.37/include/stdio.h
+"194 /opt/microchip/xc8/v1.38/include/stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "62 usart.h
 [v _usart_transmite_lock_write_message `(v ~T0 @X0 0 ef1`*uc ]
 [p mainexit ]
-"1219 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"1219 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S71 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
 "1229
@@ -63,26 +63,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S32 . . . ]
 "503
 [v _PORTBbits `VS32 ~T0 @X0 0 e@13 ]
-"60 main.c
-[c E6089 0 1 .. ]
-[n E6089 . USART_SYNC_MODE_ASYNCHRONOUS USART_SYNC_MODE_SYNCHRONOUS  ]
+"59 main.c
+[c E6111 0 1 .. ]
+[n E6111 . USART_SYNC_MODE_ASYNCHRONOUS USART_SYNC_MODE_SYNCHRONOUS  ]
 "43 usart.h
-[v _usart_start `(v ~T0 @X0 0 ef2`E6089`ul ]
-"69 main.c
-[c E6121 0 1 3 .. ]
-[n E6121 analog_voltage_reference_positive_e analog_voltage_reference_positive_vdd analog_voltage_reference_positive_vrefp analog_voltage_reference_positive_fvr  ]
-[c E6126 0 1 .. ]
-[n E6126 analog_voltage_reference_negative_e analog_voltage_reference_negative_vss analog_voltage_reference_negative_vrefm  ]
-[c E6130 0 4 1 5 2 6 3 .. ]
-[n E6130 analog_conversion_clock_e analog_conversion_clock_fosc_2 analog_conversion_clock_fosc_4 analog_conversion_clock_fosc_8 analog_conversion_clock_fosc_16 analog_conversion_clock_fosc_32 analog_conversion_clock_fosc_64 analog_conversion_clock_frc  ]
-[c E6139 0 1 .. ]
-[n E6139 analog_result_format_e analog_result_format_sign_magnitude analog_result_format_twos_compliment  ]
-[c E6143 0 1 .. ]
-[n E6143 analog_result_mode_bit_e analog_result_mode_bit_12 analog_result_mode_bit_10  ]
-[c E6147 0 .. ]
-[n E6147 analog_channel_select_e analog_channel_select_0  ]
+[v _usart_start `(v ~T0 @X0 0 ef2`E6111`ul ]
+"68 main.c
+[c E6143 0 1 3 .. ]
+[n E6143 analog_voltage_reference_positive_e analog_voltage_reference_positive_vdd analog_voltage_reference_positive_vrefp analog_voltage_reference_positive_fvr  ]
+[c E6148 0 1 .. ]
+[n E6148 analog_voltage_reference_negative_e analog_voltage_reference_negative_vss analog_voltage_reference_negative_vrefm  ]
+[c E6152 0 4 1 5 2 6 3 .. ]
+[n E6152 analog_conversion_clock_e analog_conversion_clock_fosc_2 analog_conversion_clock_fosc_4 analog_conversion_clock_fosc_8 analog_conversion_clock_fosc_16 analog_conversion_clock_fosc_32 analog_conversion_clock_fosc_64 analog_conversion_clock_frc  ]
+[c E6161 0 1 .. ]
+[n E6161 analog_result_format_e analog_result_format_sign_magnitude analog_result_format_twos_compliment  ]
+[c E6165 0 1 .. ]
+[n E6165 analog_result_mode_bit_e analog_result_mode_bit_12 analog_result_mode_bit_10  ]
+[c E6169 0 .. ]
+[n E6169 analog_channel_select_e analog_channel_select_0  ]
 "71 analog.h
-[v _analog_start `(v ~T0 @X0 0 ef6`E6121`E6126`E6130`E6139`E6143`E6147 ]
+[v _analog_start `(v ~T0 @X0 0 ef6`E6143`E6148`E6152`E6161`E6165`E6169 ]
 "68 usart.h
 [v _usart_receive_lock_read_byte `(uc ~T0 @X0 0 ef ]
 [v F6063 `(v ~T0 @X0 0 tf ]
@@ -92,7 +92,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16lf1786.h: 49: extern volatile unsigned char INDF0 @ 0x000;
-"51 /home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h
+"51 /opt/microchip/xc8/v1.38/include/pic16lf1786.h
 [; ;pic16lf1786.h: 51: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16lf1786.h: 54: typedef union {
@@ -5695,31 +5695,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;types.h: 43: typedef unsigned int uint16_t;
 [; ;types.h: 46: typedef unsigned long uint32_t;
 [; ;types.h: 51: typedef void (*callback_isr_t)(void);
-[; ;timer.h: 13: typedef enum {
-[; ;timer.h: 14: TIMER0_MODE_TIMER = 0,
-[; ;timer.h: 15: TIMER0_MODE_COUNTER = 1
-[; ;timer.h: 16: } timer0_mode_t;
-[; ;timer.h: 18: typedef enum {
-[; ;timer.h: 19: PRESCALAR_USE_NO = 0,
-[; ;timer.h: 20: PRESCALAR_USE_YES = 1
-[; ;timer.h: 21: } prescalar_use_t;
-[; ;timer.h: 23: typedef enum {
-[; ;timer.h: 24: PRESCALAR_RATE_2 = 0b000,
-[; ;timer.h: 25: PRESCALAR_RATE_4 = 0b001,
-[; ;timer.h: 26: PRESCALAR_RATE_8 = 0b010,
-[; ;timer.h: 27: PRESCALAR_RATE_16 = 0b011,
-[; ;timer.h: 28: PRESCALAR_RATE_32 = 0b100,
-[; ;timer.h: 29: PRESCALAR_RATE_64 = 0b001,
-[; ;timer.h: 30: PRESCALAR_RATE_128 = 0b010,
-[; ;timer.h: 31: PRESCALAR_RATE_256 = 0b111
-[; ;timer.h: 32: } prescalar_rate_t;
-[; ;timer.h: 41: void timer0_start(
-[; ;timer.h: 42: timer0_mode_t mode,
-[; ;timer.h: 43: prescalar_use_t prescalar_use,
-[; ;timer.h: 44: prescalar_rate_t prescalar_rate,
-[; ;timer.h: 45: callback_isr_t timer0_isr
-[; ;timer.h: 46: );
-[; ;timer.h: 51: void timer0_isr();
+[; ;timer.h: 15: typedef enum {
+[; ;timer.h: 16: TIMER0_MODE_TIMER = 0,
+[; ;timer.h: 17: TIMER0_MODE_COUNTER = 1
+[; ;timer.h: 18: } timer0_mode_t;
+[; ;timer.h: 20: typedef enum {
+[; ;timer.h: 21: PRESCALAR_USE_NO = 0,
+[; ;timer.h: 22: PRESCALAR_USE_YES = 1
+[; ;timer.h: 23: } prescalar_use_t;
+[; ;timer.h: 25: typedef enum {
+[; ;timer.h: 26: PRESCALAR_RATE_2 = 0b000,
+[; ;timer.h: 27: PRESCALAR_RATE_4 = 0b001,
+[; ;timer.h: 28: PRESCALAR_RATE_8 = 0b010,
+[; ;timer.h: 29: PRESCALAR_RATE_16 = 0b011,
+[; ;timer.h: 30: PRESCALAR_RATE_32 = 0b100,
+[; ;timer.h: 31: PRESCALAR_RATE_64 = 0b001,
+[; ;timer.h: 32: PRESCALAR_RATE_128 = 0b010,
+[; ;timer.h: 33: PRESCALAR_RATE_256 = 0b111
+[; ;timer.h: 34: } prescalar_rate_t;
+[; ;timer.h: 38: typedef enum {
+[; ;timer.h: 39: TIMER1_MODE_TIMER = 0,
+[; ;timer.h: 40: TIMER1_MODE_COUNTER = 1
+[; ;timer.h: 41: } timer1_mode_t;
+[; ;timer.h: 43: typedef enum{
+[; ;timer.h: 44: TIMER1_SOURCE_LFINTOSC = 0b11,
+[; ;timer.h: 45: TIMER1_SOURCE_SYSCLOCK = 0b01,
+[; ;timer.h: 46: TIMER1_SOURCE_SYSLOCK4 = 0b00,
+[; ;timer.h: 47: TIMER1_SOURCE_EXTERNAL = 0b10
+[; ;timer.h: 48: } source_t1;
+[; ;timer.h: 50: typedef enum {
+[; ;timer.h: 51: PRESCALART1_RATE_1 = 0b00,
+[; ;timer.h: 52: PRESCALART1_RATE_2 = 0b01,
+[; ;timer.h: 53: PRESCALART1_RATE_4 = 0b10,
+[; ;timer.h: 54: PRESCALART1_RATE_8 = 0b11
+[; ;timer.h: 56: } prescalar_rate_t1;
+[; ;timer.h: 65: void timer0_start(
+[; ;timer.h: 66: timer0_mode_t mode,
+[; ;timer.h: 67: prescalar_use_t prescalar_use,
+[; ;timer.h: 68: prescalar_rate_t prescalar_rate,
+[; ;timer.h: 69: callback_isr_t timer0_isr
+[; ;timer.h: 70: );
+[; ;timer.h: 74: void timer1_start(
+[; ;timer.h: 75: timer1_mode_t mode,
+[; ;timer.h: 76: source_t1 source,
+[; ;timer.h: 77: prescalar_rate_t1 prescaler,
+[; ;timer.h: 78: callback_isr_t timer1_isr
+[; ;timer.h: 80: );
+[; ;timer.h: 85: void timer0_isr();
+[; ;timer.h: 86: void timer1_isr();
 [; ;usart.h: 17: typedef enum {
 [; ;usart.h: 18: USART_SYNC_MODE_ASYNCHRONOUS = 0,
 [; ;usart.h: 19: USART_SYNC_MODE_SYNCHRONOUS = 1
@@ -5826,150 +5849,150 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;analog.h: 98: void analog_read_interrupt( callback_isr_t analog_callback_done );
 [; ;analog.h: 104: uint16_t analog_read_interrupt_get_value();
 [; ;analog.h: 110: void analog_read_isr();
-"21 main.c
+"20 main.c
 [p x FOSC=INTOSC ]
-"23
+"22
 [p x WDTE=OFF ]
-[v F6166 `(v ~T0 @X0 1 tf ]
-"30
-[v _isr_general `IF6166 ~T0 @X0 1 e ]
+[v F6188 `(v ~T0 @X0 1 tf ]
+"29
+[v _isr_general `IF6188 ~T0 @X0 1 e ]
 {
-[; ;main.c: 30: void interrupt isr_general() {
+[; ;main.c: 29: void interrupt isr_general() {
 [e :U _isr_general ]
 [f ]
-[; ;main.c: 32: if( INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1 ) {
-"32
+[; ;main.c: 31: if( INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1 ) {
+"31
 [e $ ! && == -> . . _INTCONbits 0 5 `i -> 1 `i == -> . . _INTCONbits 0 2 `i -> 1 `i 619  ]
 {
-[; ;main.c: 33: timer0_isr();
-"33
+[; ;main.c: 32: timer0_isr();
+"32
 [e ( _timer0_isr ..  ]
-"34
+"33
 }
 [e :U 619 ]
-[; ;main.c: 34: }
-[; ;main.c: 35: if( PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1 ) {
-"35
+[; ;main.c: 33: }
+[; ;main.c: 34: if( PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1 ) {
+"34
 [e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 620  ]
 {
-[; ;main.c: 36: usart_transmite_interrupt_isr();
-"36
+[; ;main.c: 35: usart_transmite_interrupt_isr();
+"35
 [e ( _usart_transmite_interrupt_isr ..  ]
-"37
+"36
 }
 [e :U 620 ]
-[; ;main.c: 37: }
-[; ;main.c: 38: if( PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1 ) {
-"38
+[; ;main.c: 36: }
+[; ;main.c: 37: if( PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1 ) {
+"37
 [e $ ! && == -> . . _PIE1bits 0 5 `i -> 1 `i == -> . . _PIR1bits 0 5 `i -> 1 `i 621  ]
 {
-[; ;main.c: 39: usart_receive_interrupt_isr();
-"39
+[; ;main.c: 38: usart_receive_interrupt_isr();
+"38
 [e ( _usart_receive_interrupt_isr ..  ]
-"40
+"39
 }
 [e :U 621 ]
-[; ;main.c: 40: }
-[; ;main.c: 41: if( PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1 ) {
-"41
+[; ;main.c: 39: }
+[; ;main.c: 40: if( PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1 ) {
+"40
 [e $ ! && == -> . . _PIE1bits 0 6 `i -> 1 `i == -> . . _PIR1bits 0 6 `i -> 1 `i 622  ]
 {
-[; ;main.c: 42: analog_read_isr();
-"42
+[; ;main.c: 41: analog_read_isr();
+"41
 [e ( _analog_read_isr ..  ]
-"43
+"42
 }
 [e :U 622 ]
+[; ;main.c: 42: }
 [; ;main.c: 43: }
-[; ;main.c: 44: }
-"44
+"43
 [e :UE 618 ]
 }
-"46
+"45
 [v _baby_callback `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 46: void baby_callback() {
+[; ;main.c: 45: void baby_callback() {
 [e :U _baby_callback ]
 [f ]
-"47
+"46
 [v _valor `ui ~T0 @X0 1 a ]
-[; ;main.c: 47: uint16_t valor = analog_read_interrupt_get_value();
+[; ;main.c: 46: uint16_t valor = analog_read_interrupt_get_value();
 [e = _valor ( _analog_read_interrupt_get_value ..  ]
-"49
+"48
 [v _memoria `uc ~T0 @X0 -> 64 `i a ]
-[; ;main.c: 49: char memoria[64];
-[; ;main.c: 50: sprintf( memoria, "Oi, eu sou o goku! Meu ki é: %x\r\n", valor );
-"50
+[; ;main.c: 48: char memoria[64];
+[; ;main.c: 49: sprintf( memoria, "Oi, eu sou o goku! Meu ki é: %x\r\n", valor );
+"49
 [e ( _sprintf (1 , (. , &U _memoria :s 1C _valor ]
-[; ;main.c: 51: usart_transmite_lock_write_message( memoria );
-"51
+[; ;main.c: 50: usart_transmite_lock_write_message( memoria );
+"50
 [e ( _usart_transmite_lock_write_message (1 &U _memoria ]
-[; ;main.c: 52: }
-"52
+[; ;main.c: 51: }
+"51
 [e :UE 623 ]
 }
-"54
+"53
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 54: void main(void) {
+[; ;main.c: 53: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 55: TRISBbits.TRISB4 = 0;
-"55
+[; ;main.c: 54: TRISBbits.TRISB4 = 0;
+"54
 [e = . . _TRISBbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 56: PORTBbits.RB4 = 0;
-"56
+[; ;main.c: 55: PORTBbits.RB4 = 0;
+"55
 [e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 60: usart_start( USART_SYNC_MODE_ASYNCHRONOUS, USART_BAUD_RATE_300 );
-"60
-[e ( _usart_start (2 , . `E6089 0 _USART_BAUD_RATE_300 ]
-[; ;main.c: 62: analog_start(
-[; ;main.c: 63: analog_voltage_reference_positive_vdd,
-[; ;main.c: 64: analog_voltage_reference_negative_vss,
-[; ;main.c: 65: analog_conversion_clock_frc,
-[; ;main.c: 66: analog_result_format_sign_magnitude,
-[; ;main.c: 67: analog_result_mode_bit_12,
-[; ;main.c: 68: analog_channel_select_0
-[; ;main.c: 69: );
-"69
-[e ( _analog_start (4 , , , , , . `E6121 0 . `E6126 0 . `E6130 6 . `E6139 0 . `E6143 0 . `E6147 0 ]
-[; ;main.c: 71: INTCONbits.GIE = 1;
-"71
+[; ;main.c: 59: usart_start( USART_SYNC_MODE_ASYNCHRONOUS, USART_BAUD_RATE_300 );
+"59
+[e ( _usart_start (2 , . `E6111 0 _USART_BAUD_RATE_300 ]
+[; ;main.c: 61: analog_start(
+[; ;main.c: 62: analog_voltage_reference_positive_vdd,
+[; ;main.c: 63: analog_voltage_reference_negative_vss,
+[; ;main.c: 64: analog_conversion_clock_frc,
+[; ;main.c: 65: analog_result_format_sign_magnitude,
+[; ;main.c: 66: analog_result_mode_bit_12,
+[; ;main.c: 67: analog_channel_select_0
+[; ;main.c: 68: );
+"68
+[e ( _analog_start (4 , , , , , . `E6143 0 . `E6148 0 . `E6152 6 . `E6161 0 . `E6165 0 . `E6169 0 ]
+[; ;main.c: 70: INTCONbits.GIE = 1;
+"70
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 74: while(1) {
-"74
+[; ;main.c: 73: while(1) {
+"73
 [e :U 626 ]
 {
-"75
+"74
 [v _comando `uc ~T0 @X0 1 a ]
-[; ;main.c: 75: byte comando = usart_receive_lock_read_byte();
+[; ;main.c: 74: byte comando = usart_receive_lock_read_byte();
 [e = _comando ( _usart_receive_lock_read_byte ..  ]
-[; ;main.c: 76: if( comando == 'a' ) {
-"76
+[; ;main.c: 75: if( comando == 'a' ) {
+"75
 [e $ ! == -> _comando `ui -> 97 `ui 628  ]
 {
-[; ;main.c: 77: analog_read_interrupt( baby_callback );
-"77
+[; ;main.c: 76: analog_read_interrupt( baby_callback );
+"76
 [e ( _analog_read_interrupt (1 &U _baby_callback ]
-"86
+"85
 }
 [e :U 628 ]
-[; ;main.c: 86: }
-[; ;main.c: 87: asm("sleep");
-"87
+[; ;main.c: 85: }
+[; ;main.c: 86: asm("sleep");
+"86
 [; <" sleep ;# ">
-"89
+"88
 }
 [e :U 625 ]
-"74
+"73
 [e $U 626  ]
 [e :U 627 ]
-[; ;main.c: 89: }
-[; ;main.c: 91: return;
-"91
+[; ;main.c: 88: }
+[; ;main.c: 90: return;
+"90
 [e $UE 624  ]
-[; ;main.c: 92: }
-"92
+[; ;main.c: 91: }
+"91
 [e :UE 624 ]
 }
 [p f _sprintf 12582912 ]

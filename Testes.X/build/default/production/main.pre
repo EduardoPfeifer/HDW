@@ -1,17 +1,17 @@
 
 # 1 "main.c"
 
-# 26 "/home/bruno/Programs/microchip/xc8/v1.37/include/htc.h"
+# 26 "/opt/microchip/xc8/v1.38/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "/home/bruno/Programs/microchip/xc8/v1.37/include/xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.38/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h"
+# 49 "/opt/microchip/xc8/v1.38/include/pic16lf1786.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -7594,21 +7594,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic.h"
+# 27 "/opt/microchip/xc8/v1.38/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 77
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "/home/bruno/Programs/microchip/xc8/v1.37/include/eeprom_routines.h"
+# 114 "/opt/microchip/xc8/v1.38/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic.h"
+# 151 "/opt/microchip/xc8/v1.38/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -7617,7 +7617,7 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 13 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdint.h"
+# 13 "/opt/microchip/xc8/v1.38/include/stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -7707,10 +7707,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 4 "/home/bruno/Programs/microchip/xc8/v1.37/include/__size_t.h"
+# 4 "/opt/microchip/xc8/v1.38/include/__size_t.h"
 typedef unsigned size_t;
 
-# 7 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdarg.h"
+# 7 "/opt/microchip/xc8/v1.38/include/stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -7719,17 +7719,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdio.h"
+# 43 "/opt/microchip/xc8/v1.38/include/stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "/home/bruno/Programs/microchip/xc8/v1.37/include/errno.h"
+# 29 "/opt/microchip/xc8/v1.38/include/errno.h"
 extern int errno;
 
-# 12 "/home/bruno/Programs/microchip/xc8/v1.37/include/conio.h"
+# 12 "/opt/microchip/xc8/v1.38/include/conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -7743,7 +7743,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "/home/bruno/Programs/microchip/xc8/v1.37/include/stdio.h"
+# 88 "/opt/microchip/xc8/v1.38/include/stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -7785,7 +7785,7 @@ typedef unsigned long uint32_t;
 # 51
 typedef void (*callback_isr_t)(void);
 
-# 13 "timer.h"
+# 15 "timer.h"
 typedef enum {
 TIMER0_MODE_TIMER = 0,
 TIMER0_MODE_COUNTER = 1
@@ -7807,7 +7807,29 @@ PRESCALAR_RATE_128 = 0b010,
 PRESCALAR_RATE_256 = 0b111
 } prescalar_rate_t;
 
-# 41
+
+
+typedef enum {
+TIMER1_MODE_TIMER = 0,
+TIMER1_MODE_COUNTER = 1
+} timer1_mode_t;
+
+typedef enum{
+TIMER1_SOURCE_LFINTOSC = 0b11,
+TIMER1_SOURCE_SYSCLOCK = 0b01,
+TIMER1_SOURCE_SYSLOCK4 = 0b00,
+TIMER1_SOURCE_EXTERNAL = 0b10
+} source_t1;
+
+typedef enum {
+PRESCALART1_RATE_1 = 0b00,
+PRESCALART1_RATE_2 = 0b01,
+PRESCALART1_RATE_4 = 0b10,
+PRESCALART1_RATE_8 = 0b11
+
+} prescalar_rate_t1;
+
+# 65
 void timer0_start(
 timer0_mode_t mode,
 prescalar_use_t prescalar_use,
@@ -7815,8 +7837,18 @@ prescalar_rate_t prescalar_rate,
 callback_isr_t timer0_isr
 );
 
-# 51
+# 74
+void timer1_start(
+timer1_mode_t mode,
+source_t1 source,
+prescalar_rate_t1 prescaler,
+callback_isr_t timer1_isr
+
+);
+
+# 85
 void timer0_isr();
+void timer1_isr();
 
 # 17 "usart.h"
 typedef enum {
@@ -7934,12 +7966,12 @@ uint16_t analog_read_interrupt_get_value();
 void analog_read_isr();
 
 
-# 21 "main.c"
+# 20 "main.c"
 #pragma config FOSC = INTOSC
 
 #pragma config WDTE = OFF
 
-# 30
+# 29
 void interrupt isr_general() {
 
 if( INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1 ) {
@@ -7989,7 +8021,7 @@ byte comando = usart_receive_lock_read_byte();
 if( comando == 'a' ) {
 analog_read_interrupt( baby_callback );
 
-# 86
+# 85
 }
 asm("sleep");
 

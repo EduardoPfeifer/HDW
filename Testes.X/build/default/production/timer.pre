@@ -16,7 +16,7 @@ typedef unsigned long uint32_t;
 # 51
 typedef void (*callback_isr_t)(void);
 
-# 13 "timer.h"
+# 15 "timer.h"
 typedef enum {
 TIMER0_MODE_TIMER = 0,
 TIMER0_MODE_COUNTER = 1
@@ -38,7 +38,29 @@ PRESCALAR_RATE_128 = 0b010,
 PRESCALAR_RATE_256 = 0b111
 } prescalar_rate_t;
 
-# 41
+
+
+typedef enum {
+TIMER1_MODE_TIMER = 0,
+TIMER1_MODE_COUNTER = 1
+} timer1_mode_t;
+
+typedef enum{
+TIMER1_SOURCE_LFINTOSC = 0b11,
+TIMER1_SOURCE_SYSCLOCK = 0b01,
+TIMER1_SOURCE_SYSLOCK4 = 0b00,
+TIMER1_SOURCE_EXTERNAL = 0b10
+} source_t1;
+
+typedef enum {
+PRESCALART1_RATE_1 = 0b00,
+PRESCALART1_RATE_2 = 0b01,
+PRESCALART1_RATE_4 = 0b10,
+PRESCALART1_RATE_8 = 0b11
+
+} prescalar_rate_t1;
+
+# 65
 void timer0_start(
 timer0_mode_t mode,
 prescalar_use_t prescalar_use,
@@ -46,10 +68,20 @@ prescalar_rate_t prescalar_rate,
 callback_isr_t timer0_isr
 );
 
-# 51
-void timer0_isr();
+# 74
+void timer1_start(
+timer1_mode_t mode,
+source_t1 source,
+prescalar_rate_t1 prescaler,
+callback_isr_t timer1_isr
 
-# 49 "/home/bruno/Programs/microchip/xc8/v1.37/include/pic16lf1786.h"
+);
+
+# 85
+void timer0_isr();
+void timer1_isr();
+
+# 49 "/opt/microchip/xc8/v1.38/include/pic16lf1786.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -7633,6 +7665,8 @@ extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 # 8 "timer.c"
 callback_isr_t _timer0_callback = ((void*)0);
+callback_isr_t _timer1_callback = ((void*)0);
+
 
 void timer0_start( timer0_mode_t mode, prescalar_use_t prescalar_use, prescalar_rate_t prescalar_rate, callback_isr_t timer0_callback ) {
 OPTION_REGbits.TMR0CS = mode;
@@ -7651,3 +7685,28 @@ _timer0_callback();
 }
 INTCONbits.TMR0IF = 0;
 }
+
+void timer1_start(timer1_mode_t mode, source_t1 source , prescalar_rate_t1 prescaler,
+callback_isr_t timer1_callback){
+
+T1CONbits.TMR1CS = source;
+T1CONbits.T1CKPS = prescaler;
+_timer1_callback = timer1_callback;
+
+
+
+PIE1bits.TMR1IE = 1;
+TMR1IF = 0;
+T1CONbits.T1OSCEN = 1;
+T1GCONbits.TMR1GE = mode;
+T1CONbits.TMR1ON = 1;
+}
+
+
+void timer1_isr() {
+if( _timer1_callback ) {
+_timer1_callback();
+}
+TMR1IF = 0;
+}
+
