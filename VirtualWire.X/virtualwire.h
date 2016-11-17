@@ -34,8 +34,6 @@
 
 #define VW_MAX_MESSAGE_LEN 24   // Maximum number of bytes in a message,
                                 // including the byte count and FCS (3 bytes)
-
-
 void vw_setup(uint16_t brate);
 bit vw_send(const char *buf, uint8_t len);
 void vw_wait_tx(void);
