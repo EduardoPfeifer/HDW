@@ -1,5 +1,6 @@
 #include <htc.h>
 #include "virtualwire.h"
+#include <string.h>
 
 #define _XTAL_FREQ 4000000
 
@@ -19,27 +20,23 @@ void interrupt global_isr(void) {
 		vw_isr_tmr0();
 }
 
-void delay(unsigned int delay) {
-	while(delay--);
+void envia( const char* text ) {
+    PORTAbits.RA0 = text == '1' ? 1 : 0;
+    vw_send( text, strlen(text) );
+    __delay_ms(1000);
 }
 
 void main(void) {	
 //    CMCON = 0x07;	// analog comparator disabled
 //	VRCON = 0x00;	// voltage reference module disabled
-    TRISB4 = 0;
-    RB4 = 0;
+    TRISA0 = 0;
+    RA0 = 0;
 
 	vw_setup(300);
 
 	while(1) {
-        PORTBbits.RB4 = 0;
-        char* text = "0";
-		vw_send( text, 1 );
-		delay(20000);
-        
-        PORTBbits.RB4 = 1;
-        char* text = "1";
-		vw_send( text, 1 );
+        envia("0");
+        envia("1");
 	}
 	
 }

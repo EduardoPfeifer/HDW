@@ -8,10 +8,10 @@
  */
 
 /* Transmit and Receive port bits */
-#define TxData RC3
-#define RxData RC2
-#define TxTris TRISC3
-#define RxTris TRISC2
+#define TxData RC0
+#define RxData RC1
+#define TxTris TRISC0
+#define RxTris TRISC1
 
 #define _XTAL_FREQ 4000000
 
