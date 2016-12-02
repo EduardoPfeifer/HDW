@@ -1,0 +1,129 @@
+\hypertarget{analog_8c}{\section{analog.\+c File Reference}
+\label{analog_8c}\index{analog.\+c@{analog.\+c}}
+}
+{\ttfamily \#include $<$pic16lf1786.\+h$>$}\\*
+{\ttfamily \#include $<$xc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}analog.\+h\char`\"{}}\\*
+Include dependency graph for analog.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{analog_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{analog_8c_afc48ece98916606fadaade584b07b0f6}{analog\+\_\+start} (\hyperlink{analog_8h_a5498375a05ccaf5bb3ee237c052f4aba}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t} voltage\+\_\+reference\+\_\+positive, \hyperlink{analog_8h_a785746a4a28aff14d6cf9165e6f4ac5a}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t} voltage\+\_\+reference\+\_\+negative, \hyperlink{analog_8h_a5183d8e7b75549dc41e4866d5ed5c45b}{analog\+\_\+conversion\+\_\+clock\+\_\+t} conversion\+\_\+clock, \hyperlink{analog_8h_a209fd41add1725565eaff3b773da51dc}{analog\+\_\+result\+\_\+format\+\_\+t} analog\+\_\+result\+\_\+format, \hyperlink{analog_8h_a39823aa8eada1a84d236b5887f6b614c}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t} analog\+\_\+result\+\_\+mode\+\_\+bit, \hyperlink{analog_8h_aaac550cf000789bda83df7d9e151e8a4}{analog\+\_\+channel\+\_\+select\+\_\+t} channel\+\_\+select)
+\item 
+void \hyperlink{analog_8c_a1c674cc7687a16cd39a0b79caa7d1709}{analog\+\_\+channel\+\_\+select} (\hyperlink{analog_8h_aaac550cf000789bda83df7d9e151e8a4}{analog\+\_\+channel\+\_\+select\+\_\+t} channel\+\_\+select, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} skip\+\_\+delay)
+\item 
+\hyperlink{stdint_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t} \hyperlink{analog_8c_a2da12556578d87f18cf7fc8393e566b1}{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value} ()
+\item 
+\hyperlink{stdint_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t} \hyperlink{analog_8c_a5200646868c21e68affdeb3364ad5845}{analog\+\_\+read\+\_\+lock} ()
+\item 
+void \hyperlink{analog_8c_aba0c8a3e463e8317f867bc7e5577122f}{analog\+\_\+read\+\_\+interrupt} (\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} analog\+\_\+callback\+\_\+done)
+\item 
+void \hyperlink{analog_8c_afb7f46c1782e82e14bd7f22a841142de}{analog\+\_\+read\+\_\+isr} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} \hyperlink{analog_8c_ac0b7450a742ce341dbe8e06e18b3be09}{\+\_\+analog\+\_\+callback\+\_\+isr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{analog_8c_a1c674cc7687a16cd39a0b79caa7d1709}{\index{analog.\+c@{analog.\+c}!analog\+\_\+channel\+\_\+select@{analog\+\_\+channel\+\_\+select}}
+\index{analog\+\_\+channel\+\_\+select@{analog\+\_\+channel\+\_\+select}!analog.\+c@{analog.\+c}}
+\subsubsection[{analog\+\_\+channel\+\_\+select}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+channel\+\_\+select (
+\begin{DoxyParamCaption}
+\item[{{\bf analog\+\_\+channel\+\_\+select\+\_\+t}}]{channel\+\_\+select, }
+\item[{{\bf uint8\+\_\+t}}]{skip\+\_\+delay}
+\end{DoxyParamCaption}
+)}}\label{analog_8c_a1c674cc7687a16cd39a0b79caa7d1709}
+Faz a seleção do canal que será usado. 
+\begin{DoxyParams}{Parameters}
+{\em channel\+\_\+select} & O canal que será usado \\
+\hline
+{\em skip\+\_\+delay} & Quando verdadeiro, ignora o delay obrigatório, necessário para troca do canal. \\
+\hline
+\end{DoxyParams}
+\hypertarget{analog_8c_aba0c8a3e463e8317f867bc7e5577122f}{\index{analog.\+c@{analog.\+c}!analog\+\_\+read\+\_\+interrupt@{analog\+\_\+read\+\_\+interrupt}}
+\index{analog\+\_\+read\+\_\+interrupt@{analog\+\_\+read\+\_\+interrupt}!analog.\+c@{analog.\+c}}
+\subsubsection[{analog\+\_\+read\+\_\+interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+read\+\_\+interrupt (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+isr\+\_\+t}}]{analog\+\_\+callback\+\_\+done}
+\end{DoxyParamCaption}
+)}}\label{analog_8c_aba0c8a3e463e8317f867bc7e5577122f}
+Faz a conversáo de analógico para digital, utilizando interrupção. 
+\begin{DoxyParams}{Parameters}
+{\em analog\+\_\+callback\+\_\+done} & Rotina que será executada quando a interrupção ocorrer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Para recuperar o valor convertido, utilize a função analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value 
+\end{DoxyRemark}
+\hypertarget{analog_8c_a2da12556578d87f18cf7fc8393e566b1}{\index{analog.\+c@{analog.\+c}!analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value@{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value}}
+\index{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value@{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value}!analog.\+c@{analog.\+c}}
+\subsubsection[{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\+\_\+t} analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{analog_8c_a2da12556578d87f18cf7fc8393e566b1}
+Recupera o valor da conversão analógico-\/digital, já convertido para uso normal. \begin{DoxyReturn}{Returns}
+O valor convertido 
+\end{DoxyReturn}
+\hypertarget{analog_8c_afb7f46c1782e82e14bd7f22a841142de}{\index{analog.\+c@{analog.\+c}!analog\+\_\+read\+\_\+isr@{analog\+\_\+read\+\_\+isr}}
+\index{analog\+\_\+read\+\_\+isr@{analog\+\_\+read\+\_\+isr}!analog.\+c@{analog.\+c}}
+\subsubsection[{analog\+\_\+read\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+read\+\_\+isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{analog_8c_afb7f46c1782e82e14bd7f22a841142de}
+Função chamada na rotina de interrupção. \begin{DoxyRemark}{Remarks}
+Está função só deve ser chamada na interrupção. O programador final não precisa invocar ela. 
+\end{DoxyRemark}
+\hypertarget{analog_8c_a5200646868c21e68affdeb3364ad5845}{\index{analog.\+c@{analog.\+c}!analog\+\_\+read\+\_\+lock@{analog\+\_\+read\+\_\+lock}}
+\index{analog\+\_\+read\+\_\+lock@{analog\+\_\+read\+\_\+lock}!analog.\+c@{analog.\+c}}
+\subsubsection[{analog\+\_\+read\+\_\+lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\+\_\+t} analog\+\_\+read\+\_\+lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{analog_8c_a5200646868c21e68affdeb3364ad5845}
+Faz uma conversão analógico digital em modo de espera. \begin{DoxyReturn}{Returns}
+O valor convertido. 
+\end{DoxyReturn}
+\hypertarget{analog_8c_afc48ece98916606fadaade584b07b0f6}{\index{analog.\+c@{analog.\+c}!analog\+\_\+start@{analog\+\_\+start}}
+\index{analog\+\_\+start@{analog\+\_\+start}!analog.\+c@{analog.\+c}}
+\subsubsection[{analog\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{{\bf analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}}]{voltage\+\_\+reference\+\_\+positive, }
+\item[{{\bf analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}}]{voltage\+\_\+reference\+\_\+negative, }
+\item[{{\bf analog\+\_\+conversion\+\_\+clock\+\_\+t}}]{conversion\+\_\+clock, }
+\item[{{\bf analog\+\_\+result\+\_\+format\+\_\+t}}]{analog\+\_\+result\+\_\+format, }
+\item[{{\bf analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}}]{analog\+\_\+result\+\_\+mode\+\_\+bit, }
+\item[{{\bf analog\+\_\+channel\+\_\+select\+\_\+t}}]{channel\+\_\+select}
+\end{DoxyParamCaption}
+)}}\label{analog_8c_afc48ece98916606fadaade584b07b0f6}
+Inicializa e ativa o uso do conversor Analógico/\+Digital. 
+\begin{DoxyParams}{Parameters}
+{\em voltage\+\_\+reference\+\_\+positive} & \\
+\hline
+{\em voltage\+\_\+reference\+\_\+negative} & \\
+\hline
+{\em conversion\+\_\+clock} & \\
+\hline
+{\em analog\+\_\+result\+\_\+format} & \\
+\hline
+{\em analog\+\_\+result\+\_\+mode\+\_\+bit} & \\
+\hline
+{\em channel\+\_\+select} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{analog_8c_ac0b7450a742ce341dbe8e06e18b3be09}{\index{analog.\+c@{analog.\+c}!\+\_\+analog\+\_\+callback\+\_\+isr@{\+\_\+analog\+\_\+callback\+\_\+isr}}
+\index{\+\_\+analog\+\_\+callback\+\_\+isr@{\+\_\+analog\+\_\+callback\+\_\+isr}!analog.\+c@{analog.\+c}}
+\subsubsection[{\+\_\+analog\+\_\+callback\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf callback\+\_\+isr\+\_\+t} \+\_\+analog\+\_\+callback\+\_\+isr}}\label{analog_8c_ac0b7450a742ce341dbe8e06e18b3be09}

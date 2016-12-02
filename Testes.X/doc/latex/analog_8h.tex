@@ -1,0 +1,287 @@
+\hypertarget{analog_8h}{\section{analog.\+h File Reference}
+\label{analog_8h}\index{analog.\+h@{analog.\+h}}
+}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+Include dependency graph for analog.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{analog_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{analog_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \\*
+\hyperlink{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e} \hyperlink{analog_8h_a5498375a05ccaf5bb3ee237c052f4aba}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}
+\item 
+typedef enum \\*
+\hyperlink{analog_8h_a4f20aa9e4d38bd01c8d83730aae07bed}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e} \hyperlink{analog_8h_a785746a4a28aff14d6cf9165e6f4ac5a}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}
+\item 
+typedef enum \\*
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cc}{analog\+\_\+conversion\+\_\+clock\+\_\+e} \hyperlink{analog_8h_a5183d8e7b75549dc41e4866d5ed5c45b}{analog\+\_\+conversion\+\_\+clock\+\_\+t}
+\item 
+typedef enum \hyperlink{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9}{analog\+\_\+result\+\_\+format\+\_\+e} \hyperlink{analog_8h_a209fd41add1725565eaff3b773da51dc}{analog\+\_\+result\+\_\+format\+\_\+t}
+\item 
+typedef enum \\*
+\hyperlink{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecc}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e} \hyperlink{analog_8h_a39823aa8eada1a84d236b5887f6b614c}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}
+\item 
+typedef enum \\*
+\hyperlink{analog_8h_af2cbf1d809212e01f5b4895fc392317b}{analog\+\_\+channel\+\_\+select\+\_\+e} \hyperlink{analog_8h_aaac550cf000789bda83df7d9e151e8a4}{analog\+\_\+channel\+\_\+select\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e} \{ \hyperlink{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01a8deaeb1c9286ca5b27028d32e440d5a5}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vdd} = 0b00, 
+\hyperlink{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01a38ba8ac1bbe48a253c43362b5823a175}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vrefp} = 0b01, 
+\hyperlink{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01af4a7efd299aa697287b31a2a029152d7}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+fvr} = 0b11
+ \}
+\item 
+enum \hyperlink{analog_8h_a4f20aa9e4d38bd01c8d83730aae07bed}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e} \{ \hyperlink{analog_8h_a4f20aa9e4d38bd01c8d83730aae07beda8ae230b3c54f93adc50b1f51fe80bb11}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vss} = 0b0, 
+\hyperlink{analog_8h_a4f20aa9e4d38bd01c8d83730aae07beda5a61538c0a1a3c1c984b805f16bcf5aa}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vrefm} = 0b1
+ \}
+\item 
+enum \hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cc}{analog\+\_\+conversion\+\_\+clock\+\_\+e} \{ \\*
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cca5b517e1588538ab7d5f7749bd08c96b3}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+2} = 0b000, 
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cca0cc4a9505db207616af34a34bffcabc7}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+4} = 0b100, 
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cca9866aa8fc38f9b24add66f8ea3985cef}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+8} = 0b001, 
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cca53cd5b22ce66693d0b9ad41ca9af2365}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+16} = 0b101, 
+\\*
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433cca881f10505829403e15b5bce071de7751}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+32} = 0b010, 
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433ccab0e9867790d5c15fdeb4f8da3113dada}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+64} = 0b110, 
+\hyperlink{analog_8h_af53693509ee61f2936ef96c1886433ccaef70fdf9624751d4c022c427a6fdc7ba}{analog\+\_\+conversion\+\_\+clock\+\_\+frc} = 0b011
+ \}
+\item 
+enum \hyperlink{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9}{analog\+\_\+result\+\_\+format\+\_\+e} \{ \hyperlink{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9a567afeaeec14ea2047619e2f007abd83}{analog\+\_\+result\+\_\+format\+\_\+sign\+\_\+magnitude} = 0b0, 
+\hyperlink{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9a22848fb1ed118d56dde2af1c8fa00895}{analog\+\_\+result\+\_\+format\+\_\+twos\+\_\+compliment} = 0b1
+ \}
+\item 
+enum \hyperlink{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecc}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e} \{ \hyperlink{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecca337e682c14b5ee5b0fc6ef02a0481863}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+12} = 0b0, 
+\hyperlink{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757eccaedf4139d4c2c26db33191bc054b7342b}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+10} = 0b1
+ \}
+\item 
+enum \hyperlink{analog_8h_af2cbf1d809212e01f5b4895fc392317b}{analog\+\_\+channel\+\_\+select\+\_\+e} \{ \hyperlink{analog_8h_af2cbf1d809212e01f5b4895fc392317ba7fca399d134ce3d8e42dbe7aa6322ebf}{analog\+\_\+channel\+\_\+select\+\_\+0} = 0b00000
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{analog_8h_afc48ece98916606fadaade584b07b0f6}{analog\+\_\+start} (\hyperlink{analog_8h_a5498375a05ccaf5bb3ee237c052f4aba}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t} voltage\+\_\+reference\+\_\+positive, \hyperlink{analog_8h_a785746a4a28aff14d6cf9165e6f4ac5a}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t} voltage\+\_\+reference\+\_\+negative, \hyperlink{analog_8h_a5183d8e7b75549dc41e4866d5ed5c45b}{analog\+\_\+conversion\+\_\+clock\+\_\+t} conversion\+\_\+clock, \hyperlink{analog_8h_a209fd41add1725565eaff3b773da51dc}{analog\+\_\+result\+\_\+format\+\_\+t} analog\+\_\+result\+\_\+format, \hyperlink{analog_8h_a39823aa8eada1a84d236b5887f6b614c}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t} analog\+\_\+result\+\_\+mode\+\_\+bit, \hyperlink{analog_8h_aaac550cf000789bda83df7d9e151e8a4}{analog\+\_\+channel\+\_\+select\+\_\+t} channel\+\_\+select)
+\item 
+void \hyperlink{analog_8h_a1c674cc7687a16cd39a0b79caa7d1709}{analog\+\_\+channel\+\_\+select} (\hyperlink{analog_8h_aaac550cf000789bda83df7d9e151e8a4}{analog\+\_\+channel\+\_\+select\+\_\+t} channel\+\_\+select, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} skip\+\_\+delay)
+\item 
+\hyperlink{stdint_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t} \hyperlink{analog_8h_a5200646868c21e68affdeb3364ad5845}{analog\+\_\+read\+\_\+lock} ()
+\item 
+void \hyperlink{analog_8h_aba0c8a3e463e8317f867bc7e5577122f}{analog\+\_\+read\+\_\+interrupt} (\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} analog\+\_\+callback\+\_\+done)
+\item 
+\hyperlink{stdint_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t} \hyperlink{analog_8h_a2da12556578d87f18cf7fc8393e566b1}{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value} ()
+\item 
+void \hyperlink{analog_8h_afb7f46c1782e82e14bd7f22a841142de}{analog\+\_\+read\+\_\+isr} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{analog_8h_aaac550cf000789bda83df7d9e151e8a4}{\index{analog.\+h@{analog.\+h}!analog\+\_\+channel\+\_\+select\+\_\+t@{analog\+\_\+channel\+\_\+select\+\_\+t}}
+\index{analog\+\_\+channel\+\_\+select\+\_\+t@{analog\+\_\+channel\+\_\+select\+\_\+t}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+channel\+\_\+select\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf analog\+\_\+channel\+\_\+select\+\_\+e}  {\bf analog\+\_\+channel\+\_\+select\+\_\+t}}}\label{analog_8h_aaac550cf000789bda83df7d9e151e8a4}
+Indica qual canal deverá ser selecionado. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Por hora, apenas o canal 0 foi implementado. Ver a necessidade de utilizar os outros. \end{DoxyRefDesc}
+\hypertarget{analog_8h_a5183d8e7b75549dc41e4866d5ed5c45b}{\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+t@{analog\+\_\+conversion\+\_\+clock\+\_\+t}}
+\index{analog\+\_\+conversion\+\_\+clock\+\_\+t@{analog\+\_\+conversion\+\_\+clock\+\_\+t}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+conversion\+\_\+clock\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf analog\+\_\+conversion\+\_\+clock\+\_\+e}  {\bf analog\+\_\+conversion\+\_\+clock\+\_\+t}}}\label{analog_8h_a5183d8e7b75549dc41e4866d5ed5c45b}
+\hypertarget{analog_8h_a209fd41add1725565eaff3b773da51dc}{\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+format\+\_\+t@{analog\+\_\+result\+\_\+format\+\_\+t}}
+\index{analog\+\_\+result\+\_\+format\+\_\+t@{analog\+\_\+result\+\_\+format\+\_\+t}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+result\+\_\+format\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf analog\+\_\+result\+\_\+format\+\_\+e}  {\bf analog\+\_\+result\+\_\+format\+\_\+t}}}\label{analog_8h_a209fd41add1725565eaff3b773da51dc}
+Indica o formato do resultado da conversão. \hypertarget{analog_8h_a39823aa8eada1a84d236b5887f6b614c}{\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}}
+\index{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e}  {\bf analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}}}\label{analog_8h_a39823aa8eada1a84d236b5887f6b614c}
+Indica quantos bits serão utilizados na conversão do sinal. \hypertarget{analog_8h_a785746a4a28aff14d6cf9165e6f4ac5a}{\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}}
+\index{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e}  {\bf analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}}}\label{analog_8h_a785746a4a28aff14d6cf9165e6f4ac5a}
+\hypertarget{analog_8h_a5498375a05ccaf5bb3ee237c052f4aba}{\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}}
+\index{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e}  {\bf analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}}}\label{analog_8h_a5498375a05ccaf5bb3ee237c052f4aba}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{analog_8h_af2cbf1d809212e01f5b4895fc392317b}{\index{analog.\+h@{analog.\+h}!analog\+\_\+channel\+\_\+select\+\_\+e@{analog\+\_\+channel\+\_\+select\+\_\+e}}
+\index{analog\+\_\+channel\+\_\+select\+\_\+e@{analog\+\_\+channel\+\_\+select\+\_\+e}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+channel\+\_\+select\+\_\+e}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf analog\+\_\+channel\+\_\+select\+\_\+e}}}\label{analog_8h_af2cbf1d809212e01f5b4895fc392317b}
+Indica qual canal deverá ser selecionado. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Por hora, apenas o canal 0 foi implementado. Ver a necessidade de utilizar os outros. \end{DoxyRefDesc}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{analog\+\_\+channel\+\_\+select\+\_\+0@{analog\+\_\+channel\+\_\+select\+\_\+0}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+channel\+\_\+select\+\_\+0@{analog\+\_\+channel\+\_\+select\+\_\+0}}\item[{\em 
+\hypertarget{analog_8h_af2cbf1d809212e01f5b4895fc392317ba7fca399d134ce3d8e42dbe7aa6322ebf}{analog\+\_\+channel\+\_\+select\+\_\+0}\label{analog_8h_af2cbf1d809212e01f5b4895fc392317ba7fca399d134ce3d8e42dbe7aa6322ebf}
+}]\end{description}
+\end{Desc}
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433cc}{\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+e@{analog\+\_\+conversion\+\_\+clock\+\_\+e}}
+\index{analog\+\_\+conversion\+\_\+clock\+\_\+e@{analog\+\_\+conversion\+\_\+clock\+\_\+e}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+conversion\+\_\+clock\+\_\+e}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf analog\+\_\+conversion\+\_\+clock\+\_\+e}}}\label{analog_8h_af53693509ee61f2936ef96c1886433cc}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+2@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+2}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+2@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+2}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433cca5b517e1588538ab7d5f7749bd08c96b3}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+2}\label{analog_8h_af53693509ee61f2936ef96c1886433cca5b517e1588538ab7d5f7749bd08c96b3}
+}]\index{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+4@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+4}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+4@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+4}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433cca0cc4a9505db207616af34a34bffcabc7}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+4}\label{analog_8h_af53693509ee61f2936ef96c1886433cca0cc4a9505db207616af34a34bffcabc7}
+}]\index{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+8@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+8}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+8@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+8}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433cca9866aa8fc38f9b24add66f8ea3985cef}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+8}\label{analog_8h_af53693509ee61f2936ef96c1886433cca9866aa8fc38f9b24add66f8ea3985cef}
+}]\index{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+16@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+16}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+16@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+16}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433cca53cd5b22ce66693d0b9ad41ca9af2365}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+16}\label{analog_8h_af53693509ee61f2936ef96c1886433cca53cd5b22ce66693d0b9ad41ca9af2365}
+}]\index{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+32@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+32}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+32@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+32}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433cca881f10505829403e15b5bce071de7751}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+32}\label{analog_8h_af53693509ee61f2936ef96c1886433cca881f10505829403e15b5bce071de7751}
+}]\index{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+64@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+64}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+64@{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+64}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433ccab0e9867790d5c15fdeb4f8da3113dada}{analog\+\_\+conversion\+\_\+clock\+\_\+fosc\+\_\+64}\label{analog_8h_af53693509ee61f2936ef96c1886433ccab0e9867790d5c15fdeb4f8da3113dada}
+}]\index{analog\+\_\+conversion\+\_\+clock\+\_\+frc@{analog\+\_\+conversion\+\_\+clock\+\_\+frc}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+conversion\+\_\+clock\+\_\+frc@{analog\+\_\+conversion\+\_\+clock\+\_\+frc}}\item[{\em 
+\hypertarget{analog_8h_af53693509ee61f2936ef96c1886433ccaef70fdf9624751d4c022c427a6fdc7ba}{analog\+\_\+conversion\+\_\+clock\+\_\+frc}\label{analog_8h_af53693509ee61f2936ef96c1886433ccaef70fdf9624751d4c022c427a6fdc7ba}
+}]\end{description}
+\end{Desc}
+\hypertarget{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9}{\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+format\+\_\+e@{analog\+\_\+result\+\_\+format\+\_\+e}}
+\index{analog\+\_\+result\+\_\+format\+\_\+e@{analog\+\_\+result\+\_\+format\+\_\+e}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+result\+\_\+format\+\_\+e}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf analog\+\_\+result\+\_\+format\+\_\+e}}}\label{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9}
+Indica o formato do resultado da conversão. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{analog\+\_\+result\+\_\+format\+\_\+sign\+\_\+magnitude@{analog\+\_\+result\+\_\+format\+\_\+sign\+\_\+magnitude}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+format\+\_\+sign\+\_\+magnitude@{analog\+\_\+result\+\_\+format\+\_\+sign\+\_\+magnitude}}\item[{\em 
+\hypertarget{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9a567afeaeec14ea2047619e2f007abd83}{analog\+\_\+result\+\_\+format\+\_\+sign\+\_\+magnitude}\label{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9a567afeaeec14ea2047619e2f007abd83}
+}]Sinal + Magnitude \index{analog\+\_\+result\+\_\+format\+\_\+twos\+\_\+compliment@{analog\+\_\+result\+\_\+format\+\_\+twos\+\_\+compliment}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+format\+\_\+twos\+\_\+compliment@{analog\+\_\+result\+\_\+format\+\_\+twos\+\_\+compliment}}\item[{\em 
+\hypertarget{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9a22848fb1ed118d56dde2af1c8fa00895}{analog\+\_\+result\+\_\+format\+\_\+twos\+\_\+compliment}\label{analog_8h_a27ef65da7bd4dd57fc27e658eaa7eee9a22848fb1ed118d56dde2af1c8fa00895}
+}]Complemento de 2 \end{description}
+\end{Desc}
+\hypertarget{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecc}{\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e}}
+\index{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+e}}}\label{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecc}
+Indica quantos bits serão utilizados na conversão do sinal. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+12@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+12}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+12@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+12}}\item[{\em 
+\hypertarget{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecca337e682c14b5ee5b0fc6ef02a0481863}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+12}\label{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757ecca337e682c14b5ee5b0fc6ef02a0481863}
+}]Converte o sinal com 12 bits \index{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+10@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+10}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+10@{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+10}}\item[{\em 
+\hypertarget{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757eccaedf4139d4c2c26db33191bc054b7342b}{analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+10}\label{analog_8h_aa2d1377fd93fdbd5a5c95c0dc4757eccaedf4139d4c2c26db33191bc054b7342b}
+}]Converte o sinal com 10 bits \end{description}
+\end{Desc}
+\hypertarget{analog_8h_a4f20aa9e4d38bd01c8d83730aae07bed}{\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e}}
+\index{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+e}}}\label{analog_8h_a4f20aa9e4d38bd01c8d83730aae07bed}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vss@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vss}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vss@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vss}}\item[{\em 
+\hypertarget{analog_8h_a4f20aa9e4d38bd01c8d83730aae07beda8ae230b3c54f93adc50b1f51fe80bb11}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vss}\label{analog_8h_a4f20aa9e4d38bd01c8d83730aae07beda8ae230b3c54f93adc50b1f51fe80bb11}
+}]\index{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vrefm@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vrefm}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vrefm@{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vrefm}}\item[{\em 
+\hypertarget{analog_8h_a4f20aa9e4d38bd01c8d83730aae07beda5a61538c0a1a3c1c984b805f16bcf5aa}{analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+vrefm}\label{analog_8h_a4f20aa9e4d38bd01c8d83730aae07beda5a61538c0a1a3c1c984b805f16bcf5aa}
+}]\end{description}
+\end{Desc}
+\hypertarget{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01}{\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e}}
+\index{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+e}}}\label{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vdd@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vdd}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vdd@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vdd}}\item[{\em 
+\hypertarget{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01a8deaeb1c9286ca5b27028d32e440d5a5}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vdd}\label{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01a8deaeb1c9286ca5b27028d32e440d5a5}
+}]\index{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vrefp@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vrefp}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vrefp@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vrefp}}\item[{\em 
+\hypertarget{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01a38ba8ac1bbe48a253c43362b5823a175}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+vrefp}\label{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01a38ba8ac1bbe48a253c43362b5823a175}
+}]\index{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+fvr@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+fvr}!analog.\+h@{analog.\+h}}\index{analog.\+h@{analog.\+h}!analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+fvr@{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+fvr}}\item[{\em 
+\hypertarget{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01af4a7efd299aa697287b31a2a029152d7}{analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+fvr}\label{analog_8h_a82f5c5e5c9b431aef9fe84b261575b01af4a7efd299aa697287b31a2a029152d7}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{analog_8h_a1c674cc7687a16cd39a0b79caa7d1709}{\index{analog.\+h@{analog.\+h}!analog\+\_\+channel\+\_\+select@{analog\+\_\+channel\+\_\+select}}
+\index{analog\+\_\+channel\+\_\+select@{analog\+\_\+channel\+\_\+select}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+channel\+\_\+select}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+channel\+\_\+select (
+\begin{DoxyParamCaption}
+\item[{{\bf analog\+\_\+channel\+\_\+select\+\_\+t}}]{channel\+\_\+select, }
+\item[{{\bf uint8\+\_\+t}}]{skip\+\_\+delay}
+\end{DoxyParamCaption}
+)}}\label{analog_8h_a1c674cc7687a16cd39a0b79caa7d1709}
+Faz a seleção do canal que será usado. 
+\begin{DoxyParams}{Parameters}
+{\em channel\+\_\+select} & O canal que será usado \\
+\hline
+{\em skip\+\_\+delay} & Quando verdadeiro, ignora o delay obrigatório, necessário para troca do canal. \\
+\hline
+\end{DoxyParams}
+\hypertarget{analog_8h_aba0c8a3e463e8317f867bc7e5577122f}{\index{analog.\+h@{analog.\+h}!analog\+\_\+read\+\_\+interrupt@{analog\+\_\+read\+\_\+interrupt}}
+\index{analog\+\_\+read\+\_\+interrupt@{analog\+\_\+read\+\_\+interrupt}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+read\+\_\+interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+read\+\_\+interrupt (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+isr\+\_\+t}}]{analog\+\_\+callback\+\_\+done}
+\end{DoxyParamCaption}
+)}}\label{analog_8h_aba0c8a3e463e8317f867bc7e5577122f}
+Faz a conversáo de analógico para digital, utilizando interrupção. 
+\begin{DoxyParams}{Parameters}
+{\em analog\+\_\+callback\+\_\+done} & Rotina que será executada quando a interrupção ocorrer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Para recuperar o valor convertido, utilize a função analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value 
+\end{DoxyRemark}
+\hypertarget{analog_8h_a2da12556578d87f18cf7fc8393e566b1}{\index{analog.\+h@{analog.\+h}!analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value@{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value}}
+\index{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value@{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\+\_\+t} analog\+\_\+read\+\_\+interrupt\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{analog_8h_a2da12556578d87f18cf7fc8393e566b1}
+Recupera o valor da conversão analógico-\/digital, já convertido para uso normal. \begin{DoxyReturn}{Returns}
+O valor convertido 
+\end{DoxyReturn}
+\hypertarget{analog_8h_afb7f46c1782e82e14bd7f22a841142de}{\index{analog.\+h@{analog.\+h}!analog\+\_\+read\+\_\+isr@{analog\+\_\+read\+\_\+isr}}
+\index{analog\+\_\+read\+\_\+isr@{analog\+\_\+read\+\_\+isr}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+read\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+read\+\_\+isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{analog_8h_afb7f46c1782e82e14bd7f22a841142de}
+Função chamada na rotina de interrupção. \begin{DoxyRemark}{Remarks}
+Está função só deve ser chamada na interrupção. O programador final não precisa invocar ela. 
+\end{DoxyRemark}
+\hypertarget{analog_8h_a5200646868c21e68affdeb3364ad5845}{\index{analog.\+h@{analog.\+h}!analog\+\_\+read\+\_\+lock@{analog\+\_\+read\+\_\+lock}}
+\index{analog\+\_\+read\+\_\+lock@{analog\+\_\+read\+\_\+lock}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+read\+\_\+lock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\+\_\+t} analog\+\_\+read\+\_\+lock (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{analog_8h_a5200646868c21e68affdeb3364ad5845}
+Faz uma conversão analógico digital em modo de espera. \begin{DoxyReturn}{Returns}
+O valor convertido. 
+\end{DoxyReturn}
+\hypertarget{analog_8h_afc48ece98916606fadaade584b07b0f6}{\index{analog.\+h@{analog.\+h}!analog\+\_\+start@{analog\+\_\+start}}
+\index{analog\+\_\+start@{analog\+\_\+start}!analog.\+h@{analog.\+h}}
+\subsubsection[{analog\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void analog\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{{\bf analog\+\_\+voltage\+\_\+reference\+\_\+positive\+\_\+t}}]{voltage\+\_\+reference\+\_\+positive, }
+\item[{{\bf analog\+\_\+voltage\+\_\+reference\+\_\+negative\+\_\+t}}]{voltage\+\_\+reference\+\_\+negative, }
+\item[{{\bf analog\+\_\+conversion\+\_\+clock\+\_\+t}}]{conversion\+\_\+clock, }
+\item[{{\bf analog\+\_\+result\+\_\+format\+\_\+t}}]{analog\+\_\+result\+\_\+format, }
+\item[{{\bf analog\+\_\+result\+\_\+mode\+\_\+bit\+\_\+t}}]{analog\+\_\+result\+\_\+mode\+\_\+bit, }
+\item[{{\bf analog\+\_\+channel\+\_\+select\+\_\+t}}]{channel\+\_\+select}
+\end{DoxyParamCaption}
+)}}\label{analog_8h_afc48ece98916606fadaade584b07b0f6}
+Inicializa e ativa o uso do conversor Analógico/\+Digital. 
+\begin{DoxyParams}{Parameters}
+{\em voltage\+\_\+reference\+\_\+positive} & \\
+\hline
+{\em voltage\+\_\+reference\+\_\+negative} & \\
+\hline
+{\em conversion\+\_\+clock} & \\
+\hline
+{\em analog\+\_\+result\+\_\+format} & \\
+\hline
+{\em analog\+\_\+result\+\_\+mode\+\_\+bit} & \\
+\hline
+{\em channel\+\_\+select} & \\
+\hline
+\end{DoxyParams}

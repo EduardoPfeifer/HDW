@@ -1,0 +1,280 @@
+\hypertarget{usart_8h}{\section{usart.\+h File Reference}
+\label{usart_8h}\index{usart.\+h@{usart.\+h}}
+}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+Include dependency graph for usart.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=128pt]{usart_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{usart_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{usart_8h_a349dcc3059ac0d819919b4030de0ffe7}{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}~61
+\item 
+\#define \hyperlink{usart_8h_a75e60ae3c6638b245ded9f9106f236e9}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}~61
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{usart_8h_a7ecd603d2579abbe714d58eb582821b8}{usart\+\_\+sync\+\_\+mode\+\_\+t} \{ \hyperlink{usart_8h_a7ecd603d2579abbe714d58eb582821b8a1a8ad112420639e0d8b7b5d03fec821b}{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S} = L\+O\+W, 
+\hyperlink{usart_8h_a7ecd603d2579abbe714d58eb582821b8a34d87ffc3dd86d3b66b0dd395a2dd921}{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S} = H\+I\+G\+H
+ \}
+\item 
+enum \hyperlink{usart_8h_ac9a70b65ef766451441f01b9481796ce}{usart\+\_\+9bit\+\_\+mode\+\_\+t} \{ \hyperlink{usart_8h_ac9a70b65ef766451441f01b9481796cea32cb2a138110deff6810efd4d203459a}{U\+S\+A\+R\+T\+\_\+9\+B\+I\+T\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+E\+D} = L\+O\+W
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{usart_8h_a8a68523fcfebe109df61258219ae9688}{usart\+\_\+start} (\hyperlink{usart_8h_a7ecd603d2579abbe714d58eb582821b8}{usart\+\_\+sync\+\_\+mode\+\_\+t} usart\+\_\+sync\+\_\+mode, \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} baud\+\_\+rate)
+\item 
+void \hyperlink{usart_8h_ace64d3f73f8d6f4deb50dcaab535be75}{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message} (char $\ast$message, \hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} usart\+\_\+callback\+\_\+transmit\+\_\+done)
+\item 
+void \hyperlink{usart_8h_a0f565c4ece40219cd8e0499edb19f600}{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr} ()
+\item 
+void \hyperlink{usart_8h_a4464da3c14838dd54b5f9b0e5efc3e78}{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte} (\hyperlink{types_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte} data)
+\item 
+void \hyperlink{usart_8h_a3bdb4a2748bbd78e74f868415af429aa}{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message} (char $\ast$message)
+\item 
+\hyperlink{types_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte} \hyperlink{usart_8h_a1ab1e3e47eb749bb56f1832b75c6790e}{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte} ()
+\item 
+\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} \hyperlink{usart_8h_a9e13620a0dc60d72b792d501ff67c68d}{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message} (char $\ast$buffer, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} size)
+\item 
+void \hyperlink{usart_8h_a56dc1cc4286dea0f752723577faf52cb}{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message} (\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} usart\+\_\+callback\+\_\+receive\+\_\+done)
+\item 
+void \hyperlink{usart_8h_a8016e6fb6f0a421fb1622403ccf7b16a}{usart\+\_\+receive\+\_\+interrupt\+\_\+isr} ()
+\item 
+char $\ast$ \hyperlink{usart_8h_ad731c697950fec7f25903623a1086fbf}{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_a71b7a36a4e5cff9229a2d49a655009bc}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300} = 300ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_a2d4acc87bd9c689e52d0ea74d0e376bd}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484} = 484ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_a79e796d8f0eca10a8700c39a271f766e}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200} = 1200ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_aab78c07ac38da93743ccd5a93030bffa}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400} = 2400ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_ac83aa1b365f9c085b2762980926ee594}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600} = 9600ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_aba561abfb08dede0c4e54a88f40c8841}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417} = 10417ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_a748949f9c355484b8715f2510125c0a8}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200} = 19200ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_a090428649014dc41404227c791a8d357}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600} = 57600ul
+\item 
+const \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} \hyperlink{usart_8h_a47d90ebe1d09a984ab87e2013ad97cf8}{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200} = 115200ul
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{usart_8h_a75e60ae3c6638b245ded9f9106f236e9}{\index{usart.\+h@{usart.\+h}!R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E@{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}}
+\index{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E@{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}!usart.\+h@{usart.\+h}}
+\subsubsection[{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E~61}}\label{usart_8h_a75e60ae3c6638b245ded9f9106f236e9}
+\hypertarget{usart_8h_a349dcc3059ac0d819919b4030de0ffe7}{\index{usart.\+h@{usart.\+h}!T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E@{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}}
+\index{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E@{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}!usart.\+h@{usart.\+h}}
+\subsubsection[{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E~61}}\label{usart_8h_a349dcc3059ac0d819919b4030de0ffe7}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{usart_8h_ac9a70b65ef766451441f01b9481796ce}{\index{usart.\+h@{usart.\+h}!usart\+\_\+9bit\+\_\+mode\+\_\+t@{usart\+\_\+9bit\+\_\+mode\+\_\+t}}
+\index{usart\+\_\+9bit\+\_\+mode\+\_\+t@{usart\+\_\+9bit\+\_\+mode\+\_\+t}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+9bit\+\_\+mode\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usart\+\_\+9bit\+\_\+mode\+\_\+t}}}\label{usart_8h_ac9a70b65ef766451441f01b9481796ce}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{U\+S\+A\+R\+T\+\_\+9\+B\+I\+T\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+E\+D@{U\+S\+A\+R\+T\+\_\+9\+B\+I\+T\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+E\+D}!usart.\+h@{usart.\+h}}\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+9\+B\+I\+T\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+E\+D@{U\+S\+A\+R\+T\+\_\+9\+B\+I\+T\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+E\+D}}\item[{\em 
+\hypertarget{usart_8h_ac9a70b65ef766451441f01b9481796cea32cb2a138110deff6810efd4d203459a}{U\+S\+A\+R\+T\+\_\+9\+B\+I\+T\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+T\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+E\+D}\label{usart_8h_ac9a70b65ef766451441f01b9481796cea32cb2a138110deff6810efd4d203459a}
+}]\end{description}
+\end{Desc}
+\hypertarget{usart_8h_a7ecd603d2579abbe714d58eb582821b8}{\index{usart.\+h@{usart.\+h}!usart\+\_\+sync\+\_\+mode\+\_\+t@{usart\+\_\+sync\+\_\+mode\+\_\+t}}
+\index{usart\+\_\+sync\+\_\+mode\+\_\+t@{usart\+\_\+sync\+\_\+mode\+\_\+t}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+sync\+\_\+mode\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usart\+\_\+sync\+\_\+mode\+\_\+t}}}\label{usart_8h_a7ecd603d2579abbe714d58eb582821b8}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S@{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S}!usart.\+h@{usart.\+h}}\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S@{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S}}\item[{\em 
+\hypertarget{usart_8h_a7ecd603d2579abbe714d58eb582821b8a1a8ad112420639e0d8b7b5d03fec821b}{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S}\label{usart_8h_a7ecd603d2579abbe714d58eb582821b8a1a8ad112420639e0d8b7b5d03fec821b}
+}]\index{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S@{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S}!usart.\+h@{usart.\+h}}\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S@{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S}}\item[{\em 
+\hypertarget{usart_8h_a7ecd603d2579abbe714d58eb582821b8a34d87ffc3dd86d3b66b0dd395a2dd921}{U\+S\+A\+R\+T\+\_\+\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E\+\_\+\+S\+Y\+N\+C\+H\+R\+O\+N\+O\+U\+S}\label{usart_8h_a7ecd603d2579abbe714d58eb582821b8a34d87ffc3dd86d3b66b0dd395a2dd921}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{usart_8h_ad731c697950fec7f25903623a1086fbf}{\index{usart.\+h@{usart.\+h}!usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message}}
+\index{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_ad731c697950fec7f25903623a1086fbf}
+Recupera o ponteiro para a mensagem recebida ao final da interrupção. \hypertarget{usart_8h_a8016e6fb6f0a421fb1622403ccf7b16a}{\index{usart.\+h@{usart.\+h}!usart\+\_\+receive\+\_\+interrupt\+\_\+isr@{usart\+\_\+receive\+\_\+interrupt\+\_\+isr}}
+\index{usart\+\_\+receive\+\_\+interrupt\+\_\+isr@{usart\+\_\+receive\+\_\+interrupt\+\_\+isr}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+receive\+\_\+interrupt\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+receive\+\_\+interrupt\+\_\+isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a8016e6fb6f0a421fb1622403ccf7b16a}
+\begin{DoxyRemark}{Remarks}
+Não precisa chamar esta função. Ela é chamada automaticamente pela função tratadora de interrupções. Função que trata a interrupção de recepção de mensagem. 
+\end{DoxyRemark}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]Transformar em uma macro depois. \end{DoxyRefDesc}
+\hypertarget{usart_8h_a56dc1cc4286dea0f752723577faf52cb}{\index{usart.\+h@{usart.\+h}!usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message}}
+\index{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+isr\+\_\+t}}]{usart\+\_\+callback\+\_\+receive\+\_\+done}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a56dc1cc4286dea0f752723577faf52cb}
+Recebe uma string inteira, utilizando interrupções. A string deve terminar em ''. 
+\begin{DoxyParams}{Parameters}
+{\em usart\+\_\+callback\+\_\+receive\+\_\+done} & função que será chamada quando a mensagem for totalmente recebida. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8h_a1ab1e3e47eb749bb56f1832b75c6790e}{\index{usart.\+h@{usart.\+h}!usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte}}
+\index{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a1ab1e3e47eb749bb56f1832b75c6790e}
+Recebe um byte (mas trava a tarefa). \begin{DoxyReturn}{Returns}
+O valor recebido do R\+X. 
+\end{DoxyReturn}
+\hypertarget{usart_8h_a9e13620a0dc60d72b792d501ff67c68d}{\index{usart.\+h@{usart.\+h}!usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message}}
+\index{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\+\_\+t} usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{{\bf uint8\+\_\+t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a9e13620a0dc60d72b792d501ff67c68d}
+Recebe uma string inteira (mas trava a tarefa). A string deve terminar em ''. 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & O buffer onde a mensagem será salva. \\
+\hline
+{\em size} & O tamanho do buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A quantidade de caracteres recebida. 
+\end{DoxyReturn}
+\hypertarget{usart_8h_a8a68523fcfebe109df61258219ae9688}{\index{usart.\+h@{usart.\+h}!usart\+\_\+start@{usart\+\_\+start}}
+\index{usart\+\_\+start@{usart\+\_\+start}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{{\bf usart\+\_\+sync\+\_\+mode\+\_\+t}}]{usart\+\_\+sync\+\_\+mode, }
+\item[{{\bf uint32\+\_\+t}}]{baud\+\_\+rate}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a8a68523fcfebe109df61258219ae9688}
+Inicia a comunicação por E\+U\+S\+A\+R\+T.
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart\+\_\+sync\+\_\+mode} & Modo de sincronização desejado. Por hora, só tem Assincrono. \\
+\hline
+{\em baud\+\_\+rate} & Velocidade da transferencia. Existem constantes definidas com os valores mais comuns. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]Implementar modo sincrono! \end{DoxyRefDesc}
+\hypertarget{usart_8h_a0f565c4ece40219cd8e0499edb19f600}{\index{usart.\+h@{usart.\+h}!usart\+\_\+transmite\+\_\+interrupt\+\_\+isr@{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr}}
+\index{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr@{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+interrupt\+\_\+isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a0f565c4ece40219cd8e0499edb19f600}
+\begin{DoxyRemark}{Remarks}
+Não precisa chamar esta função. Ela é chamada automaticamente pela função tratadora de interrupções. Função que trata a interrupção de envio de mensagem. 
+\end{DoxyRemark}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Transformar em uma macro depois. \end{DoxyRefDesc}
+\hypertarget{usart_8h_ace64d3f73f8d6f4deb50dcaab535be75}{\index{usart.\+h@{usart.\+h}!usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message}}
+\index{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{{\bf callback\+\_\+isr\+\_\+t}}]{usart\+\_\+callback\+\_\+transmit\+\_\+done}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_ace64d3f73f8d6f4deb50dcaab535be75}
+Transmite uma mensagem, utilizando interrupções. 
+\begin{DoxyParams}{Parameters}
+{\em message} & String que será enviada. \\
+\hline
+{\em usart\+\_\+callback\+\_\+transmit\+\_\+done} & Função que será chamada após o ultimo byte ser transmitido. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8h_a4464da3c14838dd54b5f9b0e5efc3e78}{\index{usart.\+h@{usart.\+h}!usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte}}
+\index{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{{\bf byte}}]{data}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a4464da3c14838dd54b5f9b0e5efc3e78}
+\begin{DoxyRemark}{Remarks}
+Função privada (Não acessivel de fora -\/ não é pra cagar nela).
+\end{DoxyRemark}
+Transmite um byte (mas trava a tarefa).
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Byte que será transmitido. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8h_a3bdb4a2748bbd78e74f868415af429aa}{\index{usart.\+h@{usart.\+h}!usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message}}
+\index{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message}!usart.\+h@{usart.\+h}}
+\subsubsection[{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message}
+\end{DoxyParamCaption}
+)}}\label{usart_8h_a3bdb4a2748bbd78e74f868415af429aa}
+Transmite uma string (mas trava a tarefa). 
+\begin{DoxyParams}{Parameters}
+{\em message} & String que será transmitida. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{usart_8h_aba561abfb08dede0c4e54a88f40c8841}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+10417 = 10417ul}}\label{usart_8h_aba561abfb08dede0c4e54a88f40c8841}
+\hypertarget{usart_8h_a47d90ebe1d09a984ab87e2013ad97cf8}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+115200 = 115200ul}}\label{usart_8h_a47d90ebe1d09a984ab87e2013ad97cf8}
+\hypertarget{usart_8h_a79e796d8f0eca10a8700c39a271f766e}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+1200 = 1200ul}}\label{usart_8h_a79e796d8f0eca10a8700c39a271f766e}
+\hypertarget{usart_8h_a748949f9c355484b8715f2510125c0a8}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+19200 = 19200ul}}\label{usart_8h_a748949f9c355484b8715f2510125c0a8}
+\hypertarget{usart_8h_aab78c07ac38da93743ccd5a93030bffa}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+2400 = 2400ul}}\label{usart_8h_aab78c07ac38da93743ccd5a93030bffa}
+\hypertarget{usart_8h_a71b7a36a4e5cff9229a2d49a655009bc}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+300 = 300ul}}\label{usart_8h_a71b7a36a4e5cff9229a2d49a655009bc}
+\hypertarget{usart_8h_a2d4acc87bd9c689e52d0ea74d0e376bd}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+484 = 484ul}}\label{usart_8h_a2d4acc87bd9c689e52d0ea74d0e376bd}
+\hypertarget{usart_8h_a090428649014dc41404227c791a8d357}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+57600 = 57600ul}}\label{usart_8h_a090428649014dc41404227c791a8d357}
+\hypertarget{usart_8h_ac83aa1b365f9c085b2762980926ee594}{\index{usart.\+h@{usart.\+h}!U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600}}
+\index{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600@{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600}!usart.\+h@{usart.\+h}}
+\subsubsection[{U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint32\+\_\+t} U\+S\+A\+R\+T\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+T\+E\+\_\+9600 = 9600ul}}\label{usart_8h_ac83aa1b365f9c085b2762980926ee594}

@@ -1,0 +1,9 @@
+<map id="types.h" name="types.h">
+<area shape="rect" id="node2" href="$analog_8h.html" title="analog.h" alt="" coords="22,80,92,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="main.c" alt="" coords="100,155,161,181"/>
+<area shape="rect" id="node5" href="$timer_8h.html" title="timer.h" alt="" coords="169,80,231,107"/>
+<area shape="rect" id="node7" href="$usart_8h.html" title="usart.h" alt="" coords="255,80,317,107"/>
+<area shape="rect" id="node3" href="$analog_8c.html" title="analog.c" alt="" coords="5,155,75,181"/>
+<area shape="rect" id="node6" href="$timer_8c.html" title="timer.c" alt="" coords="186,155,248,181"/>
+<area shape="rect" id="node8" href="$usart_8c.html" title="usart.c" alt="" coords="273,155,335,181"/>
+</map>

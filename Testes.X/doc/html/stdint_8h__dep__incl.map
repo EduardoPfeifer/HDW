@@ -1,0 +1,10 @@
+<map id="stdint.h" name="stdint.h">
+<area shape="rect" id="node2" href="$oscillator_8h.html" title="oscillator.h" alt="" coords="163,80,248,107"/>
+<area shape="rect" id="node7" href="$crc16_8h.html" title="crc16.h" alt="" coords="359,155,424,181"/>
+<area shape="rect" id="node8" href="$main_8c.html" title="main.c" alt="" coords="331,80,392,107"/>
+<area shape="rect" id="node9" href="$virtualwire_8h.html" title="virtualwire.h" alt="" coords="417,80,508,107"/>
+<area shape="rect" id="node3" href="$common_8h.html" title="common.h" alt="" coords="5,155,87,181"/>
+<area shape="rect" id="node4" href="$virtualwire_8c.html" title="virtualwire.c" alt="" coords="213,229,304,256"/>
+<area shape="rect" id="node5" href="$oscillator_8c.html" title="oscillator.c" alt="" coords="163,155,248,181"/>
+<area shape="rect" id="node6" href="$usart_8c.html" title="usart.c" alt="" coords="273,155,335,181"/>
+</map>

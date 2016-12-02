@@ -1,0 +1,110 @@
+\hypertarget{virtualwire_8h}{\section{virtualwire.\+h File Reference}
+\label{virtualwire_8h}\index{virtualwire.\+h@{virtualwire.\+h}}
+}
+{\ttfamily \#include $<$htc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}stdint.\+h\char`\"{}}\\*
+Include dependency graph for virtualwire.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{virtualwire_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{virtualwire_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{virtualwire_8h_a452f8c2d0db1bb9a2ca507642f396715}{V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N}~24
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{virtualwire_8h_a624514d01b56b031715326a9e659051b}{vw\+\_\+setup} (\hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} brate)
+\item 
+bit \hyperlink{virtualwire_8h_adba805e998ddf1af21ef9b80c4a12a7e}{vw\+\_\+send} (const char $\ast$buf, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} len)
+\item 
+void \hyperlink{virtualwire_8h_ade1d3ba4e1422ee14f09bad1310793a7}{vw\+\_\+wait\+\_\+tx} (void)
+\item 
+bit \hyperlink{virtualwire_8h_a50bc13ae05d0e20edd48f31eb8805258}{vw\+\_\+have\+\_\+message} (void)
+\item 
+bit \hyperlink{virtualwire_8h_a885522cb1b1edd6a942b565c50b18b35}{vw\+\_\+recv} (\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} $\ast$buf, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} $\ast$len)
+\item 
+void \hyperlink{virtualwire_8h_a6cb68e772da9c49f72b7131c03643f4d}{vw\+\_\+rx\+\_\+stop} (void)
+\item 
+void \hyperlink{virtualwire_8h_aa0720cfe48c78dfa436dafe65f1ddd12}{vw\+\_\+rx\+\_\+start} (void)
+\item 
+void \hyperlink{virtualwire_8h_aa0841d3f51ed4ac148448b4f3610ec89}{vw\+\_\+isr\+\_\+tmr0} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{virtualwire_8h_a452f8c2d0db1bb9a2ca507642f396715}{\index{virtualwire.\+h@{virtualwire.\+h}!V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N@{V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N}}
+\index{V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N@{V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N~24}}\label{virtualwire_8h_a452f8c2d0db1bb9a2ca507642f396715}
+
+
+\subsection{Function Documentation}
+\hypertarget{virtualwire_8h_a50bc13ae05d0e20edd48f31eb8805258}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+have\+\_\+message@{vw\+\_\+have\+\_\+message}}
+\index{vw\+\_\+have\+\_\+message@{vw\+\_\+have\+\_\+message}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+have\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}bit vw\+\_\+have\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_a50bc13ae05d0e20edd48f31eb8805258}
+\hypertarget{virtualwire_8h_aa0841d3f51ed4ac148448b4f3610ec89}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+isr\+\_\+tmr0@{vw\+\_\+isr\+\_\+tmr0}}
+\index{vw\+\_\+isr\+\_\+tmr0@{vw\+\_\+isr\+\_\+tmr0}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+isr\+\_\+tmr0}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+isr\+\_\+tmr0 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_aa0841d3f51ed4ac148448b4f3610ec89}
+\hypertarget{virtualwire_8h_a885522cb1b1edd6a942b565c50b18b35}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+recv@{vw\+\_\+recv}}
+\index{vw\+\_\+recv@{vw\+\_\+recv}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+recv}]{\setlength{\rightskip}{0pt plus 5cm}bit vw\+\_\+recv (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\+\_\+t} $\ast$}]{buf, }
+\item[{{\bf uint8\+\_\+t} $\ast$}]{len}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_a885522cb1b1edd6a942b565c50b18b35}
+\hypertarget{virtualwire_8h_aa0720cfe48c78dfa436dafe65f1ddd12}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+rx\+\_\+start@{vw\+\_\+rx\+\_\+start}}
+\index{vw\+\_\+rx\+\_\+start@{vw\+\_\+rx\+\_\+start}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+rx\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+rx\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_aa0720cfe48c78dfa436dafe65f1ddd12}
+\hypertarget{virtualwire_8h_a6cb68e772da9c49f72b7131c03643f4d}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+rx\+\_\+stop@{vw\+\_\+rx\+\_\+stop}}
+\index{vw\+\_\+rx\+\_\+stop@{vw\+\_\+rx\+\_\+stop}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+rx\+\_\+stop}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+rx\+\_\+stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_a6cb68e772da9c49f72b7131c03643f4d}
+\hypertarget{virtualwire_8h_adba805e998ddf1af21ef9b80c4a12a7e}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+send@{vw\+\_\+send}}
+\index{vw\+\_\+send@{vw\+\_\+send}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+send}]{\setlength{\rightskip}{0pt plus 5cm}bit vw\+\_\+send (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{buf, }
+\item[{{\bf uint8\+\_\+t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_adba805e998ddf1af21ef9b80c4a12a7e}
+\hypertarget{virtualwire_8h_a624514d01b56b031715326a9e659051b}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+setup@{vw\+\_\+setup}}
+\index{vw\+\_\+setup@{vw\+\_\+setup}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+setup}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+setup (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\+\_\+t}}]{brate}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_a624514d01b56b031715326a9e659051b}
+\hypertarget{virtualwire_8h_ade1d3ba4e1422ee14f09bad1310793a7}{\index{virtualwire.\+h@{virtualwire.\+h}!vw\+\_\+wait\+\_\+tx@{vw\+\_\+wait\+\_\+tx}}
+\index{vw\+\_\+wait\+\_\+tx@{vw\+\_\+wait\+\_\+tx}!virtualwire.\+h@{virtualwire.\+h}}
+\subsubsection[{vw\+\_\+wait\+\_\+tx}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+wait\+\_\+tx (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8h_ade1d3ba4e1422ee14f09bad1310793a7}

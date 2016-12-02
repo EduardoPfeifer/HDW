@@ -1,0 +1,229 @@
+\hypertarget{usart_8c}{\section{usart.\+c File Reference}
+\label{usart_8c}\index{usart.\+c@{usart.\+c}}
+}
+{\ttfamily \#include \char`\"{}usart.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$pic16lf1786.\+h$>$}\\*
+{\ttfamily \#include $<$pic.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}oscillator.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+Include dependency graph for usart.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{usart_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{usart_8c_a8a68523fcfebe109df61258219ae9688}{usart\+\_\+start} (\hyperlink{usart_8h_a7ecd603d2579abbe714d58eb582821b8}{usart\+\_\+sync\+\_\+mode\+\_\+t} usart\+\_\+sync\+\_\+mode, \hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} baud\+\_\+rate)
+\item 
+void \hyperlink{usart_8c_aa813ecd58b112792997034433c01a391}{usart\+\_\+transmite\+\_\+set\+\_\+message} (char $\ast$message)
+\item 
+void \hyperlink{usart_8c_ace64d3f73f8d6f4deb50dcaab535be75}{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message} (char $\ast$message, \hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} usart\+\_\+callback\+\_\+transmit\+\_\+done)
+\item 
+void \hyperlink{usart_8c_a0f565c4ece40219cd8e0499edb19f600}{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr} ()
+\item 
+void \hyperlink{usart_8c_a4464da3c14838dd54b5f9b0e5efc3e78}{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte} (\hyperlink{types_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte} data)
+\item 
+void \hyperlink{usart_8c_a3bdb4a2748bbd78e74f868415af429aa}{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message} (char $\ast$message)
+\item 
+\hyperlink{types_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte} \hyperlink{usart_8c_a1ab1e3e47eb749bb56f1832b75c6790e}{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte} ()
+\item 
+\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} \hyperlink{usart_8c_a9e13620a0dc60d72b792d501ff67c68d}{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message} (char $\ast$buffer, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} size)
+\item 
+void \hyperlink{usart_8c_a56dc1cc4286dea0f752723577faf52cb}{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message} (\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} usart\+\_\+callback\+\_\+receive\+\_\+done)
+\item 
+void \hyperlink{usart_8c_a8016e6fb6f0a421fb1622403ccf7b16a}{usart\+\_\+receive\+\_\+interrupt\+\_\+isr} ()
+\item 
+char $\ast$ \hyperlink{usart_8c_ad731c697950fec7f25903623a1086fbf}{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{usart_8c_a89c9155c8f7952903c019986fdee1190}{\+\_\+tx\+\_\+buffer} \mbox{[}\hyperlink{usart_8h_a349dcc3059ac0d819919b4030de0ffe7}{T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}\mbox{]}
+\item 
+char $\ast$ \hyperlink{usart_8c_ac5b0349e3bd4facd6b5551f4815cb419}{\+\_\+tx\+\_\+buffer\+\_\+iterator} = \hyperlink{types_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} \hyperlink{usart_8c_aa3e7369accb462e77afd0ba3a7561130}{\+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback} = \hyperlink{types_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+char \hyperlink{usart_8c_a6754c15685eb75c32c1f20ccae374354}{\+\_\+rx\+\_\+buffer} \mbox{[}\hyperlink{usart_8h_a75e60ae3c6638b245ded9f9106f236e9}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}\mbox{]}
+\item 
+char $\ast$ \hyperlink{usart_8c_a4085826de4a75d06b8729276f71c6a37}{\+\_\+rx\+\_\+buffer\+\_\+iterator} = \hyperlink{types_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\item 
+\hyperlink{types_8h_a0c8186d9b9b7880309c27230bbb5e69d}{byte} \hyperlink{usart_8c_a1f806581fc3c5c514048bb5abbb4b352}{\+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size}
+\item 
+\hyperlink{types_8h_aa8204afb245708cfdad3878a09f1c83e}{callback\+\_\+isr\+\_\+t} \hyperlink{usart_8c_a6d9930601720515e24135b4dd1a052e7}{\+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback} = \hyperlink{types_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\+U\+L\+L}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{usart_8c_ad731c697950fec7f25903623a1086fbf}{\index{usart.\+c@{usart.\+c}!usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message}}
+\index{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ usart\+\_\+receive\+\_\+interrupt\+\_\+get\+\_\+message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_ad731c697950fec7f25903623a1086fbf}
+Recupera o ponteiro para a mensagem recebida ao final da interrupção. \hypertarget{usart_8c_a8016e6fb6f0a421fb1622403ccf7b16a}{\index{usart.\+c@{usart.\+c}!usart\+\_\+receive\+\_\+interrupt\+\_\+isr@{usart\+\_\+receive\+\_\+interrupt\+\_\+isr}}
+\index{usart\+\_\+receive\+\_\+interrupt\+\_\+isr@{usart\+\_\+receive\+\_\+interrupt\+\_\+isr}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+receive\+\_\+interrupt\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+receive\+\_\+interrupt\+\_\+isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a8016e6fb6f0a421fb1622403ccf7b16a}
+\begin{DoxyRemark}{Remarks}
+Não precisa chamar esta função. Ela é chamada automaticamente pela função tratadora de interrupções. Função que trata a interrupção de recepção de mensagem. 
+\end{DoxyRemark}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]Transformar em uma macro depois. \end{DoxyRefDesc}
+\hypertarget{usart_8c_a56dc1cc4286dea0f752723577faf52cb}{\index{usart.\+c@{usart.\+c}!usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message}}
+\index{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+receive\+\_\+interrupt\+\_\+read\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+isr\+\_\+t}}]{usart\+\_\+callback\+\_\+receive\+\_\+done}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a56dc1cc4286dea0f752723577faf52cb}
+Recebe uma string inteira, utilizando interrupções. A string deve terminar em ''. 
+\begin{DoxyParams}{Parameters}
+{\em usart\+\_\+callback\+\_\+receive\+\_\+done} & função que será chamada quando a mensagem for totalmente recebida. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8c_a1ab1e3e47eb749bb56f1832b75c6790e}{\index{usart.\+c@{usart.\+c}!usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte}}
+\index{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+byte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a1ab1e3e47eb749bb56f1832b75c6790e}
+Recebe um byte (mas trava a tarefa). \begin{DoxyReturn}{Returns}
+O valor recebido do R\+X. 
+\end{DoxyReturn}
+\hypertarget{usart_8c_a9e13620a0dc60d72b792d501ff67c68d}{\index{usart.\+c@{usart.\+c}!usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message}}
+\index{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message@{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\+\_\+t} usart\+\_\+receive\+\_\+lock\+\_\+read\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{{\bf uint8\+\_\+t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a9e13620a0dc60d72b792d501ff67c68d}
+Recebe uma string inteira (mas trava a tarefa). A string deve terminar em ''. 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & O buffer onde a mensagem será salva. \\
+\hline
+{\em size} & O tamanho do buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A quantidade de caracteres recebida. 
+\end{DoxyReturn}
+\hypertarget{usart_8c_a8a68523fcfebe109df61258219ae9688}{\index{usart.\+c@{usart.\+c}!usart\+\_\+start@{usart\+\_\+start}}
+\index{usart\+\_\+start@{usart\+\_\+start}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{{\bf usart\+\_\+sync\+\_\+mode\+\_\+t}}]{usart\+\_\+sync\+\_\+mode, }
+\item[{{\bf uint32\+\_\+t}}]{baud\+\_\+rate}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a8a68523fcfebe109df61258219ae9688}
+Inicia a comunicação por E\+U\+S\+A\+R\+T.
+
+
+\begin{DoxyParams}{Parameters}
+{\em usart\+\_\+sync\+\_\+mode} & Modo de sincronização desejado. Por hora, só tem Assincrono. \\
+\hline
+{\em baud\+\_\+rate} & Velocidade da transferencia. Existem constantes definidas com os valores mais comuns. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]Implementar modo sincrono! \end{DoxyRefDesc}
+\hypertarget{usart_8c_a0f565c4ece40219cd8e0499edb19f600}{\index{usart.\+c@{usart.\+c}!usart\+\_\+transmite\+\_\+interrupt\+\_\+isr@{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr}}
+\index{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr@{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+transmite\+\_\+interrupt\+\_\+isr}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+interrupt\+\_\+isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a0f565c4ece40219cd8e0499edb19f600}
+\begin{DoxyRemark}{Remarks}
+Não precisa chamar esta função. Ela é chamada automaticamente pela função tratadora de interrupções. Função que trata a interrupção de envio de mensagem. 
+\end{DoxyRemark}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Transformar em uma macro depois. \end{DoxyRefDesc}
+\hypertarget{usart_8c_ace64d3f73f8d6f4deb50dcaab535be75}{\index{usart.\+c@{usart.\+c}!usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message}}
+\index{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+interrupt\+\_\+write\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message, }
+\item[{{\bf callback\+\_\+isr\+\_\+t}}]{usart\+\_\+callback\+\_\+transmit\+\_\+done}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_ace64d3f73f8d6f4deb50dcaab535be75}
+Transmite uma mensagem, utilizando interrupções. 
+\begin{DoxyParams}{Parameters}
+{\em message} & String que será enviada. \\
+\hline
+{\em usart\+\_\+callback\+\_\+transmit\+\_\+done} & Função que será chamada após o ultimo byte ser transmitido. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8c_a4464da3c14838dd54b5f9b0e5efc3e78}{\index{usart.\+c@{usart.\+c}!usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte}}
+\index{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{{\bf byte}}]{data}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a4464da3c14838dd54b5f9b0e5efc3e78}
+\begin{DoxyRemark}{Remarks}
+Função privada (Não acessivel de fora -\/ não é pra cagar nela).
+\end{DoxyRemark}
+Transmite um byte (mas trava a tarefa).
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Byte que será transmitido. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8c_a3bdb4a2748bbd78e74f868415af429aa}{\index{usart.\+c@{usart.\+c}!usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message}}
+\index{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message@{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+lock\+\_\+write\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_a3bdb4a2748bbd78e74f868415af429aa}
+Transmite uma string (mas trava a tarefa). 
+\begin{DoxyParams}{Parameters}
+{\em message} & String que será transmitida. \\
+\hline
+\end{DoxyParams}
+\hypertarget{usart_8c_aa813ecd58b112792997034433c01a391}{\index{usart.\+c@{usart.\+c}!usart\+\_\+transmite\+\_\+set\+\_\+message@{usart\+\_\+transmite\+\_\+set\+\_\+message}}
+\index{usart\+\_\+transmite\+\_\+set\+\_\+message@{usart\+\_\+transmite\+\_\+set\+\_\+message}!usart.\+c@{usart.\+c}}
+\subsubsection[{usart\+\_\+transmite\+\_\+set\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}void usart\+\_\+transmite\+\_\+set\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{message}
+\end{DoxyParamCaption}
+)}}\label{usart_8c_aa813ecd58b112792997034433c01a391}
+\begin{DoxyRemark}{Remarks}
+Função privada (Não acessivel de fora -\/ não é pra cagar nela).
+\end{DoxyRemark}
+Função que copia a mensagem para um buffer interno E cria um iterador (ponteiro) para percorre ela. 
+
+\subsection{Variable Documentation}
+\hypertarget{usart_8c_a6754c15685eb75c32c1f20ccae374354}{\index{usart.\+c@{usart.\+c}!\+\_\+rx\+\_\+buffer@{\+\_\+rx\+\_\+buffer}}
+\index{\+\_\+rx\+\_\+buffer@{\+\_\+rx\+\_\+buffer}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+rx\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}char \+\_\+rx\+\_\+buffer\mbox{[}{\bf R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}\mbox{]}}}\label{usart_8c_a6754c15685eb75c32c1f20ccae374354}
+Buffer para recebimento de mensagens \hypertarget{usart_8c_a4085826de4a75d06b8729276f71c6a37}{\index{usart.\+c@{usart.\+c}!\+\_\+rx\+\_\+buffer\+\_\+iterator@{\+\_\+rx\+\_\+buffer\+\_\+iterator}}
+\index{\+\_\+rx\+\_\+buffer\+\_\+iterator@{\+\_\+rx\+\_\+buffer\+\_\+iterator}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+rx\+\_\+buffer\+\_\+iterator}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \+\_\+rx\+\_\+buffer\+\_\+iterator = {\bf N\+U\+L\+L}}}\label{usart_8c_a4085826de4a75d06b8729276f71c6a37}
+Iterador do buffer de recebimento \hypertarget{usart_8c_a1f806581fc3c5c514048bb5abbb4b352}{\index{usart.\+c@{usart.\+c}!\+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size@{\+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size}}
+\index{\+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size@{\+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} \+\_\+rx\+\_\+buffer\+\_\+message\+\_\+size}}\label{usart_8c_a1f806581fc3c5c514048bb5abbb4b352}
+Tamanho da mensagem recebida pelo buffer \hypertarget{usart_8c_a6d9930601720515e24135b4dd1a052e7}{\index{usart.\+c@{usart.\+c}!\+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback@{\+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback}}
+\index{\+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback@{\+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf callback\+\_\+isr\+\_\+t} \+\_\+rx\+\_\+isr\+\_\+done\+\_\+callback = {\bf N\+U\+L\+L}}}\label{usart_8c_a6d9930601720515e24135b4dd1a052e7}
+Função disparda quando uma mensagem for totalmente recebida (terminada em 'r') \hypertarget{usart_8c_a89c9155c8f7952903c019986fdee1190}{\index{usart.\+c@{usart.\+c}!\+\_\+tx\+\_\+buffer@{\+\_\+tx\+\_\+buffer}}
+\index{\+\_\+tx\+\_\+buffer@{\+\_\+tx\+\_\+buffer}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+tx\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}char \+\_\+tx\+\_\+buffer\mbox{[}{\bf T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+M\+A\+X\+\_\+\+S\+I\+Z\+E}\mbox{]}}}\label{usart_8c_a89c9155c8f7952903c019986fdee1190}
+Buffer para envio de mensagens \hypertarget{usart_8c_ac5b0349e3bd4facd6b5551f4815cb419}{\index{usart.\+c@{usart.\+c}!\+\_\+tx\+\_\+buffer\+\_\+iterator@{\+\_\+tx\+\_\+buffer\+\_\+iterator}}
+\index{\+\_\+tx\+\_\+buffer\+\_\+iterator@{\+\_\+tx\+\_\+buffer\+\_\+iterator}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+tx\+\_\+buffer\+\_\+iterator}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \+\_\+tx\+\_\+buffer\+\_\+iterator = {\bf N\+U\+L\+L}}}\label{usart_8c_ac5b0349e3bd4facd6b5551f4815cb419}
+Iterador do buffer de envio \hypertarget{usart_8c_aa3e7369accb462e77afd0ba3a7561130}{\index{usart.\+c@{usart.\+c}!\+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback@{\+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback}}
+\index{\+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback@{\+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback}!usart.\+c@{usart.\+c}}
+\subsubsection[{\+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf callback\+\_\+isr\+\_\+t} \+\_\+tx\+\_\+isr\+\_\+done\+\_\+callback = {\bf N\+U\+L\+L}}}\label{usart_8c_aa3e7369accb462e77afd0ba3a7561130}
+Função disparda quando a mensagem for totalmente enviada no modo por interrupção 

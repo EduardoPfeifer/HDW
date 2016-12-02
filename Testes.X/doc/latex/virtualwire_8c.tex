@@ -1,0 +1,269 @@
+\hypertarget{virtualwire_8c}{\section{virtualwire.\+c File Reference}
+\label{virtualwire_8c}\index{virtualwire.\+c@{virtualwire.\+c}}
+}
+{\ttfamily \#include \char`\"{}oscillator.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$htc.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}virtualwire.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crc16.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+Include dependency graph for virtualwire.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{virtualwire_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{virtualwire_8c_a4fb3d4b04fa0cd2d18d5f35c99a44bcf}{Tx\+Data}~P\+O\+R\+T\+Cbits.\+R\+C6
+\item 
+\#define \hyperlink{virtualwire_8c_af3b08f684c3b12f819c4c3d43146900a}{Rx\+Data}~P\+O\+R\+T\+Cbits.\+R\+C7
+\item 
+\#define \hyperlink{virtualwire_8c_a0cc5e5407f3ca16b7a0a7dd145a17b5e}{Tx\+Tris}~T\+R\+I\+S\+Cbits.\+T\+R\+I\+S\+C6
+\item 
+\#define \hyperlink{virtualwire_8c_aa430561cd375cc472e4c43f817f6b507}{Rx\+Tris}~T\+R\+I\+S\+Cbits.\+T\+R\+I\+S\+C7
+\item 
+\#define \hyperlink{virtualwire_8c_aba7d938851efb9ea95d05c45fc003e91}{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G}~8ul
+\item 
+\#define \hyperlink{virtualwire_8c_af48f8055714fb577ce1a7c496ab7aaa6}{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}~160
+\begin{DoxyCompactList}\small\item\em The size of the receiver ramp. Ramp wraps modulu this number. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_ad5a5c8919a669ce0121375f7bc08f376}{V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T}~8
+\begin{DoxyCompactList}\small\item\em Number of samples per bit. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_aa0cc20bc395fcefb080c0b7674623038}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}~(\hyperlink{virtualwire_8c_af48f8055714fb577ce1a7c496ab7aaa6}{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}/\hyperlink{virtualwire_8c_ad5a5c8919a669ce0121375f7bc08f376}{V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T})
+\begin{DoxyCompactList}\small\item\em Internal ramp adjustment parameter. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_a8f592fa10bd1cd9aa3cde21e1b7b8f85}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N}~\hyperlink{virtualwire_8c_af48f8055714fb577ce1a7c496ab7aaa6}{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}/2
+\begin{DoxyCompactList}\small\item\em Internal ramp adjustment parameter. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_ad6c091ae0ab196b5150a6de9ef868539}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T}~9
+\begin{DoxyCompactList}\small\item\em Internal ramp adjustment parameter. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_aaac6e7f3bcf04ff6e6734abd80f7fc67}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D}~(\hyperlink{virtualwire_8c_aa0cc20bc395fcefb080c0b7674623038}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}-\/\hyperlink{virtualwire_8c_ad6c091ae0ab196b5150a6de9ef868539}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T})
+\begin{DoxyCompactList}\small\item\em Internal ramp adjustment parameter. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_a06c6a3d88ba1c8410bbbec928f1b1cac}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E}~(\hyperlink{virtualwire_8c_aa0cc20bc395fcefb080c0b7674623038}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}+\hyperlink{virtualwire_8c_ad6c091ae0ab196b5150a6de9ef868539}{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T})
+\begin{DoxyCompactList}\small\item\em Internal ramp adjustment parameter. \end{DoxyCompactList}\item 
+\#define \hyperlink{virtualwire_8c_a8457f2497e3ba191c30504d83bc275db}{V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N}~8
+\item 
+\#define \hyperlink{virtualwire_8c_a603f4fa1a2bb0c02a1c54a466e907f6e}{V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D}~\hyperlink{virtualwire_8h_a452f8c2d0db1bb9a2ca507642f396715}{V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N}-\/3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{virtualwire_8c_a624514d01b56b031715326a9e659051b}{vw\+\_\+setup} (\hyperlink{stdint_8h_a06896e8c53f721507066c079052171f8}{uint32\+\_\+t} brate)
+\item 
+void \hyperlink{virtualwire_8c_ade1d3ba4e1422ee14f09bad1310793a7}{vw\+\_\+wait\+\_\+tx} (void)
+\item 
+void \hyperlink{virtualwire_8c_ae55855a5285218ca08d657a2a221a385}{vw\+\_\+tx\+\_\+stop} (void)
+\item 
+void \hyperlink{virtualwire_8c_a58fe5bfe18b5ba5ef6c6b27f47c2b18c}{vw\+\_\+tx\+\_\+start} (void)
+\item 
+bit \hyperlink{virtualwire_8c_adba805e998ddf1af21ef9b80c4a12a7e}{vw\+\_\+send} (const char $\ast$buf, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} len)
+\item 
+\hyperlink{stdint_8h_a1f1825b69244eb3ad2c7165ddc99c956}{uint16\+\_\+t} \hyperlink{virtualwire_8c_aaf43bad86ec479208b4071c4a5816b6d}{vw\+\_\+crc} (\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} $\ast$ptr, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} count)
+\item 
+\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} \hyperlink{virtualwire_8c_ace286b4c75ee0a2e05f1ba33dd767c24}{vw\+\_\+symbol\+\_\+6to4} (\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} symbol)
+\item 
+void \hyperlink{virtualwire_8c_a4ac2caf902c4059d06f22d78a1170b1f}{vw\+\_\+pll} (void)
+\item 
+bit \hyperlink{virtualwire_8c_a50bc13ae05d0e20edd48f31eb8805258}{vw\+\_\+have\+\_\+message} (void)
+\item 
+bit \hyperlink{virtualwire_8c_a885522cb1b1edd6a942b565c50b18b35}{vw\+\_\+recv} (\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} $\ast$buf, \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} $\ast$len)
+\item 
+void \hyperlink{virtualwire_8c_a6cb68e772da9c49f72b7131c03643f4d}{vw\+\_\+rx\+\_\+stop} (void)
+\item 
+void \hyperlink{virtualwire_8c_aa0720cfe48c78dfa436dafe65f1ddd12}{vw\+\_\+rx\+\_\+start} (void)
+\item 
+void \hyperlink{virtualwire_8c_aa0841d3f51ed4ac148448b4f3610ec89}{vw\+\_\+isr\+\_\+tmr0} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} \hyperlink{virtualwire_8c_ac818e046c1eebebadee93bd70f562e69}{symbols} \mbox{[}$\,$\mbox{]}
+\item 
+const \hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t} \hyperlink{virtualwire_8c_ae9e5cb0779456ff1b9626adc822757f9}{vw\+\_\+tx\+\_\+buf\+\_\+header} \mbox{[}\hyperlink{virtualwire_8c_a8457f2497e3ba191c30504d83bc275db}{V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N}\mbox{]} = \{0x2a, 0x2a, 0x2a, 0x2a, 0x2a, 0x2a, 0x38, 0x2c\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{virtualwire_8c_aba7d938851efb9ea95d05c45fc003e91}{\index{virtualwire.\+c@{virtualwire.\+c}!O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G@{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G}}
+\index{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G@{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G~8ul}}\label{virtualwire_8c_aba7d938851efb9ea95d05c45fc003e91}
+\hypertarget{virtualwire_8c_af3b08f684c3b12f819c4c3d43146900a}{\index{virtualwire.\+c@{virtualwire.\+c}!Rx\+Data@{Rx\+Data}}
+\index{Rx\+Data@{Rx\+Data}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{Rx\+Data}]{\setlength{\rightskip}{0pt plus 5cm}\#define Rx\+Data~P\+O\+R\+T\+Cbits.\+R\+C7}}\label{virtualwire_8c_af3b08f684c3b12f819c4c3d43146900a}
+\hypertarget{virtualwire_8c_aa430561cd375cc472e4c43f817f6b507}{\index{virtualwire.\+c@{virtualwire.\+c}!Rx\+Tris@{Rx\+Tris}}
+\index{Rx\+Tris@{Rx\+Tris}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{Rx\+Tris}]{\setlength{\rightskip}{0pt plus 5cm}\#define Rx\+Tris~T\+R\+I\+S\+Cbits.\+T\+R\+I\+S\+C7}}\label{virtualwire_8c_aa430561cd375cc472e4c43f817f6b507}
+\hypertarget{virtualwire_8c_a4fb3d4b04fa0cd2d18d5f35c99a44bcf}{\index{virtualwire.\+c@{virtualwire.\+c}!Tx\+Data@{Tx\+Data}}
+\index{Tx\+Data@{Tx\+Data}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{Tx\+Data}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tx\+Data~P\+O\+R\+T\+Cbits.\+R\+C6}}\label{virtualwire_8c_a4fb3d4b04fa0cd2d18d5f35c99a44bcf}
+\hypertarget{virtualwire_8c_a0cc5e5407f3ca16b7a0a7dd145a17b5e}{\index{virtualwire.\+c@{virtualwire.\+c}!Tx\+Tris@{Tx\+Tris}}
+\index{Tx\+Tris@{Tx\+Tris}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{Tx\+Tris}]{\setlength{\rightskip}{0pt plus 5cm}\#define Tx\+Tris~T\+R\+I\+S\+Cbits.\+T\+R\+I\+S\+C6}}\label{virtualwire_8c_a0cc5e5407f3ca16b7a0a7dd145a17b5e}
+\hypertarget{virtualwire_8c_a8457f2497e3ba191c30504d83bc275db}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N@{V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N}}
+\index{V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N@{V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N~8}}\label{virtualwire_8c_a8457f2497e3ba191c30504d83bc275db}
+\hypertarget{virtualwire_8c_a603f4fa1a2bb0c02a1c54a466e907f6e}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D@{V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D}}
+\index{V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D@{V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D~{\bf V\+W\+\_\+\+M\+A\+X\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N}-\/3}}\label{virtualwire_8c_a603f4fa1a2bb0c02a1c54a466e907f6e}
+\hypertarget{virtualwire_8c_ad6c091ae0ab196b5150a6de9ef868539}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T}}
+\index{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T~9}}\label{virtualwire_8c_ad6c091ae0ab196b5150a6de9ef868539}
+
+
+Internal ramp adjustment parameter. 
+
+\hypertarget{virtualwire_8c_aa0cc20bc395fcefb080c0b7674623038}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}}
+\index{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C~({\bf V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}/{\bf V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T})}}\label{virtualwire_8c_aa0cc20bc395fcefb080c0b7674623038}
+
+
+Internal ramp adjustment parameter. 
+
+\hypertarget{virtualwire_8c_a06c6a3d88ba1c8410bbbec928f1b1cac}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E}}
+\index{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+A\+D\+V\+A\+N\+C\+E~({\bf V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}+{\bf V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T})}}\label{virtualwire_8c_a06c6a3d88ba1c8410bbbec928f1b1cac}
+
+
+Internal ramp adjustment parameter. 
+
+\hypertarget{virtualwire_8c_aaac6e7f3bcf04ff6e6734abd80f7fc67}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D}}
+\index{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C\+\_\+\+R\+E\+T\+A\+R\+D~({\bf V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+I\+N\+C}-\/{\bf V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+A\+D\+J\+U\+S\+T})}}\label{virtualwire_8c_aaac6e7f3bcf04ff6e6734abd80f7fc67}
+
+
+Internal ramp adjustment parameter. 
+
+\hypertarget{virtualwire_8c_a8f592fa10bd1cd9aa3cde21e1b7b8f85}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N}}
+\index{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N@{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+A\+M\+P\+\_\+\+T\+R\+A\+N\+S\+I\+T\+I\+O\+N~{\bf V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}/2}}\label{virtualwire_8c_a8f592fa10bd1cd9aa3cde21e1b7b8f85}
+
+
+Internal ramp adjustment parameter. 
+
+\hypertarget{virtualwire_8c_af48f8055714fb577ce1a7c496ab7aaa6}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N@{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}}
+\index{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N@{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+X\+\_\+\+R\+A\+M\+P\+\_\+\+L\+E\+N~160}}\label{virtualwire_8c_af48f8055714fb577ce1a7c496ab7aaa6}
+
+
+The size of the receiver ramp. Ramp wraps modulu this number. 
+
+\hypertarget{virtualwire_8c_ad5a5c8919a669ce0121375f7bc08f376}{\index{virtualwire.\+c@{virtualwire.\+c}!V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T@{V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T}}
+\index{V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T@{V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+W\+\_\+\+R\+X\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+P\+E\+R\+\_\+\+B\+I\+T~8}}\label{virtualwire_8c_ad5a5c8919a669ce0121375f7bc08f376}
+
+
+Number of samples per bit. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{virtualwire_8c_aaf43bad86ec479208b4071c4a5816b6d}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+crc@{vw\+\_\+crc}}
+\index{vw\+\_\+crc@{vw\+\_\+crc}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+crc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint16\+\_\+t} vw\+\_\+crc (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\+\_\+t} $\ast$}]{ptr, }
+\item[{{\bf uint8\+\_\+t}}]{count}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_aaf43bad86ec479208b4071c4a5816b6d}
+\hypertarget{virtualwire_8c_a50bc13ae05d0e20edd48f31eb8805258}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+have\+\_\+message@{vw\+\_\+have\+\_\+message}}
+\index{vw\+\_\+have\+\_\+message@{vw\+\_\+have\+\_\+message}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+have\+\_\+message}]{\setlength{\rightskip}{0pt plus 5cm}bit vw\+\_\+have\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_a50bc13ae05d0e20edd48f31eb8805258}
+\hypertarget{virtualwire_8c_aa0841d3f51ed4ac148448b4f3610ec89}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+isr\+\_\+tmr0@{vw\+\_\+isr\+\_\+tmr0}}
+\index{vw\+\_\+isr\+\_\+tmr0@{vw\+\_\+isr\+\_\+tmr0}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+isr\+\_\+tmr0}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+isr\+\_\+tmr0 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_aa0841d3f51ed4ac148448b4f3610ec89}
+\hypertarget{virtualwire_8c_a4ac2caf902c4059d06f22d78a1170b1f}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+pll@{vw\+\_\+pll}}
+\index{vw\+\_\+pll@{vw\+\_\+pll}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+pll}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+pll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_a4ac2caf902c4059d06f22d78a1170b1f}
+\hypertarget{virtualwire_8c_a885522cb1b1edd6a942b565c50b18b35}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+recv@{vw\+\_\+recv}}
+\index{vw\+\_\+recv@{vw\+\_\+recv}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+recv}]{\setlength{\rightskip}{0pt plus 5cm}bit vw\+\_\+recv (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\+\_\+t} $\ast$}]{buf, }
+\item[{{\bf uint8\+\_\+t} $\ast$}]{len}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_a885522cb1b1edd6a942b565c50b18b35}
+\hypertarget{virtualwire_8c_aa0720cfe48c78dfa436dafe65f1ddd12}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+rx\+\_\+start@{vw\+\_\+rx\+\_\+start}}
+\index{vw\+\_\+rx\+\_\+start@{vw\+\_\+rx\+\_\+start}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+rx\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+rx\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_aa0720cfe48c78dfa436dafe65f1ddd12}
+\hypertarget{virtualwire_8c_a6cb68e772da9c49f72b7131c03643f4d}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+rx\+\_\+stop@{vw\+\_\+rx\+\_\+stop}}
+\index{vw\+\_\+rx\+\_\+stop@{vw\+\_\+rx\+\_\+stop}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+rx\+\_\+stop}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+rx\+\_\+stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_a6cb68e772da9c49f72b7131c03643f4d}
+\hypertarget{virtualwire_8c_adba805e998ddf1af21ef9b80c4a12a7e}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+send@{vw\+\_\+send}}
+\index{vw\+\_\+send@{vw\+\_\+send}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+send}]{\setlength{\rightskip}{0pt plus 5cm}bit vw\+\_\+send (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{buf, }
+\item[{{\bf uint8\+\_\+t}}]{len}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_adba805e998ddf1af21ef9b80c4a12a7e}
+\hypertarget{virtualwire_8c_a624514d01b56b031715326a9e659051b}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+setup@{vw\+\_\+setup}}
+\index{vw\+\_\+setup@{vw\+\_\+setup}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+setup}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+setup (
+\begin{DoxyParamCaption}
+\item[{{\bf uint32\+\_\+t}}]{brate}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_a624514d01b56b031715326a9e659051b}
+\hypertarget{virtualwire_8c_ace286b4c75ee0a2e05f1ba33dd767c24}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+symbol\+\_\+6to4@{vw\+\_\+symbol\+\_\+6to4}}
+\index{vw\+\_\+symbol\+\_\+6to4@{vw\+\_\+symbol\+\_\+6to4}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+symbol\+\_\+6to4}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uint8\+\_\+t} vw\+\_\+symbol\+\_\+6to4 (
+\begin{DoxyParamCaption}
+\item[{{\bf uint8\+\_\+t}}]{symbol}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_ace286b4c75ee0a2e05f1ba33dd767c24}
+\hypertarget{virtualwire_8c_a58fe5bfe18b5ba5ef6c6b27f47c2b18c}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+tx\+\_\+start@{vw\+\_\+tx\+\_\+start}}
+\index{vw\+\_\+tx\+\_\+start@{vw\+\_\+tx\+\_\+start}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+tx\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+tx\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_a58fe5bfe18b5ba5ef6c6b27f47c2b18c}
+\hypertarget{virtualwire_8c_ae55855a5285218ca08d657a2a221a385}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+tx\+\_\+stop@{vw\+\_\+tx\+\_\+stop}}
+\index{vw\+\_\+tx\+\_\+stop@{vw\+\_\+tx\+\_\+stop}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+tx\+\_\+stop}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+tx\+\_\+stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_ae55855a5285218ca08d657a2a221a385}
+\hypertarget{virtualwire_8c_ade1d3ba4e1422ee14f09bad1310793a7}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+wait\+\_\+tx@{vw\+\_\+wait\+\_\+tx}}
+\index{vw\+\_\+wait\+\_\+tx@{vw\+\_\+wait\+\_\+tx}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+wait\+\_\+tx}]{\setlength{\rightskip}{0pt plus 5cm}void vw\+\_\+wait\+\_\+tx (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{virtualwire_8c_ade1d3ba4e1422ee14f09bad1310793a7}
+
+
+\subsection{Variable Documentation}
+\hypertarget{virtualwire_8c_ac818e046c1eebebadee93bd70f562e69}{\index{virtualwire.\+c@{virtualwire.\+c}!symbols@{symbols}}
+\index{symbols@{symbols}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{symbols}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint8\+\_\+t} symbols\mbox{[}$\,$\mbox{]}}}\label{virtualwire_8c_ac818e046c1eebebadee93bd70f562e69}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    0xd, 0xe, 0x13, 0x15, 0x16, 0x19, 0x1a, 0x1c,
+    0x23, 0x25, 0x26, 0x29, 0x2a, 0x2c, 0x32, 0x34
+\}
+\end{DoxyCode}
+\hypertarget{virtualwire_8c_ae9e5cb0779456ff1b9626adc822757f9}{\index{virtualwire.\+c@{virtualwire.\+c}!vw\+\_\+tx\+\_\+buf\+\_\+header@{vw\+\_\+tx\+\_\+buf\+\_\+header}}
+\index{vw\+\_\+tx\+\_\+buf\+\_\+header@{vw\+\_\+tx\+\_\+buf\+\_\+header}!virtualwire.\+c@{virtualwire.\+c}}
+\subsubsection[{vw\+\_\+tx\+\_\+buf\+\_\+header}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf uint8\+\_\+t} vw\+\_\+tx\+\_\+buf\+\_\+header\mbox{[}{\bf V\+W\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N}\mbox{]} = \{0x2a, 0x2a, 0x2a, 0x2a, 0x2a, 0x2a, 0x38, 0x2c\}}}\label{virtualwire_8c_ae9e5cb0779456ff1b9626adc822757f9}
