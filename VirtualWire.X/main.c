@@ -2,8 +2,6 @@
 #include "virtualwire.h"
 #include <string.h>
 
-#define _XTAL_FREQ 4000000
-
 /*CONFIGs*/
 #pragma config FOSC = XT        // Oscillator Selection bits (XT oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
@@ -14,29 +12,51 @@
 #pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
+#define _XTAL_FREQ 4000000
 
 void interrupt global_isr(void) {
-	if(T0IF)
+    if(T0IF) {
 		vw_isr_tmr0();
+        RA0 = !RA0;
+    }
 }
 
+#ifdef XPRJ_TX
 void envia( const char* text ) {
-    PORTAbits.RA0 = text == '1' ? 1 : 0;
+    PORTBbits.RB4 = text[0] == '1' ? 1 : 0;
     vw_send( text, strlen(text) );
-    __delay_ms(1000);
+    //__delay_ms(2000);
 }
+#endif
 
 void main(void) {	
-//    CMCON = 0x07;	// analog comparator disabled
-//	VRCON = 0x00;	// voltage reference module disabled
     TRISA0 = 0;
-    RA0 = 0;
+    RA0 = 1;
+    
+    TRISB4 = 0;
+    RB4 = 0;
 
-	vw_setup(300);
+	vw_setup(600);
 
+#ifdef XPRJ_TX    
 	while(1) {
         envia("0");
         envia("1");
 	}
-	
+#endif    
+#ifdef XPRJ_RX
+    uint8_t mesg[VW_MAX_MESSAGE_LEN];
+    uint8_t lenght;
+    
+    vw_rx_start();
+    while(1) {
+        if( vw_have_message() ) {
+            lenght = VW_MAX_MESSAGE_LEN;
+
+            if( vw_recv( mesg, &lenght ) ) {
+                PORTBbits.RB4 = mesg[0] == '1' ? 1 : 0;
+            }
+        }        
+    }
+#endif
 }

@@ -8,16 +8,14 @@
  */
 
 /* Transmit and Receive port bits */
-#define TxData RC0
-#define RxData RC1
-#define TxTris TRISC0
-#define RxTris TRISC1
-
-#define _XTAL_FREQ 4000000
-
+#define TxData RC3
+#define RxData RC2
+#define TxTris TRISC3
+#define RxTris TRISC2
 
 #include "common.h"
-#define OVERSAMPLING    8
+
+#define OVERSAMPLING 8ul
 
 /*
  *  Don't change anything else
@@ -35,7 +33,7 @@ static uint8_t vw_tx_sample = 0; // Sample number for each bit (oversampling)
 static uint8_t vw_tx_bit = 0; // Bit number of next bit to send
 static bit vw_tx_enabled = 0; // Flag tx enabled?
 
-static uint8_t vw_tmr0_value;
+static uint32_t vw_tmr0_value;
 
 // -----------------------------------------------------------------------------
 // RX
@@ -95,20 +93,21 @@ const uint8_t vw_tx_buf_header[VW_HEADER_LEN]
 
 static bank1 uint8_t vw_tx_buf[VW_MAX_MESSAGE_LEN * 2];
 
-void vw_setup(uint16_t brate)
-{
+void vw_setup(uint32_t brate) {
     // setup pins
     RxTris = 1;
     TxTris = 0;
 
     // idle output pin
     TxData = 0;
+    
+    uint32_t fosc = oscillator_get_frequency();
 
     /* Set up the timer (warning 8 bit only) */
-    vw_tmr0_value = FOSC / (4 * brate * OVERSAMPLING);
+    vw_tmr0_value = fosc / (4ul * brate * OVERSAMPLING);
 
     T0CS = 0; // Set timer mode for Timer0.
-    TMR0 = (2 - vw_tmr0_value); // +2 as timer stops for 2 cycles
+    TMR0 = (2 - (uint8_t)vw_tmr0_value); // +2 as timer stops for 2 cycles
     // when writing to TMR0
     TMR0IE = 1; // Enable the Timer0 interrupt.
     GIE = 1;

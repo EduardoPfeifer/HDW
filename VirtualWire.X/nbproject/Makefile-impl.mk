@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=VirtualWire.X
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=RX
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default 
+ALLCONFS=default TX RX 
 
 
 # build
@@ -46,12 +46,16 @@ ALLCONFS=default
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=TX clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=RX clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=TX build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=RX build
 
 
 
